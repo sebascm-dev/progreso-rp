@@ -3,6 +3,9 @@ export default {
 	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
 	theme: {
 		extend: {
+			fontFamily: {
+				pricedown: ["Pricedown", "sans serif"],
+			},
 			colors: {
 				primary: "var(--color-primary)",
 				secondary: "var(--color-secondary)",
