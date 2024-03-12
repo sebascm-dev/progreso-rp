@@ -1,0 +1,48 @@
+---
+interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<title>{title}</title>
+
+<meta charset="UTF-8" />
+<meta name="description" content={description} />
+<meta name="author" content="sebascm-dev">
+
+<link rel="icon" type="image/ico" href="/favicon.ico" />
+<link rel="canonical" href="#" />
+<meta name="viewport" content="width=device-width" />
+
+<meta
+  name="keywords"
+  content="GTA V, Roleplay, Progresorp, servidor, amigos, diversión, aventura, personaje, mundo virtual, juego de rol, RP, comunidad, sandbox, mod, multiplayer, PC, videojuego"
+/>
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap"
+  rel="stylesheet"
+/>
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@ProgresoRP" />
+<meta name="twitter:creator" content="@ProgresoRP" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content="/img/logo-banner.png" />
+
+<meta name="og:image" content="/img/logo-banner.png" />
+<meta name="og:title" content={title} />
+<meta name="og:description" content={description} />
+<meta name="og:url" content="#" />
+<meta name="og:site_name" content="ProgresoRP - Servidor de Roleplay" />
+<meta name="og:type" content="website" />
+<meta name="og:locale" content="es_ES" />
+
+<meta name="robots" content="index, follow" />
+<meta name="googlebot" content="index, follow" />
