@@ -1,0 +1,16 @@
+---
+const { go, name } = Astro.props;
+---
+
+<li>
+  <a
+    href={go}
+    class="block py-2 px-3 text-white bg-[#344d5a]"
+    aria-current="page"
+  >
+    <div class="flex flex-row items-center gap-2">
+      <slot />
+      <p class="mt-1">{name}</p>
+    </div>
+  </a>
+</li>
