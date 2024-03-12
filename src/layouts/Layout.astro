@@ -1,4 +1,6 @@
 ---
+import BackgroundBlur from '@components/BackgroundBlur.astro'
+
 interface Props {
   title: string;
 }
@@ -25,7 +27,10 @@ const { title } = Astro.props;
     <title>{title}</title>
   </head>
   <body>
-    <slot />
+    <BackgroundBlur />
+    <div>
+      <slot />
+    </div>
   </body>
 </html>
 <style is:global>
