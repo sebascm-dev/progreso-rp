@@ -1,13 +1,14 @@
 ---
 import DiscordIcon from "@components/icons/DiscordIcon.astro";
+import LinkAncor from './LinkAncor.astro'
 ---
 
 <nav class="hidden md:flex flex-row justify-center items-center gap-3">
   <div class="min-w-64">
     <header class="flex flex-row justify-around items-center">
-      <a href="" class="transition hover:scale-110 duration-300">Inicio</a>
-      <a href="">Normas</a>
-      <a href="">Servidor</a>
+      <LinkAncor go="/">Inicio</LinkAncor>
+      <LinkAncor go="/">Normas</LinkAncor>
+      <LinkAncor go="/">Servidor</LinkAncor>
     </header>
     <footer>
       <hr class="mt-4" />
@@ -15,15 +16,15 @@ import DiscordIcon from "@components/icons/DiscordIcon.astro";
   </div>
   <div>
     <img
-      class="w-24 mt-6"
-      src="/img/logo.webp"
-      alt="Logo del servidor de roleplay"
+    class="w-24 mt-6"
+    src="/img/logo.webp"
+    alt="Logo del servidor de roleplay"
     />
   </div>
   <div class="min-w-56">
     <header class="flex flex-row justify-around items-center">
-      <a href="">Calendario</a>
-      <a href="">Gáleria</a>
+      <LinkAncor go="/">Calendario</LinkAncor>
+      <LinkAncor go="/">Gáleria</LinkAncor>
       <a href="https://discord.gg/mfczWk65"
         ><DiscordIcon w="24" h="24" class="" /></a
       >
