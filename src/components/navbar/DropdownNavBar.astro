@@ -1,0 +1,108 @@
+---
+import LinkDropdown from "./LinkDropdown.astro";
+
+import GaleriaIcon from "@components/icons/GaleriaIcon.astro";
+import CalendarioIcon from "@components/icons/CalendarioIcon.astro";
+import MapasIcon from "@components/icons/MapasIcon.astro";
+import CarIcon from "@components/icons/CarIcon.astro";
+import UploadIcon from "@components/icons/UploadIcon.astro";
+import PreguntasIcon from "@components/icons/PreguntasIcon.astro";
+import CreditIcon from "@components/icons/CreditIcon.astro";
+import BuildIcon from "@components/icons/BuildIcon.astro";
+import MailIcon from "@components/icons/MailIcon.astro";
+---
+
+<div class="relative inline-block text-left">
+  <div>
+    <button
+      class="transition hover:scale-110 duration-300"
+      type="button"
+      id="menu-button"
+      aria-expanded="true"
+      aria-haspopup="true"
+    >
+      Más
+    </button>
+  </div>
+
+  <div
+    class="absolute hidden -left-36 z-10 mt-5 w-[234px] origin-top-right divide-y divide-gray-700 rounded-md dark:bg-gray-800 dark:border-gray-700 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+    role="menu"
+    aria-orientation="vertical"
+    aria-labelledby="menu-button"
+    tabindex="-1"
+  >
+    <div class="" role="none">
+      <LinkDropdown go="/" rounded="rounded-t">
+        <GaleriaIcon w="16" h="16" />
+        Gáleria
+      </LinkDropdown>
+      <LinkDropdown>
+        <CalendarioIcon w="16" h="16" />
+        Calendario
+      </LinkDropdown>
+    </div>
+    <div class="" role="none">
+      <LinkDropdown go="/">
+        <MapasIcon w="16" h="16" />
+        Mapeados
+      </LinkDropdown>
+      <LinkDropdown go="/">
+        <CarIcon w="16" h="16" />
+        Vehiculos
+      </LinkDropdown>
+    </div>
+    <div class="" role="none">
+      <LinkDropdown go="/">
+        <UploadIcon w="16" h="16" />
+        Actualizaciones
+      </LinkDropdown>
+      <LinkDropdown go="/">
+        <PreguntasIcon w="16" h="16" />
+        Preguntas Frecuentes
+      </LinkDropdown>
+      <LinkDropdown go="/">
+        <CreditIcon w="16" h="16" />
+        Donaciones
+      </LinkDropdown>
+    </div>
+    <div class="" role="none">
+      <LinkDropdown go="/">
+        <BuildIcon w="16" h="16" />
+        Sobre Nosotros
+      </LinkDropdown>
+      <LinkDropdown go="/" rounded="rounded-b">
+        <MailIcon w="16" h="16" />
+        Contactos
+      </LinkDropdown>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const menuButton = document.getElementById("menu-button");
+    const menu = document.querySelector(".absolute");
+
+    menuButton.addEventListener("click", function () {
+      const expanded =
+        menuButton.getAttribute("aria-expanded") === "true" || false;
+      menuButton.setAttribute("aria-expanded", !expanded);
+      menu.classList.toggle("hidden");
+    });
+
+    document.addEventListener("click", function (event) {
+      if (!menu.contains(event.target) && event.target !== menuButton) {
+        menu.classList.add("hidden");
+        menuButton.setAttribute("aria-expanded", "false");
+      }
+    });
+
+    menu.addEventListener("keydown", function (event) {
+      if (event.key === "Escape") {
+        menu.classList.add("hidden");
+        menuButton.setAttribute("aria-expanded", "false");
+      }
+    });
+  });
+</script>
