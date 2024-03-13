@@ -1,5 +1,6 @@
 ---
 import LinkAncor from "./LinkAncor.astro";
+import DropdownNavBar from './DropdownNavBar.astro'
 import DiscordIcon from "@components/icons/DiscordIcon.astro";
 ---
 
@@ -25,7 +26,7 @@ import DiscordIcon from "@components/icons/DiscordIcon.astro";
     <header class="flex flex-row justify-around items-center">
       <LinkAncor go="/">Blog</LinkAncor>
       <LinkAncor go="/">Eventos</LinkAncor>
-      <LinkAncor go="/">Más</LinkAncor>
+      <DropdownNavBar />
       <a href="https://discord.gg/mfczWk65"
         ><DiscordIcon w="24" h="24" class="" /></a
       >
