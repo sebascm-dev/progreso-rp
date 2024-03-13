@@ -1,12 +1,23 @@
 ---
 import LinkAncorMobile from "./LinkAncorMobile.astro";
+import DropdownNavBar from './DropdownNavBar.astro'
+
 
 import HomeIcon from "@components/icons/HomeIcon.astro";
 import NormasIcon from "@components/icons/NormasIcon.astro";
-import ServidorIcon from "@components/icons/ServidorIcon.astro";
+import DocumentacionIcon from "@components/icons/DocumentacionIcon.astro";
+import BlogIcon from "@components/icons/BlogIcon.astro";
 import CalendarioIcon from "@components/icons/CalendarioIcon.astro";
+import EventIcon from "@components/icons/EventIcon.astro";
 import GaleriaIcon from "@components/icons/GaleriaIcon.astro";
 import DiscordIcon from "@components/icons/DiscordIcon.astro";
+import MapasIcon from "@components/icons/MapasIcon.astro";
+import CarIcon from "@components/icons/CarIcon.astro";
+import UploadIcon from "@components/icons/UploadIcon.astro";
+import PreguntasIcon from "@components/icons/PreguntasIcon.astro";
+import BuildIcon from "@components/icons/BuildIcon.astro";
+import MailIcon from "@components/icons/MailIcon.astro";
+import CreditIcon from "@components/icons/CreditIcon.astro";
 ---
 
 <nav class="md:hidden fixed top-0 z-10 w-full border-gray-200">
@@ -52,9 +63,18 @@ import DiscordIcon from "@components/icons/DiscordIcon.astro";
       >
         <LinkAncorMobile go="/" name="Inicio"><HomeIcon w="20" h="20" /></LinkAncorMobile>
         <LinkAncorMobile go="#" name="Normas"><NormasIcon w="20" h="20" /></LinkAncorMobile>
-        <LinkAncorMobile go="#" name="Servidor"><ServidorIcon w="20" h="20" /></LinkAncorMobile>
-        <LinkAncorMobile go="#" name="Calendario"><CalendarioIcon w="20" h="20" /></LinkAncorMobile>
+        <LinkAncorMobile go="#" name="Documentación"><DocumentacionIcon w="20" h="20" /></LinkAncorMobile>
+        <LinkAncorMobile go="#" name="Blog"><BlogIcon w="20" h="20" /></LinkAncorMobile>
+        <LinkAncorMobile go="#" name="Eventos"><EventIcon w="20" h="20" /></LinkAncorMobile>
         <LinkAncorMobile go="#" name="Gáleria"><GaleriaIcon w="20" h="20" /></LinkAncorMobile>
+        <LinkAncorMobile go="#" name="Calendario"><CalendarioIcon w="20" h="20" /></LinkAncorMobile>
+        <LinkAncorMobile go="#" name="Mapeados"><MapasIcon w="20" h="20" /></LinkAncorMobile>
+        <LinkAncorMobile go="#" name="Vehiculos"><CarIcon w="20" h="20" /></LinkAncorMobile>
+        <LinkAncorMobile go="#" name="Actualizaciones"><UploadIcon w="20" h="20" /></LinkAncorMobile>
+        <LinkAncorMobile go="#" name="Preguntas Frecuentes"><PreguntasIcon w="20" h="20" /></LinkAncorMobile>
+        <LinkAncorMobile go="#" name="Donaciones"><CreditIcon w="20" h="20" /></LinkAncorMobile>
+        <LinkAncorMobile go="#" name="Sobre Nosotros"><BuildIcon w="20" h="20" /></LinkAncorMobile>
+        <LinkAncorMobile go="#" name="Contacto"><MailIcon w="20" h="20" /></LinkAncorMobile>
         <LinkAncorMobile go="#" name="Servidor Discord" rounded="rounded-b-lg"><DiscordIcon w="20" h="20" /></LinkAncorMobile>
       </ul>
     </div>
