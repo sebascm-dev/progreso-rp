@@ -1,16 +1,16 @@
 ---
-const { go, name } = Astro.props;
+const { go, name, rounded } = Astro.props;
 ---
 
 <li>
   <a
     href={go}
-    class="block py-2 px-3 text-white bg-[#344d5a]"
+    class=`block py-2 px-3 ${rounded} text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white`
     aria-current="page"
   >
-    <div class="flex flex-row items-center gap-2">
+    <div class=`flex flex-row items-center gap-2 ${rounded}`>
       <slot />
-      <p class="mt-1">{name}</p>
+      <p class="mt-0.5">{name}</p>
     </div>
   </a>
 </li>
