@@ -84,24 +84,24 @@ import MailIcon from "@components/icons/MailIcon.astro";
     const menuButton = document.getElementById("menu-button");
     const menu = document.querySelector(".absolute");
 
-    menuButton.addEventListener("click", function () {
+    menuButton?.addEventListener("click", function () {
       const expanded =
         menuButton.getAttribute("aria-expanded") === "true" || false;
       menuButton.setAttribute("aria-expanded", !expanded);
-      menu.classList.toggle("hidden");
+      menu?.classList.toggle("hidden");
     });
 
     document.addEventListener("click", function (event) {
-      if (!menu.contains(event.target) && event.target !== menuButton) {
-        menu.classList.add("hidden");
-        menuButton.setAttribute("aria-expanded", "false");
+      if (!menu?.contains(event.target) && event.target !== menuButton) {
+        menu?.classList.add("hidden");
+        menuButton?.setAttribute("aria-expanded", "false");
       }
     });
 
-    menu.addEventListener("keydown", function (event) {
+    menu?.addEventListener("keydown", function (event) {
       if (event.key === "Escape") {
         menu.classList.add("hidden");
-        menuButton.setAttribute("aria-expanded", "false");
+        menuButton?.setAttribute("aria-expanded", "false");
       }
     });
   });
