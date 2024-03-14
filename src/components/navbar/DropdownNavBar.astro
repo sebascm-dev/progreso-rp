@@ -87,19 +87,14 @@ import MailIcon from "@components/icons/MailIcon.astro";
     menuButton?.addEventListener("click", function () {
       const expanded =
         menuButton.getAttribute("aria-expanded") === "true" || false;
-      menuButton.setAttribute("aria-expanded", !expanded);
+      menuButton.setAttribute("aria-expanded", String(!expanded));
       menu?.classList.toggle("hidden");
     });
 
     document.addEventListener("click", function (event) {
-      if (!menu?.contains(event.target) && event.target !== menuButton) {
-        menu?.classList.add("hidden");
-        menuButton?.setAttribute("aria-expanded", "false");
-      }
-    });
+      if (!(menu instanceof Node) || !(event.target instanceof Node)) return;
 
-    menu?.addEventListener("keydown", function (event) {
-      if (event.key === "Escape") {
+      if (!menu.contains(event.target) && event.target !== menuButton) {
         menu.classList.add("hidden");
         menuButton?.setAttribute("aria-expanded", "false");
       }
