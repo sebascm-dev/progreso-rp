@@ -1,12 +1,22 @@
 {
   "extends": "astro/tsconfigs/strict",
   "compilerOptions": {
-    "baseUrl": ".",
+    "baseUrl": "C:/Users/spano/dev/projects/progreso-rp",
     "paths": {
-      "@layouts/*": ["src/layouts/*"],
-      "@components/*": ["src/components/*"],
-      "@sections/*": ["src/sections/*"],
-      "@public/*": ["public/*"]
-    }
+      "@layouts/*": [
+        "src/layouts/*"
+      ],
+      "@components/*": [
+        "src/components/*"
+      ],
+      "@sections/*": [
+        "src/sections/*"
+      ],
+      "@public/*": [
+        "public/*"
+      ]
+    },
+    "jsx": "react-jsx",
+    "jsxImportSource": "react"
   }
 }
