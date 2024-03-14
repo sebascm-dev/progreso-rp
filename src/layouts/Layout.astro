@@ -24,73 +24,75 @@ const { title, description } = Astro.props;
     <div class="max-w-7xl w-[100%] p-4 mt-20">
       <slot />
     </div>
-  </body><style is:global>
-    @tailwind base;
-    @tailwind components;
-    @tailwind utilities;
 
-    :root {
-      --color-primary: #ddd;
-      --color-secondary: #b4b4b4;
-      --color-accent: #b1daf8;
+    <style is:global>
+      @tailwind base;
+      @tailwind components;
+      @tailwind utilities;
 
-      --color-gradient1: #08415c;
-      --color-gradient2: #90c3c8;
+      :root {
+        --color-primary: #ddd;
+        --color-secondary: #b4b4b4;
+        --color-accent: #b1daf8;
 
-      --background-color: #041925;
-    }
+        --color-gradient1: #08415c;
+        --color-gradient2: #90c3c8;
 
-    @font-face {
-      font-family: Pricedown;
-      src: url("/fonts/pricedown.ttf");
-    }
+        --background-color: #041925;
+      }
 
-    html {
-      font-family: "Jost", system-ui, sans-serif;
-      background: var(--background-color);
-      overflow-x: hidden;
-      overscroll-behavior: none;
-      color-scheme: dark light;
-      color: white;
-    }
+      @font-face {
+        font-family: Pricedown;
+        src: url("/fonts/pricedown.ttf");
+      }
 
-    main {
-      position: relative;
-    }
+      html {
+        font-family: "Jost", system-ui, sans-serif;
+        background: var(--background-color);
+        overflow-x: hidden;
+        overscroll-behavior: none;
+        color-scheme: dark light;
+        color: white;
+      }
 
-    /* Configuracion de la barra del scroll de la web */
-    .sr-only:not(:focus):not(:active) {
-      clip: rect(0 0 0 0);
-      clip-path: inset(50%);
-      height: 1px;
-      overflow: hidden;
-      position: absolute;
-      white-space: nowrap;
-      width: 1px;
-    }
+      main {
+        position: relative;
+      }
 
-    ::-webkit-scrollbar {
-      width: 10px;
-      border-radius: 10px;
-    }
+      /* Configuracion de la barra del scroll de la web */
+      .sr-only:not(:focus):not(:active) {
+        clip: rect(0 0 0 0);
+        clip-path: inset(50%);
+        height: 1px;
+        overflow: hidden;
+        position: absolute;
+        white-space: nowrap;
+        width: 1px;
+      }
 
-    ::-webkit-scrollbar-thumb {
-      border-radius: 10px;
-      background-color: theme("colors.primary");
-      border: 2px solid transparent;
-      background-clip: content-box;
-    }
+      ::-webkit-scrollbar {
+        width: 10px;
+        border-radius: 10px;
+      }
 
-    ::-webkit-scrollbar-thumb:active {
-      background-color: #666;
-    }
+      ::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+        background-color: theme("colors.primary");
+        border: 2px solid transparent;
+        background-clip: content-box;
+      }
 
-    ::-webkit-scrollbar-track {
-      background: var(--background-image);
-    }
+      ::-webkit-scrollbar-thumb:active {
+        background-color: #666;
+      }
 
-    ::-webkit-scrollbar-corner {
-      background: var(--background-image);
-    }
-  </style>
+      ::-webkit-scrollbar-track {
+        background: var(--background-image);
+      }
+
+      ::-webkit-scrollbar-corner {
+        background: var(--background-image);
+      }
+    </style>
+  </body>
 </html>
