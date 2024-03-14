@@ -24,7 +24,11 @@ import UploadIcon from "@components/icons/UploadIcon.astro";
       class="flex flex-wrap items-center justify-between mx-auto p-4 bg-blur backdrop-blur backdrop-filter"
     >
       <a href="/" class="flex items-center space-x-3 rtl:space-x-reverse">
-        <img src="/img/logo.webp" class="h-8" alt="Logo del servidor de roleplay" />
+        <img
+          src="/img/logo.webp"
+          class="h-8"
+          alt="Logo del servidor de roleplay"
+        />
         <span
           class="self-center font-pricedown uppercase text-2xl font-semibold whitespace-nowrap dark:text-white"
           >ProgresoRP</span
@@ -59,36 +63,87 @@ import UploadIcon from "@components/icons/UploadIcon.astro";
       <ul
         class="flex flex-col font-medium rounded-b-lg bg-gray-50 dark:bg-gray-800 dark:border-gray-700"
       >
-        <LinkAncorMobile go="/" name="Inicio"><HomeIcon w="20" h="20" /></LinkAncorMobile>
-        <LinkAncorMobile go="#" name="Normas"><NormasIcon w="20" h="20" /></LinkAncorMobile>
-        <LinkAncorMobile go="#" name="Documentación"><DocumentacionIcon w="20" h="20" /></LinkAncorMobile>
-        <LinkAncorMobile go="#" name="Blog"><BlogIcon w="20" h="20" /></LinkAncorMobile>
-        <LinkAncorMobile go="#" name="Eventos"><EventIcon w="20" h="20" /></LinkAncorMobile>
-        <LinkAncorMobile go="#" name="Gáleria"><GaleriaIcon w="20" h="20" /></LinkAncorMobile>
-        <LinkAncorMobile go="#" name="Calendario"><CalendarioIcon w="20" h="20" /></LinkAncorMobile>
-        <LinkAncorMobile go="#" name="Mapeados"><MapasIcon w="20" h="20" /></LinkAncorMobile>
-        <LinkAncorMobile go="#" name="Vehiculos"><CarIcon w="20" h="20" /></LinkAncorMobile>
-        <LinkAncorMobile go="#" name="Actualizaciones"><UploadIcon w="20" h="20" /></LinkAncorMobile>
-        <LinkAncorMobile go="#" name="Preguntas Frecuentes"><PreguntasIcon w="20" h="20" /></LinkAncorMobile>
-        <LinkAncorMobile go="#" name="Donaciones"><CreditIcon w="20" h="20" /></LinkAncorMobile>
-        <LinkAncorMobile go="#" name="Sobre Nosotros"><BuildIcon w="20" h="20" /></LinkAncorMobile>
-        <LinkAncorMobile go="#" name="Contacto"><MailIcon w="20" h="20" /></LinkAncorMobile>
-        <LinkAncorMobile go="#" name="Servidor Discord" rounded="rounded-b-lg"><DiscordIcon w="20" h="20" /></LinkAncorMobile>
+        <LinkAncorMobile go="/" name="Inicio">
+          <HomeIcon w="20" h="20" />
+        </LinkAncorMobile>
+        <!-- <LinkAncorMobile go="#" name="Normas">
+          <NormasIcon w="20" h="20" />
+        </LinkAncorMobile>
+        <LinkAncorMobile go="#" name="Documentación">
+          <DocumentacionIcon w="20" h="20" />
+        </LinkAncorMobile>
+        <LinkAncorMobile go="#" name="Blog">
+          <BlogIcon w="20" h="20" />
+        </LinkAncorMobile>
+        <LinkAncorMobile go="#" name="Eventos">
+          <EventIcon w="20" h="20" />
+        </LinkAncorMobile>
+        <LinkAncorMobile go="#" name="Gáleria">
+          <GaleriaIcon w="20" h="20" />
+        </LinkAncorMobile>
+        <LinkAncorMobile go="#" name="Calendario">
+          <CalendarioIcon w="20" h="20" />
+        </LinkAncorMobile>
+        <LinkAncorMobile go="#" name="Mapeados">
+          <MapasIcon w="20" h="20" />
+        </LinkAncorMobile>
+        <LinkAncorMobile go="#" name="Vehiculos">
+          <CarIcon w="20" h="20" />
+        </LinkAncorMobile>
+        <LinkAncorMobile go="#" name="Actualizaciones">
+          <UploadIcon w="20" h="20" />
+        </LinkAncorMobile>
+        <LinkAncorMobile go="#" name="Preguntas Frecuentes">
+          <PreguntasIcon w="20" h="20" />
+        </LinkAncorMobile>
+        <LinkAncorMobile go="#" name="Donaciones">
+          <CreditIcon w="20" h="20" />
+        </LinkAncorMobile>
+        <LinkAncorMobile go="#" name="Sobre Nosotros">
+          <BuildIcon w="20" h="20" />
+        </LinkAncorMobile>
+        <LinkAncorMobile go="#" name="Contacto">
+          <MailIcon w="20" h="20" />
+        </LinkAncorMobile> -->
+        <LinkAncorMobile go="https://discord.gg/mfczWk65" name="Servidor Discord" rounded="rounded-b-lg">
+          <DiscordIcon w="20" h="20" />
+        </LinkAncorMobile>
       </ul>
     </div>
   </div>
 </nav>
 
 <script>
-  const menuButton: HTMLElement | null = document.getElementById("menuButton");
-  const menu: HTMLElement | null = document.getElementById("navbar-hamburger");
+  const menuButton = document.getElementById("menuButton");
+  const menu = document.getElementById("navbar-hamburger");
+
+  let isOpen = false;
 
   if (menuButton && menu) {
     menuButton.addEventListener("click", () => {
-      const expanded: boolean =
-        menuButton.getAttribute("aria-expanded") === "true" || false;
-      menuButton.setAttribute("aria-expanded", String(!expanded));
-      menu.classList.toggle("hidden");
+      isOpen = !isOpen;
+      const animationDirection = isOpen ? "animate-normal" : "animate-reverse";
+
+      menu.classList.remove(`animate-flip-down`);
+
+      // Esperamos un pequeño tiempo antes de aplicar la animación para asegurarnos de que la clase se aplique correctamente
+      setTimeout(() => {
+        menu.classList.remove("hidden");
+        menu.classList.add(
+          `animate-flip-down`,
+          "animate-duration-1000",
+          "animate-ease-in-out",
+          `${animationDirection}`
+        );
+
+        // Ocultamos el menú después de que termine la animación
+        if (!isOpen) {
+          setTimeout(() => {
+            menu.classList.add("hidden");
+            menu.classList.remove(`${animationDirection}`);
+          }, 1000); // Ajusta este tiempo según la duración de tu animación
+        }
+      }, 50); // Ajusta este tiempo según necesites
     });
   }
 </script>
