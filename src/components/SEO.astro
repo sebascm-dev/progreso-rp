@@ -1,7 +1,4 @@
 ---
-import jost from "@fontsource-variable/jost/files/jost-latin-wght-normal.woff2"
-import atomic from "/fonts/pricedown.ttf"
-
 interface Props {
 	title: string
 	description: string
@@ -15,10 +12,6 @@ interface Props {
 }
 
 const { title, description, preload, canonical, image = "/banner_azul_claro.png" } = Astro.props as Props
-
-const canonicalURL = canonical
-	? new URL(canonical, Astro.site)
-	: new URL(Astro.url.pathname, Astro.site)
 ---
 
 <title>{title}</title>
@@ -26,16 +19,13 @@ const canonicalURL = canonical
 <meta charset="UTF-8" />
 <meta name="description" content={description} />
 
-<link rel="preload" href={atomic} as="font" type="font/woff2" crossorigin />
-<link rel="preload" href={jost} as="font" type="font/woff2" crossorigin />
-
 {
 	preload?.map(({ href, as, type }) => (
 		<link rel="preload" href={href} as={as} type={type} crossorigin />
 	))
 }
 
-<link rel="canonical" href={canonicalURL} />
+<link rel="canonical" href="https://progreso-rp-lemon.vercel.app/" />
 <meta name="viewport" content="width=device-width" />
 <meta name="theme-color" content="#d5ff00" />
 
