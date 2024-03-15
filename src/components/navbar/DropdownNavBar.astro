@@ -80,24 +80,52 @@ import MailIcon from "../icons/MailIcon.astro";
 </div>
 
 <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const menuButton = document.getElementById("menu-button");
-    const menu = document.querySelector(".absolute");
+  const menuButton = document.getElementById("menu-button");
+  const menu = document.querySelector(".absolute");
 
-    menuButton?.addEventListener("click", function () {
-      const expanded =
-        menuButton.getAttribute("aria-expanded") === "true" || false;
-      menuButton.setAttribute("aria-expanded", String(!expanded));
-      menu?.classList.toggle("hidden");
+  let isOpen = false;
+
+  if (menuButton && menu) {
+    menuButton.addEventListener("click", () => {
+      toggleMenu();
     });
 
-    document.addEventListener("click", function (event) {
-      if (!(menu instanceof Node) || !(event.target instanceof Node)) return;
+    // Event listener para cerrar el menú si se hace clic fuera de él
+    document.addEventListener("click", (event) => {
+      // Verificar si event.target es un nodo (Node) y no es nulo
+      const isNode = event.target instanceof Node;
+      const isClickInsideMenu = isNode && menu.contains(event.target);
+      const isClickOnMenuButton = isNode && event.target === menuButton;
 
-      if (!menu.contains(event.target) && event.target !== menuButton) {
-        menu.classList.add("hidden");
-        menuButton?.setAttribute("aria-expanded", "false");
+      if (!isClickInsideMenu && !isClickOnMenuButton && isOpen) {
+        toggleMenu();
       }
     });
-  });
+  }
+
+  function toggleMenu() {
+    isOpen = !isOpen;
+    const animationDirection = isOpen ? "animate-normal" : "animate-reverse";
+
+    menu?.classList.remove(`animate-flip-down`);
+
+    // Esperamos un pequeño tiempo antes de aplicar la animación para asegurarnos de que la clase se aplique correctamente
+    setTimeout(() => {
+      menu?.classList.remove("hidden");
+      menu?.classList.add(
+        `animate-flip-down`,
+        "animate-duration-1000",
+        "animate-ease-in-out",
+        `${animationDirection}`
+      );
+
+      // Ocultamos el menú después de que termine la animación
+      if (!isOpen) {
+        setTimeout(() => {
+          menu?.classList.add("hidden");
+          menu?.classList.remove(`${animationDirection}`);
+        }, 1000); // Ajusta este tiempo según la duración de tu animación
+      }
+    }, 50); // Ajusta este tiempo según necesites
+  }
 </script>
