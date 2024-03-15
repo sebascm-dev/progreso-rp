@@ -1,48 +1,77 @@
 ---
+import jost from "@fontsource-variable/jost/files/jost-latin-wght-normal.woff2"
+import atomic from "/fonts/pricedown.ttf"
+
 interface Props {
-  title: string;
-  description: string;
+	title: string
+	description: string
+	preload?: Array<{
+		as: string
+		href: string
+		type: string
+	}>
+	canonical?: string
+	image?: string
 }
 
-const { title, description } = Astro.props;
+const { title, description, preload, canonical, image = "/banner_azul_claro.png" } = Astro.props as Props
+
+const canonicalURL = canonical
+	? new URL(canonical, Astro.site)
+	: new URL(Astro.url.pathname, Astro.site)
 ---
 
 <title>{title}</title>
 
 <meta charset="UTF-8" />
 <meta name="description" content={description} />
-<meta name="author" content="sebascm-dev">
 
-<link rel="icon" type="image/ico" href="/favicon.ico" />
-<link rel="canonical" href="#" />
+<link rel="preload" href={atomic} as="font" type="font/woff2" crossorigin />
+<link rel="preload" href={jost} as="font" type="font/woff2" crossorigin />
+
+{
+	preload?.map(({ href, as, type }) => (
+		<link rel="preload" href={href} as={as} type={type} crossorigin />
+	))
+}
+
+<link rel="canonical" href={canonicalURL} />
 <meta name="viewport" content="width=device-width" />
+<meta name="theme-color" content="#d5ff00" />
 
-<meta
-  name="keywords"
-  content="GTA V, Roleplay, Progresorp, servidor, amigos, diversión, aventura, personaje, mundo virtual, juego de rol, RP, comunidad, sandbox, mod, multiplayer, PC, videojuego"
-/>
-
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link
-  href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap"
-  rel="stylesheet"
-/>
+<meta name="keywords" content="GTA V, Roleplay, Progresorp, servidor, amigos, diversión, aventura, personaje, mundo virtual, juego de rol, RP, comunidad, sandbox, mod, multiplayer, PC, videojuego" />
 
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:site" content="@ProgresoRP" />
 <meta name="twitter:creator" content="@ProgresoRP" />
 <meta name="twitter:title" content={title} />
 <meta name="twitter:description" content={description} />
-<meta name="twitter:image" content="/banner_azul_claro.png" />
+<meta name="twitter:image" content={new URL(image, Astro.url)} />
 
-<meta property="og:image" content="https://ia.media-imdb.com/images/rock.jpg" />
+<meta name="og:image" content={new URL(image, Astro.url)} />
 <meta name="og:title" content={title} />
 <meta name="og:description" content={description} />
-<meta name="og:url" content="#" />
+<meta name="og:url" content={Astro.url} />
 <meta name="og:site_name" content="ProgresoRP - Servidor de Roleplay" />
 <meta name="og:type" content="website" />
 <meta name="og:locale" content="es_ES" />
 
 <meta name="robots" content="index, follow" />
 <meta name="googlebot" content="index, follow" />
+
+<link rel="icon" href="/favicon.ico" sizes="32x32" />
+<link rel="icon" type="image/ico" href="/favicon.ico" />
+<link rel="apple-touch-icon" href="/img/icons/apple-touch-icon.png" />
+<link rel="manifest" href="/manifest.webmanifest" />
+
+<link rel="icon" type="image/ico" href="/favicon.ico" />
+<meta name="msapplication-config" content="/browserconfig.xml" />
+
+{
+	!import.meta.env.DEV && (
+		<>
+			<script is:inline src="/registerSW.js" />
+			<link rel="manifest" href="/manifest.webmanifest" />
+		</>
+	)
+}
