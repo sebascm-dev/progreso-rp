@@ -1,0 +1,95 @@
+---
+import team from "../data/team.json";
+---
+
+<div class="container">
+  <div class="wrapper">
+    {
+      team.map((user) => (
+        <a
+          href={user.url}
+          target="_blank"
+          rel="noopener noreferer"
+          class="ticket rounded-md w-[150px] h-auto"
+        >
+          <div class="flex flex-col items-center">
+            <img
+              src={user.image}
+              alt="Imagen del usuario"
+              class="w-full rounded-t-md"
+            />
+            <h1 class="font-pricedown -z-10 uppercase text-2xl text-transparent bg-clip-text bg-gradient-to-r to-emerald-600 from-sky-400">
+              {user.name}
+            </h1>
+            <h2 class="-z-10 text-secondary">{user.job}</h2>
+          </div>
+          <div class="bg" />
+        </a>
+      ))
+    }
+  </div>
+</div>
+
+<style>
+  .container {
+    width: 100%;
+  }
+
+  .wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    width: 100%;
+    transform: perspective(800px);
+    transform-style: preserve-3d;
+  }
+
+  .ticket {
+    box-shadow: 0 0 40px 5px rgba(0, 0, 0, 0.4);
+    border: 2px solid #21bfdb49;
+    position: relative;
+    cursor: pointer;
+  }
+
+  .bg {
+    background: rgba(0, 0, 0, 0.3);
+    position: absolute;
+    inset: 0;
+    z-index: -20;
+    filter: blur(20px);
+    width: 100%;
+    height: 100%;
+  }
+</style>
+
+<script>
+  const $ = (selector: string) => document.querySelector(selector);
+
+  const tickets = document.getElementsByClassName("ticket");
+
+  Array.from(tickets).forEach((ticket) => {
+    const ticketElement = ticket as HTMLElement;
+
+    ticketElement.addEventListener("mousemove", (event) => {
+      ticketElement.style.transition = "transform .03s ease-in-out";
+
+      const { offsetX, offsetY } = event as MouseEvent;
+
+      const { width, height } = ticketElement.getBoundingClientRect();
+      const halfWidth = width / 2;
+      const halfHeight = height / 2;
+
+      const rotationX = ((halfHeight - offsetY) / halfHeight) * 15;
+      const rotationY = ((offsetX - halfWidth) / halfWidth) * 15;
+
+      ticketElement.style.transform = `rotateX(${rotationX}deg) rotateY(${rotationY}deg)`;
+    });
+
+    ticketElement.addEventListener("mouseleave", () => {
+      ticketElement.style.transition = `transform 1s ease-in-out`;
+      ticketElement.style.transform = `rotateX(0deg) rotateY(0deg)`;
+    });
+  });
+</script>
