@@ -1,0 +1,13 @@
+---
+const { text, subtext } = Astro.props;
+---
+
+<div class="flex flex-col gap-2 mb-10">
+  <h1
+    id="text"
+    class="text-3xl md:text-4xl text-center uppercase font-pricedown drop-shadow-xl"
+  >
+  {text}
+  </h1>
+  <p class="text-xs md:text-base text-center text-secondary">{subtext}</p>
+</div>
