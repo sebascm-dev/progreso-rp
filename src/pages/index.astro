@@ -5,6 +5,7 @@ import Hr from "../components/Hr.astro";
 
 import CardInstall from "../components/CardInstall.astro";
 import TeamCard from "../components/TeamCard.astro";
+import BentoImages from "../components/BentoImages.astro"
 ---
 
 <Layout
@@ -19,11 +20,17 @@ import TeamCard from "../components/TeamCard.astro";
     <CardInstall />
 
     <Hr />
+    
+    <BentoImages />
+    
+    <Hr />
+
     <TextSection
       text="Conoce el equipo que hay detras"
       subtext="Han participado los siguientes usuario"
     />
     <TeamCard />
+    
     <Hr />
   </main>
 </Layout>
