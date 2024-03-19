@@ -7,24 +7,24 @@ import novedades from "../data/novedades.json";
     class="grid sm:grid-cols-4 sm:grid-rows-2 h-auto w-full rounded-xl gap-5 grid-cols-1 auto-rows-auto"
   >
     <img
-      class="image object-cover sm:block hidden h-full w-full shadow-xl rounded-md"
+      class="image object-cover md:block hidden h-full w-full shadow-xl rounded-md"
       src="/img/imagen7.webp"
     />
     <div
-      class="image p-4 relative h-full w-full shadow-xl rounded-md sm:col-span-2 border border-transparent transition-colors duration-300 hover:border-[#21bfdb49]"
+      class="image p-4 relative h-full w-full shadow-xl rounded-md sm:col-span-4 md:col-span-2 border border-transparent transition-colors duration-300 hover:border-[#21bfdb49]"
     >
-      <h1 class="text-2xl md:text-4xl font-pricedown uppercase">
+      <h1 class="text-2xl lg:text-4xl font-pricedown uppercase">
         nuestras últimas <span class="text-transparent bg-clip-text bg-gradient-to-r to-[#1BD1C2] from-[#15A9CE]">novedades</span>:
       </h1>
       <ul class="mt-2">
         {
           novedades
-            .slice(-10)
+            .slice(-5)
             .reverse()
             .map((novedad) => (
-              <li class="grid grid-cols-7 md:grid-cols-9 mb-2 gap-12 grid-rows-1 place-items-start text-left place-content-center">
+              <li class="grid grid-cols-7 lg:grid-cols-9 mb-2 gap-12 grid-rows-1 place-items-start text-left place-content-center">
                 <span class="text-xl tabular-nums font-pricedown">{novedad.dia}</span>
-                <p class="col-span-6 md:col-span-8 text-left mt-[3px] md:mt-0.5">{novedad.novedad}.</p>
+                <p class="col-span-6 lg:col-span-8 text-left mt-[3px] md:mt-0.5">{novedad.novedad}.</p>
               </li>
             ))
         }
@@ -37,15 +37,15 @@ import novedades from "../data/novedades.json";
     </div>
 
     <img
-      class="image object-cover h-full w-full sm:block hidden shadow-xl rounded-md sm:row-span-2"
+      class="image object-cover h-full w-full md:block hidden shadow-xl rounded-md sm:row-span-2"
       src="/img/imagen6.webp"
     />
     <img
-      class="image object-cover h-full w-full sm:block hidden shadow-xl rounded-md sm:col-span-2"
+      class="image object-cover h-full w-full md:block hidden shadow-xl rounded-md sm:col-span-2"
       src="/img/imagen4.webp"
     />
     <img
-      class="image object-cover h-full w-full sm:block shadow-xl hidden rounded-md"
+      class="image object-cover h-full w-full md:block shadow-xl hidden rounded-md"
       src="/img/imagen5.webp"
     />
   </article>
