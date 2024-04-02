@@ -15,7 +15,7 @@ const session = await getSession(Astro.request);
       session ? (
         session.user?.email === "spanolocabo@gmail.com" ? (
           <>
-            <p>Hola {session.user?.email}</p>
+            <p>Hola {session.user?.name}</p>
             <SignOut>Cerrar Sesión</SignOut>
           </>
         ) : (
