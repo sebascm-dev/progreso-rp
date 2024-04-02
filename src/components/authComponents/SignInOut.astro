@@ -1,0 +1,17 @@
+---
+import { SignIn, SignOut } from "auth-astro/components";
+import { getSession } from "auth-astro/server";
+const session = await getSession(Astro.request);
+import Google from "@auth/core/providers/google";
+---
+
+{
+  session ? (
+    <>
+      <p>Hola {session.user?.email}</p>
+      <SignOut>Cerrar Sesión</SignOut>
+    </>
+  ) : (
+    <SignIn provider="google">Iniciar Sesion con Google</SignIn>
+  )
+}
