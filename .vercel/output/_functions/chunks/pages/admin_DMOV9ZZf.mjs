@@ -310,7 +310,6 @@ const $$Astro$2 = createAstro();
 const $$AdminAccess = createComponent(async ($$result, $$props, $$slots) => {
   const Astro2 = $$result.createAstro($$Astro$2, $$props, $$slots);
   Astro2.self = $$AdminAccess;
-  await getSession(Astro2.request);
   return renderTemplate`${renderComponent($$result, "Hr", $$Hr, {})} ${renderComponent($$result, "TextSection", $$TextSection, { "text": "HAS INICIADO SESI\xD3N COMO ADMINISTRADOR", "subtext": "Apartado para los administradores" })} ${maybeRenderHead()}<hr class="mt-2 mb-12 h-px border-t-0 bg-transparent bg-gradient-to-r from-transparent via-neutral-500 to-transparent opacity-25 dark:via-neutral-400"> ${renderComponent($$result, "AdminSessionSuccess", $$AdminSessionSuccess, {})} ${renderComponent($$result, "AddNewsForm", $$AddNewsForm, {})}`;
 }, "C:/Users/spano/dev/projects/progreso-rp/src/components/authComponents/AdminAccess.astro", void 0);
 
