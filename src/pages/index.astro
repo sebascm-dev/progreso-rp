@@ -4,9 +4,15 @@ import TextSection from "../components/TextSection.astro";
 import Hr from "../components/Hr.astro";
 
 import CardInstall from "../components/CardInstall.astro";
-import Countdown from "../components/Countdown.astro"
+import Countdown from "../components/Countdown.astro";
 import TeamCard from "../components/TeamCard.astro";
-import BentoImages from "../components/BentoImages.astro"
+import BentoImages from "../components/BentoImages.astro";
+
+import UserNotAccess from "../components/authComponents/UserNotAccess.astro";
+
+import { SignIn, SignOut } from "auth-astro/components";
+import { getSession } from "auth-astro/server";
+const session = await getSession(Astro.request);
 ---
 
 <Layout
@@ -14,20 +20,49 @@ import BentoImages from "../components/BentoImages.astro"
   description="¡Únete a la emocionante experiencia de GTA V Roleplay en Progresorp! Vive aventuras inolvidables en un mundo virtual lleno de acción, intriga y diversión con tus amigos. Crea tu propio personaje, construye tu historia y sumérgete en un universo lleno de posibilidades. ¡Regístrate ahora y comienza tu viaje en Progresorp!"
 >
   <main>
+    <section class="flex flex-col justify-center items-center">
+      {
+        session ? (
+          session.user?.email === "spanolocabo@gmail.com" ? (
+            <>
+              <p>Hola {session.user?.name}</p>
+              <SignOut>Cerrar Sesión</SignOut>
+            </>
+          ) : (
+            <>
+              <UserNotAccess />
+            </>
+          )
+        ) : (
+          <SignIn
+            provider="google"
+            class="px-4 py-2 bg-[#B1DAF8]/10 bg-blur backdrop-blur backdrop-filter border flex gap-2 border-slate-700 rounded-lg text-white hover:border-slate-500 hover:text-slate-200 hover:shadow transition duration-300"
+          >
+            <img
+              class="w-6 h-6"
+              src="https://www.svgrepo.com/show/475656/google-color.svg"
+              loading="lazy"
+              alt="google logo"
+            />
+            <span>Login with Google</span>
+          </SignIn>
+        )
+      }
+    </section>
     <TextSection
       text="Descubre una nueva aventura donde podras ser quien quieras"
       subtext="Sigue los siguientes pasos para unirte a nosotros:"
     />
     <CardInstall />
-    
+
     <Hr />
 
     <Countdown />
 
     <Hr />
-    
+
     <BentoImages />
-    
+
     <Hr />
 
     <TextSection
@@ -35,7 +70,7 @@ import BentoImages from "../components/BentoImages.astro"
       subtext="Han participado los siguientes usuario"
     />
     <TeamCard />
-    
+
     <Hr />
   </main>
 </Layout>
