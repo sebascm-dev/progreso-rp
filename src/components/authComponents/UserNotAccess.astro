@@ -1,6 +1,6 @@
 ---
-import TextSection from "@components/TextSection.astro";
-import { SignIn, SignOut } from "auth-astro/components";
+import TextSection from "../../components/TextSection.astro";
+import { SignOut } from "auth-astro/components";
 import { getSession } from "auth-astro/server";
 const session = await getSession(Astro.request);
 ---
