@@ -15,7 +15,8 @@ const session = await getSession(Astro.request);
   <section class="flex flex-col justify-center">
     {
       session ? (
-        session.user?.email === "spanolocabo@gmail.com" ? (
+        session.user?.email === "spanolocabo@gmail.com" ||
+        session.user?.email === "albertobetpad17@gmail.com" ? (
           <>
             <AdminAccess />
           </>
