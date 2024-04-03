@@ -1,8 +1,9 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import AdminAccess from "../components/authComponents/AdminAccess.astro";
 import UserNotAccess from "../components/authComponents/UserNotAccess.astro";
 
-import { SignIn, SignOut } from "auth-astro/components";
+import { SignIn } from "auth-astro/components";
 import { getSession } from "auth-astro/server";
 const session = await getSession(Astro.request);
 ---
@@ -16,8 +17,7 @@ const session = await getSession(Astro.request);
       session ? (
         session.user?.email === "spanolocabo@gmail.com" ? (
           <>
-            <p>Hola {session.user?.name}</p>
-            <SignOut>Cerrar Sesión</SignOut>
+            <AdminAccess />
           </>
         ) : (
           <>

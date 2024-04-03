@@ -1,0 +1,12 @@
+---
+import TextSection from "../../components/TextSection.astro";
+
+import { SignOut } from "auth-astro/components";
+import { getSession } from "auth-astro/server";
+const session = await getSession(Astro.request);
+---
+
+<TextSection
+  text=`BIENVENIDO DE NUEVO ${session?.user?.name}`
+  subtext="Has iniciado sesión correctamente como administrador"
+/>
