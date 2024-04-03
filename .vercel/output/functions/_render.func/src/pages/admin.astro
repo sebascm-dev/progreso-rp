@@ -1,0 +1,45 @@
+---
+import Layout from "../layouts/Layout.astro";
+import AdminAccess from "../components/authComponents/AdminAccess.astro";
+import UserNotAccess from "../components/authComponents/UserNotAccess.astro";
+
+import { SignIn } from "auth-astro/components";
+import { getSession } from "auth-astro/server";
+const session = await getSession(Astro.request);
+---
+
+<Layout
+  title="ProgresoRP - Zona de Administradores"
+  description="¡Bienvenido a la Zona de Administradores de ProgresoRP!"
+>
+  <section class="flex flex-col justify-center">
+    {
+      session ? (
+        session.user?.email === "spanolocabo@gmail.com" ? (
+          <>
+            <AdminAccess />
+          </>
+        ) : (
+          <>
+            <UserNotAccess />
+          </>
+        )
+      ) : (
+        <div class="flex flex-col justify-center items-center">
+          <SignIn
+            provider="google"
+            class="px-4 py-2 max-w-52 flex-row shadow-md justify-center items-center bg-[#B1DAF8]/10 bg-blur backdrop-blur backdrop-filter border flex gap-2 border-slate-700 rounded-lg text-white hover:border-slate-500 hover:text-slate-200 hover:shadow-xl hover:scale-105 transition duration-300"
+          >
+            <img
+              class="w-6 h-6"
+              src="https://www.svgrepo.com/show/475656/google-color.svg"
+              loading="lazy"
+              alt="google logo"
+            />
+            <span>Login with Google</span>
+          </SignIn>
+        </div>
+      )
+    }
+  </section>
+</Layout>
