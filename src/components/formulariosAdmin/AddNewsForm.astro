@@ -1,0 +1,42 @@
+---
+import { db, News } from "astro:db";
+
+if (Astro.request.method === "POST") {
+  const formData = await Astro.request.formData();
+  const date = formData.get("date");
+  const text = formData.get("text");
+
+  if (typeof date === "string" && typeof text === "string") {
+    await db.insert(News).values({ date, text });
+  }
+}
+---
+
+<section class="mt-10">
+  <h1>Añadir nuevas novedades</h1>
+  <form method="post">
+    <input type="text" id="fechaActual" value="" hidden readonly name="date" />
+    <input type="text" name="text" />
+    <input type="submit" />
+  </form>
+</section>
+
+<script>
+  window.onload = function () {
+    var fecha = new Date(); // Fecha actual
+    var mes = fecha.getMonth() + 1; // Obteniendo mes
+    var dia = fecha.getDate(); // Obteniendo día
+
+    // Formatea el día con cero si es menor de 10
+    var diaFormatted =
+      dia < 10 ? dia.toString().padStart(2, "0") : dia.toString();
+    // Formatea el mes con cero si es menor de 10
+    var mesFormatted =
+      mes < 10 ? mes.toString().padStart(2, "0") : mes.toString();
+
+    var inputFecha = document.getElementById("fechaActual") as HTMLInputElement;
+    if (inputFecha) {
+      inputFecha.value = diaFormatted + "/" + mesFormatted;
+    }
+  };
+</script>

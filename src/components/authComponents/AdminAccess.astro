@@ -1,17 +1,17 @@
 ---
-import TextSection from "../../components/TextSection.astro";
 import Hr from "../../components/Hr.astro";
+import TextSection from "../../components/TextSection.astro";
 import AdminSessionSuccess from "./AdminSessionSuccess.astro";
+import AddNewsForm from "../formulariosAdmin/AddNewsForm.astro"
 
-import { SignOut } from "auth-astro/components";
 import { getSession } from "auth-astro/server";
 const session = await getSession(Astro.request);
 ---
 
 <Hr />
 <TextSection
-text="HAS INICIADO SESIÓN COMO ADMINISTRADOR"
-subtext="Apartado para los administradores"
+  text="HAS INICIADO SESIÓN COMO ADMINISTRADOR"
+  subtext="Apartado para los administradores"
 />
 <hr
   class="mt-2 mb-12 h-px border-t-0 bg-transparent bg-gradient-to-r from-transparent via-neutral-500 to-transparent opacity-25 dark:via-neutral-400"
@@ -19,11 +19,4 @@ subtext="Apartado para los administradores"
 
 <AdminSessionSuccess />
 
-<section class="mt-10">
-    <h1>Añadir nuevas novedades</h1>
-    <form>
-        <input type="text">
-        <input type="text">
-        <input type="submit">
-    </form>
-</section>
+<AddNewsForm />
