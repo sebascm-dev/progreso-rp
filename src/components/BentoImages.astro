@@ -1,6 +1,4 @@
 ---
-import novedades from "../data/novedades.json";
-
 import { db, News } from "astro:db";
 const noticias = await db.select().from(News);
 ---
@@ -69,8 +67,6 @@ const noticias = await db.select().from(News);
 </style>
 
 <script>
-  const $ = (selector: string) => document.querySelector(selector);
-
   const images = document.getElementsByClassName("image");
 
   Array.from(images).forEach((image) => {
