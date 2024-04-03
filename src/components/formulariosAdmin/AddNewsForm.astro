@@ -1,5 +1,5 @@
 ---
-import { db, News } from "astro:db";
+import { db,  } from "astro:db";
 
 if (Astro.request.method === "POST") {
   const formData = await Astro.request.formData();
@@ -7,7 +7,6 @@ if (Astro.request.method === "POST") {
   const text = formData.get("text");
 
   if (typeof date === "string" && typeof text === "string") {
-    await db.insert(News).values({ date, text });
   }
 }
 ---
