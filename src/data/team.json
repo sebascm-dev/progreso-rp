@@ -1,5 +1,17 @@
 [
   {
+    "name": "waso",
+    "image": "https://cdn.discordapp.com/avatars/426420418816114688/7c159c1fc7d6b0b8ef0ffa06df416a56.webp",
+    "job": "Programador",
+    "url": "#"
+  },
+  {
+    "name": "adrii.3003_",
+    "image": "https://cdn.discordapp.com/avatars/720035253829369908/79fcb82b7bd14062196b0cba38c53a20.webp",
+    "job": "Cofundador",
+    "url": "#"
+  },
+  {
     "name": "albertobp_17",
     "image": "https://pbs.twimg.com/profile_images/1327592670865354753/9eRj0iAx_400x400.jpg",
     "job": "Fundador",
@@ -15,18 +27,6 @@
     "name": "ttril0n_",
     "image": "https://cdn.discordapp.com/avatars/787409907577913384/ca12129f04e97c4cb5e0e4841a1d1c47.webp",
     "job": "Cofundador",
-    "url": "#"
-  },
-  {
-    "name": "adrii.3003_",
-    "image": "https://cdn.discordapp.com/avatars/720035253829369908/79fcb82b7bd14062196b0cba38c53a20.webp",
-    "job": "Cofundador",
-    "url": "#"
-  },
-  {
-    "name": "waso",
-    "image": "https://cdn.discordapp.com/avatars/426420418816114688/7c159c1fc7d6b0b8ef0ffa06df416a56.webp",
-    "job": "Programador",
     "url": "#"
   },
   {
