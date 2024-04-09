@@ -1,6 +1,8 @@
+<!-- Tareas Imprescindibles -->
 [] - Creación de un Buen README.MD
 [] - Documentación de la Memoria 08/04/2024
 [] - 
+<!-- Tareas Diarias -->
 [] - 
 [] - 
 [] - 
