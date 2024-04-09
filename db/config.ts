@@ -10,6 +10,16 @@ const News = defineTable({
   },
 });
 
+const Admins = defineTable({
+  columns: {
+    id: column.number({ primaryKey: true, autoIncrement: true }),
+    name: column.text(),
+    job: column.text(),
+    urlimage: column.text(),
+    urlsocial: column.text()
+  },
+});
+
 export default defineDb({
-  tables: { News },
+  tables: { News, Admins },
 });
