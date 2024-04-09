@@ -1,25 +1,50 @@
+---
+import { db, UserTeam } from "astro:db";
+const usuarios = await db.select().from(UserTeam);
+---
+
 <section class="mt-10">
   <form method="post" autocomplete="off">
-    <input type="text" id="fechaActual" value="" hidden readonly name="date" />
-
     <div
       class="bg-[#B1DAF8]/10 bg-blur backdrop-blur backdrop-filter p-4 rounded-md shadow-xl flex flex-col items-start gap-2"
     >
       <h1
         class="text-2xl lg:text-4xl font-pricedown uppercase drop-shadow-xl mb-4 ml-2"
       >
-        Añade nuevas <span
-          class="text-transparent bg-clip-text bg-gradient-to-r drop-shadow-xl to-[#1BD1C2] from-[#15A9CE]"
-          >novedades</span
+        Añade nuevos usuarios a <span
+          class="text-transparent bg-clip-text drop-shadow-xl bg-gradient-to-r to-[#1BD1C2] from-[#15A9CE]"
+          >nuestro equipo</span
         >
       </h1>
-      <textarea
-        name="text"
+
+      <input
+        type="text"
+        name="username"
         required
-        style="field-sizing: content;"
-        placeholder="Habla sobre tu nueva novedad ..."
+        placeholder="Nombre usuario..."
         class="p-2 rounded-md bg-transparent outline-none resize-none border-l-2 border-sky-50/20 focus:border-l-2 focus:border-sky-300/60 transition duration-300 w-full"
-      ></textarea>
+      />
+      <input
+        type="text"
+        name="userjob"
+        required
+        placeholder="Puesto de trabajo..."
+        class="p-2 rounded-md bg-transparent outline-none resize-none border-l-2 border-sky-50/20 focus:border-l-2 focus:border-sky-300/60 transition duration-300 w-full"
+      />
+      <input
+        type="text"
+        name="userimage"
+        required
+        placeholder="URL Imagen..."
+        class="p-2 rounded-md bg-transparent outline-none resize-none border-l-2 border-sky-50/20 focus:border-l-2 focus:border-sky-300/60 transition duration-300 w-full"
+      />
+      <input
+        type="text"
+        name="usersocial"
+        placeholder="URL Social..."
+        class="p-2 rounded-md bg-transparent outline-none resize-none border-l-2 border-sky-50/20 focus:border-l-2 focus:border-sky-300/60 transition duration-300 w-full"
+      />
+
       <div>
         <button
           title="Save"
@@ -40,32 +65,22 @@
               fill-rule="evenodd"></path>
           </svg>
           <span class="text-sm text-sky-400 font-bold pr-1"
-            >Publicar Novedad</span
+            >Agregar Usuario al Equipo</span
           >
         </button>
       </div>
+      <footer>
+        <p class="text-gray-400">
+          Lista de los usuarios que trabajan con nosotros:
+        </p>
+        <p class="flex flex-wrap gap-1">
+          {
+            usuarios.map((user) => (
+              <span class="text-sm text-gray-500">{user.username}</span>
+            ))
+          }
+        </p>
+      </footer>
     </div>
   </form>
-
-  <script>
-    window.onload = function () {
-      var fecha = new Date(); // Fecha actual
-      var mes = fecha.getMonth() + 1; // Obteniendo mes
-      var dia = fecha.getDate(); // Obteniendo día
-
-      // Formatea el día con cero si es menor de 10
-      var diaFormatted =
-        dia < 10 ? dia.toString().padStart(2, "0") : dia.toString();
-      // Formatea el mes con cero si es menor de 10
-      var mesFormatted =
-        mes < 10 ? mes.toString().padStart(2, "0") : mes.toString();
-
-      var inputFecha = document.getElementById(
-        "fechaActual"
-      ) as HTMLInputElement;
-      if (inputFecha) {
-        inputFecha.value = diaFormatted + "/" + mesFormatted;
-      }
-    };
-  </script>
 </section>

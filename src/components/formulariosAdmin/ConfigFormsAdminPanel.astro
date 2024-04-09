@@ -1,0 +1,37 @@
+---
+import AddNewsForm from "./AddNewsForm.astro";
+import AddUserTeamForm from "./AddUserTeamForm.astro";
+
+import { db, News, UserTeam } from "astro:db";
+
+if (Astro.request.method === "POST") {
+  const formData = await Astro.request.formData();
+  
+  // COGE DATOS DEL FORMULARIO DE NOVEDADES
+  const date = formData.get("date");
+  const text = formData.get("text");
+  
+  if (typeof date === "string" && typeof text === "string") {
+    await db.insert(News).values({ date, text });
+  }
+
+
+  // COGE DATOS DEL FORMULARIO USERTEAM
+  const username = formData.get("username");
+  const userjob = formData.get("userjob");
+  const userimage = formData.get("userimage");
+  const usersocial = formData.get("usersocial");
+
+  if (
+    typeof username === "string" &&
+    typeof userjob === "string" &&
+    typeof userimage === "string" &&
+    typeof usersocial === "string"
+  ) {
+    await db.insert(UserTeam).values({ username, userjob, userimage, usersocial})
+  }
+}
+---
+
+<AddNewsForm />
+<AddUserTeamForm />
