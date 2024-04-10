@@ -9,7 +9,7 @@ const usuarios = await db.select().from(UserTeam);
   <div
     class="bg-[#B1DAF8]/10 bg-blur backdrop-blur backdrop-filter p-4 rounded-md shadow-xl flex flex-col items-start gap-2"
   >
-    <form method="post" autocomplete="off">
+    <form method="post" autocomplete="off" class="w-full">
       <h1
         class="text-2xl lg:text-4xl font-pricedown uppercase drop-shadow-xl mb-4 ml-2"
       >
@@ -19,33 +19,33 @@ const usuarios = await db.select().from(UserTeam);
         >
       </h1>
 
-      <input
-        type="text"
-        name="username"
-        required
-        placeholder="Nombre usuario..."
-        class="p-2 my-1 rounded-md bg-transparent outline-none resize-none border-l-2 border-sky-50/20 focus:border-l-2 focus:border-sky-300/60 transition duration-300 w-full"
-      />
-      <input
-        type="text"
-        name="userjob"
-        required
-        placeholder="Puesto de trabajo..."
-        class="p-2 my-1 rounded-md bg-transparent outline-none resize-none border-l-2 border-sky-50/20 focus:border-l-2 focus:border-sky-300/60 transition duration-300 w-full"
-      />
-      <input
-        type="text"
-        name="userimage"
-        required
-        placeholder="URL Imagen..."
-        class="p-2 my-1 rounded-md bg-transparent outline-none resize-none border-l-2 border-sky-50/20 focus:border-l-2 focus:border-sky-300/60 transition duration-300 w-full"
-      />
-      <input
-        type="text"
-        name="usersocial"
-        placeholder="URL Social..."
-        class="p-2 my-1 rounded-md bg-transparent outline-none resize-none border-l-2 border-sky-50/20 focus:border-l-2 focus:border-sky-300/60 transition duration-300 w-full"
-      />
+        <input
+          type="text"
+          name="username"
+          required
+          placeholder="Nombre usuario..."
+          class="p-2 my-1 rounded-md bg-transparent outline-none resize-none border-l-2 border-sky-50/20 focus:border-l-2 focus:bg-sky-50/5 focus:border-sky-300/60 transition duration-300 w-full"
+        />
+        <input
+          type="text"
+          name="userjob"
+          required
+          placeholder="Puesto de trabajo..."
+          class="p-2 my-1 rounded-md bg-transparent outline-none resize-none border-l-2 border-sky-50/20 focus:border-l-2 focus:bg-sky-50/5 focus:border-sky-300/60 transition duration-300 w-full"
+        />
+        <input
+          type="text"
+          name="userimage"
+          required
+          placeholder="URL imagen..."
+          class="p-2 my-1 rounded-md bg-transparent outline-none resize-none border-l-2 border-sky-50/20 focus:border-l-2 focus:bg-sky-50/5 focus:border-sky-300/60 transition duration-300 w-full"
+        />
+        <input
+          type="text"
+          name="usersocial"
+          placeholder="URL social..."
+          class="p-2 my-1 rounded-md bg-transparent outline-none resize-none border-l-2 border-sky-50/20 focus:border-l-2 focus:bg-sky-50/5 focus:border-sky-300/60 transition duration-300 w-full"
+        />
 
       <div>
         <button
@@ -73,9 +73,7 @@ const usuarios = await db.select().from(UserTeam);
       </div>
     </form>
     <footer class="mt-4">
-      <p class="text-gray-400">
-        Lista de los UserTeam's:
-      </p>
+      <p class="text-gray-400">Lista de los UserTeam's:</p>
       <div class="flex flex-wrap gap-2">
         {
           usuarios.map((user) => (
@@ -83,7 +81,12 @@ const usuarios = await db.select().from(UserTeam);
               method="post"
               class="bg-slate-400/5 w-[158px] md:w-[144.6px] rounded-md cursor-pointer shadow-2xl py-1 px-2 text-gray-500 hover:text-gray-50 hover:bg-slate-400/20 transition duration-300"
             >
-              <button name="deleteUser" value={user.id} type="submit" class="flex justify-between items-center w-full">
+              <button
+                name="deleteUser"
+                value={user.id}
+                type="submit"
+                class="flex justify-between items-center w-full"
+              >
                 <p class="text-sm lowercase">{user.username}</p>
                 <span class="text-sm text-red-500/60">
                   <TrashIcon w="16" h="16" />
