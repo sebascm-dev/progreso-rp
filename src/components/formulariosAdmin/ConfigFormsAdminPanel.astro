@@ -2,19 +2,18 @@
 import AddNewsForm from "./AddNewsForm.astro";
 import AddUserTeamForm from "./AddUserTeamForm.astro";
 
-import { db, News, UserTeam } from "astro:db";
+import { db, eq, News, UserTeam } from "astro:db";
 
 if (Astro.request.method === "POST") {
   const formData = await Astro.request.formData();
-  
+
   // COGE DATOS DEL FORMULARIO DE NOVEDADES
   const date = formData.get("date");
   const text = formData.get("text");
-  
+
   if (typeof date === "string" && typeof text === "string") {
     await db.insert(News).values({ date, text });
   }
-
 
   // COGE DATOS DEL FORMULARIO USERTEAM
   const username = formData.get("username");
@@ -28,7 +27,17 @@ if (Astro.request.method === "POST") {
     typeof userimage === "string" &&
     typeof usersocial === "string"
   ) {
-    await db.insert(UserTeam).values({ username, userjob, userimage, usersocial})
+    await db
+      .insert(UserTeam)
+      .values({ username, userjob, userimage, usersocial });
+  }
+
+  const deleteUserId = formData.get("deleteUser") as string;
+  if (deleteUserId) {
+    const deleteUserIdNumber = parseInt(deleteUserId);
+    if (!isNaN(deleteUserIdNumber)) {
+      await db.delete(UserTeam).where(eq(UserTeam.id, deleteUserIdNumber));
+    }
   }
 }
 ---

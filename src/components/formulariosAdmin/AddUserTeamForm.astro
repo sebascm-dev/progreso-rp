@@ -1,4 +1,6 @@
 ---
+import TrashIcon from "../icons/TrashIcon.astro";
+
 import { db, UserTeam } from "astro:db";
 const usuarios = await db.select().from(UserTeam);
 ---
@@ -69,18 +71,25 @@ const usuarios = await db.select().from(UserTeam);
           >
         </button>
       </div>
-      <footer>
-        <p class="text-gray-400">
-          Lista de los usuarios que trabajan con nosotros:
-        </p>
-        <p class="flex flex-wrap gap-1">
-          {
-            usuarios.map((user) => (
-              <span class="text-sm text-gray-500">{user.username}</span>
-            ))
-          }
-        </p>
-      </footer>
     </div>
   </form>
+  <footer>
+    <p class="text-gray-400">
+      Lista de los usuarios que trabajan con nosotros:
+    </p>
+    <p class="flex flex-wrap gap-1">
+      {
+        usuarios.map((user) => (
+          <>
+            <form method="post" class="flex items-center gap-1">
+              <span class="text-sm text-gray-500">{user.username}</span>
+              <button name="deleteUser" value={user.id} type="submit">
+                <span class="text-sm text-red-500/40 hover:text-red-500/60 transition duration-300"><TrashIcon w="16" h="16" /></span>
+              </button>
+            </form>
+          </>
+        ))
+      }
+    </p>
+  </footer>
 </section>
