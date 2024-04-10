@@ -4,7 +4,7 @@ import { getSession } from "auth-astro/server";
 const session = await getSession(Astro.request);
 ---
 
-<div class="flex flex-row gap-3">
+<div class="flex flex-row gap-3 justify-center md:justify-start">
   <span
     class="relative inline-block border border-slate-700 shadow-xl rounded-lg"
     aria-label="avatar"

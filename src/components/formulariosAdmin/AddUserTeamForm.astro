@@ -74,14 +74,14 @@ const usuarios = await db.select().from(UserTeam);
     </form>
     <footer class="mt-4">
       <p class="text-gray-400">
-        Lista de los usuarios que trabajan con nosotros:
+        Lista de los UserTeam's:
       </p>
-      <div class="grid grid-cols-9 gap-2">
+      <div class="flex flex-wrap gap-2">
         {
           usuarios.map((user) => (
             <form
               method="post"
-              class="bg-slate-400/5 w-[130px] rounded-md cursor-pointer shadow-2xl py-1 px-2 text-gray-500 hover:text-gray-50 hover:bg-slate-400/20 transition duration-300"
+              class="bg-slate-400/5 w-[158px] md:w-[144.6px] rounded-md cursor-pointer shadow-2xl py-1 px-2 text-gray-500 hover:text-gray-50 hover:bg-slate-400/20 transition duration-300"
             >
               <button name="deleteUser" value={user.id} type="submit" class="flex justify-between items-center w-full">
                 <p class="text-sm lowercase">{user.username}</p>
