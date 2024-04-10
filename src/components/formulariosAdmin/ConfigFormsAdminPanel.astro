@@ -5,12 +5,13 @@ import AddUserTeamForm from "./AddUserTeamForm.astro";
 import { db, eq, News, UserTeam } from "astro:db";
 
 if (Astro.request.method === "POST") {
+  // Requisito desde Astro para hacer que la base de datos funcione para la insercion, eliminacion, etc...
   const formData = await Astro.request.formData();
 
   // COGE DATOS DEL FORMULARIO DE NOVEDADES
   const date = formData.get("date");
   const text = formData.get("text");
-
+  // Desde aqui empieza a insertar los datos dentro de la base de datos
   if (typeof date === "string" && typeof text === "string") {
     await db.insert(News).values({ date, text });
   }
@@ -20,7 +21,7 @@ if (Astro.request.method === "POST") {
   const userjob = formData.get("userjob");
   const userimage = formData.get("userimage");
   const usersocial = formData.get("usersocial");
-
+  // Desde aqui empieza a insertar los datos dentro de la base de datos
   if (
     typeof username === "string" &&
     typeof userjob === "string" &&
@@ -31,7 +32,7 @@ if (Astro.request.method === "POST") {
       .insert(UserTeam)
       .values({ username, userjob, userimage, usersocial });
   }
-
+  // Desde aqui elimina los datos de la base de dato segun la id
   const deleteUserId = formData.get("deleteUser") as string;
   if (deleteUserId) {
     const deleteUserIdNumber = parseInt(deleteUserId);

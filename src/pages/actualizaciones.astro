@@ -1,10 +1,25 @@
 ---
-import Hr from "../components/Hr.astro";
-import TextSection from "../components/TextSection.astro";
 import Layout from "../layouts/Layout.astro";
+import TextSection from "../components/TextSection.astro";
+import Hr from "../components/Hr.astro";
+import TrashIcon from "../components/icons/TrashIcon.astro";
 
-import { db, News } from "astro:db";
+import { getSession } from "auth-astro/server";
+const session = await getSession(Astro.request);
+
+import { db, eq, News } from "astro:db";
 const noticias = await db.select().from(News);
+
+if (Astro.request.method === "POST") {
+  const formData = await Astro.request.formData();
+  const deleteNew = formData.get("deleteNew") as string;
+  if (deleteNew) {
+    const deleteNewNumber = parseInt(deleteNew);
+    if (!isNaN(deleteNewNumber)) {
+      await db.delete(News).where(eq(News.id, deleteNewNumber));
+    }
+  }
+}
 ---
 
 <Layout
@@ -21,13 +36,28 @@ const noticias = await db.select().from(News);
   />
   <div class="flex flex-col gap-4">
     {
-      noticias
-        .reverse()
-        .map((noticia, index) => (
-          <div class={`bg-[#B1DAF8]/10 bg-blur w-full backdrop-blur backdrop-filter p-4 rounded-md shadow-xl flex flex-col items-start gap-2 ${index < 3 ? 'col-span-1' : 'col-span-2'}`}>
-            <span class="text-xl tabular-nums font-pricedown">{noticia.date}</span>
-            <p class="text-pretty opacity-75">{noticia.text}.</p>
-          </div>
-        ))
+      noticias.reverse().map((noticia, index) => (
+        <div
+          class={`bg-[#B1DAF8]/10 bg-blur w-full relative backdrop-blur backdrop-filter p-4 rounded-md shadow-xl flex flex-col items-start gap-2 ${index < 3 ? "col-span-1" : "col-span-2"}`}
+        >
+          <span class="text-xl tabular-nums font-pricedown">
+            {noticia.date}
+          </span>
+          <p class="text-pretty opacity-75">{noticia.text}.</p>
+          {(session && session.user?.email === "spanolocabo@gmail.com") ||
+          session?.user?.email === "albertobetpad17@gmail.com" ? (
+            <form method="post">
+              <button name="deleteNew" value={noticia.id} type="submit">
+                <div class="flex absolute top-0 right-4 items-center gap-1 mt-4 p-2 rounded-md text-red-500/40 bg-red-400/20 scale-100 transition duration-300 hover:bg-red-400/40 hover:text-red-500/60 hover:scale-105">
+                  <span class="">
+                    <TrashIcon w="18" h="18" />
+                  </span>
+                </div>
+              </button>
+            </form>
+          ) : null}
+        </div>
+      ))
     }
   </div>
+</Layout>
