@@ -1,0 +1,135 @@
+---
+import DiscordIcon from "./icons/DiscordIcon.astro";
+import GithubIcon from "./icons/GithubIcon.astro";
+import InstagramIcon from "./icons/InstagramIcon.astro";
+import TikTokIcon from "./icons/TikTokIcon.astro";
+import TwitterIcon from "./icons/TwitterIcon.astro";
+---
+
+<footer class="bg-transparent w-full mt-16">
+  <div class="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
+    <div class="md:flex md:justify-between">
+      <div class="mb-6 md:mb-0 relative">
+        <a href="https://flowbite.com/" class="flex items-center">
+          <img
+            src="/img/logo.webp"
+            class="w-72 md:w-36 opacity-10 top-16 left-8 md:-top-9 md:left-0 -z-10 me-3 absolute"
+            alt="FlowBite Logo"
+          />
+          <span
+            class="self-center uppercase font-pricedown text-3xl font-semibold whitespace-nowrap dark:text-white"
+            >ProgresoRP</span
+          >
+        </a>
+      </div>
+      <div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
+        <div>
+          <h2
+            class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white"
+          >
+            Recursos
+          </h2>
+          <ul class="text-gray-500 dark:text-gray-400 font-medium">
+            <li class="mb-4">
+              <a
+                href="https://docs.astro.build/es/install/auto/"
+                class="hover:underline">Astro</a
+              >
+            </li>
+            <li class="mb-4">
+              <a
+                href="https://docs.astro.build/en/guides/astro-db/"
+                class="hover:underline">AstroDB</a
+              >
+            </li>
+            <li class="mb-4">
+              <a
+                href="https://github.com/nowaythatworked/auth-astro"
+                class="hover:underline">Auth-Astro</a
+              >
+            </li>
+            <li class="mb-4">
+              <a href="https://tailwindcss.com/" class="hover:underline"
+                >Tailwind CSS</a
+              >
+            </li>
+            <li>
+              <a href="https://vercel.com/" class="hover:underline">Vercel</a>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h2
+            class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white"
+          >
+            Siguenos
+          </h2>
+          <ul class="text-gray-500 dark:text-gray-400 font-medium">
+            <li class="mb-4">
+              <a
+                href="https://discord.com/invite/KhAfaVaDnw"
+                class="hover:underline">Discord</a
+              >
+            </li>
+            <li class="mb-4">
+              <a href="https://twitter.com/ProgresoRP" class="hover:underline"
+                >Twitter</a
+              >
+            </li>
+            <li class="mb-4">
+              <a
+                href="https://www.instagram.com/progresorp"
+                class="hover:underline">Instagram</a
+              >
+            </li>
+            <li class="mb-4">
+              <a
+                href="https://www.tiktok.com/@progresorp"
+                class="hover:underline">Tiktok</a
+              >
+            </li>
+            <li>
+              <a href="https://github.com/sebascm-dev" class="hover:underline"
+                >Github</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
+    <div class="sm:flex sm:items-center sm:justify-between">
+      <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400"
+        >© 2024 <a
+          href="https://progreso-rp-lemon.vercel.app/"
+          class="hover:underline">ProgresoRP</a
+        >. All Rights Reserved.
+      </span>
+      <div class="flex mt-4 gap-2 sm:justify-center sm:mt-0">
+        <a href="https://discord.com/invite/KhAfaVaDnw" class="text-gray-500 dark:hover:text-white">
+          <DiscordIcon w="22" h="22" />
+          <span class="sr-only">Discord community</span>
+        </a>
+        <a href="https://twitter.com/ProgresoRP" class="text-gray-500 hover:text-white">
+          <TwitterIcon w="22" h="22" />
+          <span class="sr-only">Twitter</span>
+        </a>
+        <a
+          href="https://www.instagram.com/progresorp"
+          class="text-gray-500 dark:hover:text-white"
+        >
+          <InstagramIcon w="22" h="22" />
+          <span class="sr-only">Instagram</span>
+        </a>
+        <a href="https://www.tiktok.com/@progresorp" class="text-gray-500 hover:text-white">
+          <TikTokIcon w="22" h="22" />
+          <span class="sr-only">TikTok</span>
+        </a>
+        <a href="https://github.com/sebascm-dev" class="text-gray-500 hover:text-white">
+          <GithubIcon w="22" h="22" />
+          <span class="sr-only">GitHub account</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
