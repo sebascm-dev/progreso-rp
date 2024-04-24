@@ -1,0 +1,15 @@
+---
+const { title } = Astro.props;
+---
+
+<section
+  class="bg-[#B1DAF8]/10 my-8 bg-blur w-full relative backdrop-blur backdrop-filter p-4 rounded-md shadow-xl"
+>
+  <header>
+    <h1 class="text-4xl font-pricedown text-center">{title}</h1>
+    <hr
+      class="mt-2 mb-10 h-px border-t-0 bg-transparent bg-gradient-to-r from-transparent via-neutral-500 to-transparent opacity-25 dark:via-neutral-400"
+    />
+  </header>
+  <slot />
+</section>

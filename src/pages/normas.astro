@@ -1,6 +1,8 @@
 ---
 import TextSection from "@components/TextSection.astro";
 import Layout from "../layouts/Layout.astro";
+import ArticleWrited from "@components/normas/ArticleWrited.astro";
+import SectionWrited from "@components/normas/SectionWrited.astro";
 ---
 
 <Layout
@@ -11,4 +13,77 @@ import Layout from "../layouts/Layout.astro";
     text="Normativa de nuestro servidor - ProgresoRP"
     subtext="Aquí tendrás toda la información de nuestras normas que deberás cumplir para jugar dentro del servidor:"
   />
+
+  <SectionWrited title="1. CONCEPTOS BÁSICOS">
+    <ArticleWrited title="IC | IN CHARACTER">
+      <p>Es todo lo que le ocurre a nuestro personaje dentro del juego.</p>
+    </ArticleWrited>
+
+    <ArticleWrited title="OOC | OUT OF CHARACTER">
+      <p>
+        Es todo lo que sucede fuera del juego, lo cual no influye en la historia
+        de nuestro personaje (discord, streams...).
+      </p>
+    </ArticleWrited>
+
+    <ArticleWrited title="PG | POWERGAMING">
+      <p>
+        Se considera PowerGaming, cualquier acción que esté fuera de los límites
+        de la realidad.
+      </p>
+      <h4>Ejemplos prácticos:</h4>
+      <ul>
+        <li>Subir con un superdeportivo una montaña</li>
+        <li>Chocarse con el coche y seguir conduciendo</li>
+        <li>Cargar un cuerpo e ir corriendo</li>
+      </ul>
+    </ArticleWrited>
+
+    <ArticleWrited title="MG | METAGAMING">
+      <p>
+        Se considera MetaGaming el obtener información de manera OOC e
+        implementarla de manera IC.
+      </p>
+      <h4>Ejemplos prácticos:</h4>
+      <ul>
+        <li>Ir en busca de un amigo que te ha avisado por discord</li>
+        <li>
+          Ver el directo de algún streamer e ir donde él se encuentre y forzarle
+          el rol
+        </li>
+        <li>Hablar por discord con tus compañeros estando muerto o vivo</li>
+      </ul>
+    </ArticleWrited>
+
+    <ArticleWrited title="Bug Abuse">
+      <p>
+        El término Bug Abuse es emplear cualquier mecánica del juego que nos
+        permita obtener beneficios empleando bugs, como por ejemplo el
+        <span class="accent">BunnyJump</span>, cancelar animaciones para tardar
+        menos tiempo en hacer las cosas, etc...
+      </p>
+    </ArticleWrited>
+  </SectionWrited>
 </Layout>
+
+<style>
+  h4 {
+    font-style: italic;
+    margin-top: 6px;
+    text-transform: capitalize;
+  }
+
+  .accent {
+    background: #1fc1d721;
+    padding-inline: 3px;
+    padding-top: 1px;
+    padding-bottom: 2px;
+    border-radius: 3px;
+    font-weight: bold;
+  }
+
+  ul {
+    list-style: inside;
+    margin-left: 10px;
+  }
+</style>
