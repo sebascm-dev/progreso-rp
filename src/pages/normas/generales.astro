@@ -1,9 +1,9 @@
 ---
-import TextSection from "../components/TextSection.astro";
-import Layout from "../layouts/Layout.astro";
-import ArticleWrited from "../components/normas/ArticleWrited.astro";
-import SectionWrited from "../components/normas/SectionWrited.astro";
-import ButtonRP from "../components/ButtonRP.astro";
+import TextSection from "../../components/TextSection.astro";
+import Layout from "../../layouts/Layout.astro";
+import ArticleWrited from "../../components/normas/ArticleWrited.astro";
+import SectionWrited from "../../components/normas/SectionWrited.astro";
+import ButtonRP from "../../components/ButtonRP.astro";
 ---
 
 <Layout
@@ -11,16 +11,16 @@ import ButtonRP from "../components/ButtonRP.astro";
   description="TODO"
 >
   <TextSection
-    text="Normativa de nuestro servidor - ProgresoRP"
-    subtext="Aquí tendrás toda la información de nuestras normas que deberás cumplir para jugar dentro del servidor:"
+    text="Normativa General - ProgresoRP"
+    subtext="TODO"
   />
 
   <div class="flex flex-col gap-2 md:flex-row justify-between items-center">
-    <ButtonRP go="/normas" text="Generales" />
-    <ButtonRP go="/normas" text="LSPD" />
-    <ButtonRP go="/normas" text="EMS" />
-    <ButtonRP go="/normas" text="STAFF" />
-    <ButtonRP go="/normas" text="Actos Delictivos" />
+    <ButtonRP go="/normas/generales" text="Generales" />
+    <ButtonRP go="/normas/lspd" text="LSPD" />
+    <ButtonRP go="/normas/ems" text="EMS" />
+    <ButtonRP go="/normas/staff" text="STAFF" />
+    <ButtonRP go="/normas/actos-delictivos" text="Actos Delictivos" />
   </div>
 
   <SectionWrited title="1. CONCEPTOS BÁSICOS">
@@ -555,6 +555,34 @@ import ButtonRP from "../components/ButtonRP.astro";
         Queda totalmente prohibido el uso de cascos o máscaras que aguanten más
         tiros, si la administración lo detecta podría llegar el usuario a
         recibir una sanción de manera administrativa.
+      </p>
+    </ArticleWrited>
+
+    <ArticleWrited title="TIPOS DE LICENCIAS">
+      <p>
+        <span class="accent">Licencia de armas</span>: Solo te da “derecho” a
+        usar arma blanca en caso de necesidad. Su mal uso conlleva una sanción
+        policial, además de la retirada del arma y la respectiva licencia. Cabe
+        destacar que se necesita pasar un “prueba” <span class="accent"
+          >PSICOTÉCNICA</span
+        > en el Hospital.
+      </p>
+      <p class="separate">
+        <span class="accent">Licencia de caza</span>: Esta licencia se tiene
+        para poder cazar en el bosque. Además el mal uso de las armas de caza
+        conlleva una sanción policial, además de la retirada del arma y la
+        respectiva licencia. Cabe destacar que se necesita pasar una “prueba” <span
+          class="accent">PSICOTÉCNICA</span
+        > en el Hospital.
+      </p>
+      <p class="separate">
+        <span class="accent">Licencia de vuelo</span>: Esta licencia te permite
+        pilotar desde helicóptero hasta aviones (según el examen que realices).
+        Esta licencia sólo se puede sacar en el aeropuerto, con la supervisión
+        del examinador, el cual será el mismo que dará prácticas de vuelo. Cabe
+        destacar que se necesita pasar una “prueba” <span class="accent"
+          >PSICOTÉCNICA</span
+        > en el Hospital.
       </p>
     </ArticleWrited>
   </SectionWrited>

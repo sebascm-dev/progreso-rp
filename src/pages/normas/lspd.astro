@@ -1,0 +1,236 @@
+---
+import TextSection from "../../components/TextSection.astro";
+import Layout from "../../layouts/Layout.astro";
+import ArticleWrited from "../../components/normas/ArticleWrited.astro";
+import SectionWrited from "../../components/normas/SectionWrited.astro";
+import ButtonRP from "../../components/ButtonRP.astro";
+---
+
+<Layout
+  title="ProgresoRP - Leete las normas de nuestro servidor"
+  description="TODO"
+>
+  <TextSection
+    text="Normativa LSPD - ProgresoRP"
+    subtext="Aquí tendrás toda la información de nuestras normas que deberás cumplir para jugar dentro del servidor:"
+  />
+
+  <div class="flex flex-col gap-2 md:flex-row justify-between items-center">
+    <ButtonRP go="/normas/generales" text="Generales" />
+    <ButtonRP go="/normas/lspd" text="LSPD" />
+    <ButtonRP go="/normas/ems" text="EMS" />
+    <ButtonRP go="/normas/staff" text="STAFF" />
+    <ButtonRP go="/normas/actos-delictivos" text="Actos Delictivos" />
+  </div>
+
+  <SectionWrited title="1. INTRODUCCIÓN">
+    <p>
+      La LSPD es una facción legal encargada de mantener el orden y la
+      tranquilidad en la ciudad de <span class="accent">Los Santos</span>.
+    </p>
+    <h4>Las preocupaciones de la LSPD son:</h4>
+    <ul>
+      <li>Mantener el orden público.</li>
+      <li>
+        Aseguración del cumplimiento de carácter civil Investigaciones
+        criminales, penales y judiciales.
+      </li>
+    </ul>
+  </SectionWrited>
+
+  <SectionWrited title=" 2. REQUISITOS">
+    <h4>
+      Los requisitos para formar parte del equipo de la LSPD son los siguientes:
+    </h4>
+    <ul>
+      <li>Tener más de 16 años “OOC”.</li>
+      <li>Pasar examen escrito “OOC”.</li>
+      <li>Pasar examen oral “IC” sobre normativa policial.</li>
+      <li>Poseer licencia de conducir (coche/moto).</li>
+      <li>No tener antecedentes de ningún tipo.</li>
+      <li>No tener ningún tipo de tatuaje visible en cuello ni cara.</li>
+    </ul>
+  </SectionWrited>
+
+  <SectionWrited title="3. NORMAS GENERALES">
+    <ArticleWrited title="ART.1">
+      <p>
+        Queda totalmente prohibido el uso de armas reglamentarias fuera de
+        servicio.
+      </p>
+    </ArticleWrited>
+
+    <ArticleWrited title="ART.2">
+      <p>
+        Es obligatorio respetar la cadena de mandos establecida, lo cual se
+        aplica a rangos altos o rangos bajos.
+      </p>
+    </ArticleWrited>
+
+    <ArticleWrited title="ART.3">
+      <p>
+        Se deberá notificar la entrada/salida de servicio para que “MANDO” pueda
+        reasignar la malla.(Se notificará tanto IC con por discord por el canal
+        respectivo).
+      </p>
+    </ArticleWrited>
+
+    <ArticleWrited title="ART.4">
+      <p>
+        Es obligatoria la lectura de sus derechos a un sospechoso detenido un
+        máximo de 3 de veces antes de llegar a comisaría. De no ser así el
+        sospechoso podría solicitar el <span class="accent">HABEAS CORPUS</span>
+        (Esto significa que no cumple tiempo de condena, pero la sanción económica
+        sigue siendo la misma).
+      </p>
+    </ArticleWrited>
+
+    <ArticleWrited title="ART.5">
+      <p>
+        Queda determinantemente prohibido pedir ascensos o méritos dentro del
+        cuerpo.
+      </p>
+    </ArticleWrited>
+
+    <ArticleWrited title="ART.6">
+      <p>
+        Para iniciar o ser encargado de una investigación, se deberá formar
+        parte de la rama de <span class="accent">“Detectives”</span>, y siempre
+        con la aprobación final del Detective III.
+      </p>
+    </ArticleWrited>
+
+    <ArticleWrited title="ART.7">
+      <p>
+        Es obligatorio identificarse con el número de placa si un civil lo
+        solicita y tiene un motivo para solicitarlo. (No es necesario dar
+        nombres ni rangos).
+      </p>
+    </ArticleWrited>
+
+    <ArticleWrited title="ART.8">
+      <p>
+        Para acceder a propiedades privadas es necesario disponer de una orden
+        judicial la cual el <span class="accent">“Capitán”</span> de la LSPD puede
+        entregar.
+      </p>
+      <p>
+        Para la solicitud de la orden se necesitan pruebas claras para actuar,
+        excepto que veamos que una persona en el interior está en peligro,
+        veamos actos ilegales, etc.
+      </p>
+    </ArticleWrited>
+
+    <ArticleWrited title="ART.9">
+      <p>
+        Las oposiciones solo las podrán realizar los agentes de la RTD
+        (Departamento de reclutamiento).
+      </p>
+      <p>
+        Los encargados de esta división serán <span class="accent"
+          >Sargentos II</span
+        > los cuales podrán asignar a otros agentes desde Oficial II en adelante
+        a la instrucción de los nuevos agentes de la LSPD.
+      </p>
+      <p class="mt-[10px] italic text-gray-500">
+        Las oposiciones tendrán una parte teórica y una parte práctica.
+      </p>
+    </ArticleWrited>
+
+    <ArticleWrited title="ART.10">
+      <p>
+        Queda prohibido abrir fuego a las ruedas de vehículos en zonas urbanas.
+        (Siempre se podrá realizar en carreteras o zonas poco transitadas y por
+        el copiloto del automóvil. En caso de ser el conductor el vehículo
+        deberá estar completamente parado).
+      </p>
+    </ArticleWrited>
+
+    <ArticleWrited title="ART.11">
+      <p>
+        Queda prohibido realizar el código <span class="accent">Pit</span> a motocicletas.
+      </p>
+    </ArticleWrited>
+
+    <ArticleWrited title="ART.12">
+      <p>
+        Queda totalmente prohibido realizar actos corruptos (vender armamento
+        policial, hacer la vista gorda, vender la droga incautada,etc) si se
+        realiza alguna de estas acciones acarreará la inmediata expulsión del
+        cuerpo policial y conlleva a su correspondiente sanción administrativa.
+      </p>
+    </ArticleWrited>
+
+    <ArticleWrited title="ART.13">
+      <p>
+        Siempre que se haga una parada de tráfico nunca se utilizará el arma
+        letal, siempre taser en mano o si puede ser desarmado.
+      </p>
+    </ArticleWrited>
+
+    <ArticleWrited title="ART.14">
+      <p>
+        Siempre antes de realizar algún código a un vehículo de cuatros ruedas
+        habrá que darle un máximo de 3 avisos mediante el megáfono incorporado
+        al vehículo.
+      </p>
+    </ArticleWrited>
+
+    <ArticleWrited title="ART.15">
+      <p>
+        Habrá que mantener en todo momento durante la jornada laboral tanto el
+        exterior como el interior del patrulla en buen estado.
+      </p>
+    </ArticleWrited>
+
+    <ArticleWrited title="ART.16">
+      <p>
+        Hay que mantener la radio limpia en todo momento para que se pueda
+        escuchar de manera clara a <span class="accent">MANDO</span>, solo se podrán decir cosas necesarias,
+        de manera rápida y clara.
+      </p>
+    </ArticleWrited>
+
+    <ArticleWrited title="ART.17">
+      <h4>El comisionado se compone de:</h4>
+      <ul>
+        <li><span class="accent">Teniente</span></li>
+        <li class="separate"><span class="accent">Capitán</span></li>
+        <hr class="separate">
+        <li class="separate"><span class="accent">Comandante</span></li>
+        <li class="separate"><span class="accent">Jefe Supervisor</span></li>
+      </ul>
+    </ArticleWrited>
+  </SectionWrited>
+</Layout>
+
+<style>
+  h4 {
+    font-style: italic;
+    margin-top: 10px;
+    text-transform: capitalize;
+    font-weight: bold;
+  }
+
+  .accent {
+    background: #1fc1d721;
+    padding-inline: 3px;
+    padding-top: 1px;
+    padding-bottom: 2px;
+    border-radius: 3px;
+    font-weight: bold;
+  }
+
+  .separate {
+    margin-top: 5px;
+  }
+
+  ul {
+    list-style: inside;
+    margin-left: 10px;
+  }
+
+  a {
+    text-decoration: underline;
+  }
+</style>
