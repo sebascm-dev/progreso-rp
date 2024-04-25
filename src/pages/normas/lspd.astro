@@ -4,16 +4,14 @@ import Layout from "../../layouts/Layout.astro";
 import ArticleWrited from "../../components/normas/ArticleWrited.astro";
 import SectionWrited from "../../components/normas/SectionWrited.astro";
 import ButtonRP from "../../components/ButtonRP.astro";
+import Rangos from "../../components/normas/Rangos.astro";
 ---
 
 <Layout
   title="ProgresoRP - Leete las normas de nuestro servidor"
   description="TODO"
 >
-  <TextSection
-    text="Normativa LSPD - ProgresoRP"
-    subtext="Aquí tendrás toda la información de nuestras normas que deberás cumplir para jugar dentro del servidor:"
-  />
+  <TextSection text="Normativa LSPD - ProgresoRP" subtext="TODO" />
 
   <div class="flex flex-col gap-2 md:flex-row justify-between items-center">
     <ButtonRP go="/normas/generales" text="Generales" />
@@ -28,7 +26,7 @@ import ButtonRP from "../../components/ButtonRP.astro";
       La LSPD es una facción legal encargada de mantener el orden y la
       tranquilidad en la ciudad de <span class="accent">Los Santos</span>.
     </p>
-    <h4>Las preocupaciones de la LSPD son:</h4>
+    <h4 class="separate">Las preocupaciones de la LSPD son:</h4>
     <ul>
       <li>Mantener el orden público.</li>
       <li>
@@ -186,8 +184,8 @@ import ButtonRP from "../../components/ButtonRP.astro";
     <ArticleWrited title="ART.16">
       <p>
         Hay que mantener la radio limpia en todo momento para que se pueda
-        escuchar de manera clara a <span class="accent">MANDO</span>, solo se podrán decir cosas necesarias,
-        de manera rápida y clara.
+        escuchar de manera clara a <span class="accent">MANDO</span>, solo se
+        podrán decir cosas necesarias, de manera rápida y clara.
       </p>
     </ArticleWrited>
 
@@ -196,18 +194,102 @@ import ButtonRP from "../../components/ButtonRP.astro";
       <ul>
         <li><span class="accent">Teniente</span></li>
         <li class="separate"><span class="accent">Capitán</span></li>
-        <hr class="separate">
+        <hr class="separate" />
         <li class="separate"><span class="accent">Comandante</span></li>
         <li class="separate"><span class="accent">Jefe Supervisor</span></li>
       </ul>
     </ArticleWrited>
+  </SectionWrited>
+
+  <SectionWrited title="4. DERECHOS DEL DETENIDO">
+    <ul>
+      <li>
+        Derecho a permanecer en silencio y aclarar que todo lo que diga podrá
+        ser utilizado en su contra ante un tribunal de justicia.
+      </li>
+      <li>
+        Derecho a comida, bebida o asistencia sanitaria en caso de ser precise.
+      </li>
+      <li>
+        Derecho a un abogado, y en caso de no poder permitírselo se le otorgará
+        uno de oficio. <strong
+          >(No tendrá acceso a un abogado si se le pilla en un flagrante delito)</strong
+        >.
+      </li>
+      <li>
+        Derecho a una llamada no superior a 1 minuto y siempre en presencia de
+        un oficial de la ley.
+      </li>
+      <li>Derecho a ser informado de los delitos que se le acusa.</li>
+    </ul>
+  </SectionWrited>
+
+  <SectionWrited title="5. NIVELES DE ALERTA">
+    <ArticleWrited title="ALERTA 1">
+        <h4>Armamento:</h4>
+        <ul>
+            <li>Pistola de combate</li>
+            <li>Taser</li>
+            <li>Porra / Linterna</li>
+        </ul>
+    </ArticleWrited>
+    
+    <ArticleWrited title="ALERTA 2">
+        <h4>Armamento:</h4>
+        <ul>
+            <li>Pistola de combate</li>
+            <li>Taser</li>
+            <li>Porra / Linterna</li>
+            <li>Escopeta (Patrulla)</li>
+            <li>Chaleco Antibalas</li>
+        </ul>
+    </ArticleWrited>
+    
+    <ArticleWrited title="ALERTA 3">
+        <h4>Armamento:</h4>
+        <ul>
+            <li>Pistola de combate</li>
+            <li>Taser</li>
+            <li>Porra / Linterna</li>
+            <li>Escopeta (Patrulla)</li>
+            <li>SMG (Patrulla)</li>
+            <li>Chaleco Antibalas</li>
+        </ul>
+    </ArticleWrited>
+    
+    <ArticleWrited title="ALERTA 4">
+        <h4>Armamento:</h4>
+        <ul>
+            <li>Pistola de combate</li>
+            <li>Taser</li>
+            <li>Porra / Linterna</li>
+            <li>Escopeta (Patrulla)</li>
+            <li>Fusil de asalto (Patrulla)</li>
+            <li>Chaleco Antibalas</li>
+        </ul>
+    </ArticleWrited>
+    
+    <ArticleWrited title="ALERTA 5">
+        <h4>Armamento:</h4>
+        <ul>
+            <li>Pistola de combate</li>
+            <li>Taser</li>
+            <li>Porra / Linterna</li>
+            <li>Fusil de asalto (Agente)</li>
+            <li>Chaleco Antibalas</li>
+            <li>Casco antidisturbios</li>
+        </ul>
+    </ArticleWrited>
+  </SectionWrited>
+
+  <SectionWrited title="6. RANGOS">
+    
   </SectionWrited>
 </Layout>
 
 <style>
   h4 {
     font-style: italic;
-    margin-top: 10px;
     text-transform: capitalize;
     font-weight: bold;
   }
