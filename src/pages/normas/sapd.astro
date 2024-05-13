@@ -15,276 +15,331 @@ import Rangos from "../../components/normas/Rangos.astro";
 
   <div class="flex flex-col gap-2 md:flex-row justify-between items-center">
     <ButtonRP go="/normas/generales" text="Generales" />
-    <ButtonRP go="/normas/lspd" text="LSPD" />
-    <ButtonRP go="/normas/ems" text="EMS" />
+    <ButtonRP go="/normas/sapd" text="SAPD" />
+    <ButtonRP go="/normas/samd" text="SAMD" />
     <ButtonRP go="/normas/staff" text="STAFF" />
     <ButtonRP go="/normas/actos-delictivos" text="Actos Delictivos" />
   </div>
 
-  <SectionWrited title="1. INTRODUCCIÓN">
-    <p>
-      La LSPD es una facción legal encargada de mantener el orden y la
-      tranquilidad en la ciudad de <span class="accent">Los Santos</span>.
+  <SectionWrited title="CONSTITUCIÓN DEL ESTADO DE SAN ANDREAS">
+    <header class="flex justify-center">
+      <img
+        src="/img/constituciondeestado.webp"
+        alt="Imagen de la constitucion del estado de san andreas"
+      />
+    </header>
+    <p class="mt-5">
+      La Constitución es uno de los documentos más importantes del estado de San
+      Andreas, en el cual se acota la legalidad vigente dentro de todo el
+      panorama estatal.
     </p>
-    <h4 class="separate">Las preocupaciones de la LSPD son:</h4>
-    <ul>
-      <li>Mantener el orden público.</li>
-      <li>
-        Aseguración del cumplimiento de carácter civil Investigaciones
-        criminales, penales y judiciales.
-      </li>
-    </ul>
+    <p class="separate mb-10">
+      En este documento se reúne en un conjunto de artículos todos los derechos
+      y deberes de los residentes en el estado de San Andreas. Este mismo
+      documento defiende como primer objetivo el disfrute de la libertad dentro
+      del territorio de la isla. Todos estos artículos han sido evaluados y
+      aprobados por la cámara de representantes de la isla y por el gobernador.
+      Es deber del departamento policial el asegurar la libertad de los
+      residentes y controlar la estabilidad social, en base a unas directrices
+      éticas, económicas y culturales, gracias a las normativas reunidas en este
+      documento y las penas reunidas en el código penal.
+    </p>
+    <footer class="flex flex-col">
+      <ButtonRP go="#codigoPenal" text="CÓDIGO PENAL" />
+      <div class="mt-5 flex flex-col">
+        <a href="#1">APARTADO I: DERECHOS FUNDAMENTALES</a>
+        <a href="#2">APARTADO II: DERECHOS Y APLICACIONES DE LOS DECRETOS</a>
+        <a href="#3">APARTADO III: LOS DECRETOS DE LEY Y SU NATURALEZA</a>
+      </div>
+    </footer>
   </SectionWrited>
 
-  <SectionWrited title=" 2. REQUISITOS">
-    <h4>
-      Los requisitos para formar parte del equipo de la LSPD son los siguientes:
-    </h4>
-    <ul>
-      <li>Tener más de 16 años “OOC”.</li>
-      <li>Pasar examen escrito “OOC”.</li>
-      <li>Pasar examen oral “IC” sobre normativa policial.</li>
-      <li>Poseer licencia de conducir (coche/moto).</li>
-      <li>No tener antecedentes de ningún tipo.</li>
-      <li>No tener ningún tipo de tatuaje visible en cuello ni cara.</li>
-    </ul>
-  </SectionWrited>
-
-  <SectionWrited title="3. NORMAS GENERALES">
-    <ArticleWrited title="ART.1">
+  <SectionWrited id="1" title="APARTADO I: DERECHOS FUNDAMENTALES">
+    <ArticleWrited title="ARTÍCULO.1">
       <p>
-        Queda totalmente prohibido el uso de armas reglamentarias fuera de
-        servicio.
+        Todos los ciudadanos tienen derecho a vivir una vida libre siempre que
+        se respeten las normas adoptadas en el estado de San Andreas.
       </p>
     </ArticleWrited>
 
-    <ArticleWrited title="ART.2">
+    <ArticleWrited title="ARTÍCULO.2">
       <p>
-        Es obligatorio respetar la cadena de mandos establecida, lo cual se
-        aplica a rangos altos o rangos bajos.
+        Todos los ciudadanos obtendrán su <span class="accent"
+          >mayoría de edad</span
+        > al cumplir los 18 años. Los ciudadanos mayores de edad son responsables
+        de su propia vida y no estarán bajo responsabilidad de ninguna otra persona.
       </p>
     </ArticleWrited>
 
-    <ArticleWrited title="ART.3">
+    <ArticleWrited title="ARTÍCULO.2 (BIS)">
       <p>
-        Se deberá notificar la entrada/salida de servicio para que “MANDO” pueda
-        reasignar la malla.(Se notificará tanto IC con por discord por el canal
-        respectivo).
+        Los ciudadanos que tengan una discapacidad, ya sea física, sensorial o
+        intelectual, tienen opción a la certificación de la discapacidad y el
+        nombramiento de otro residente de la isla como su responsable siempre
+        que el proceso esté revisado por un miembro del sistema sanitario y sea
+        en mutuo acuerdo.
       </p>
     </ArticleWrited>
 
-    <ArticleWrited title="ART.4">
+    <ArticleWrited title="ARTÍCULO.3">
       <p>
-        Es obligatoria la lectura de sus derechos a un sospechoso detenido un
-        máximo de 3 de veces antes de llegar a comisaría. De no ser así el
-        sospechoso podría solicitar el <span class="accent">HABEAS CORPUS</span>
-        (Esto significa que no cumple tiempo de condena, pero la sanción económica
-        sigue siendo la misma).
+        La responsabilidad penal de un menor de edad será adoptada por su tutor
+        legal. En caso de que el menor de edad realice un acto ilegal y el tutor
+        legal no pueda hacerse responsable de las penas y condenas, el menor de
+        edad será ubicado en un centro de menores hasta el cumplimiento de las
+        condenas.
       </p>
     </ArticleWrited>
 
-    <ArticleWrited title="ART.5">
+    <ArticleWrited title="ARTÍCULO.4">
       <p>
-        Queda determinantemente prohibido pedir ascensos o méritos dentro del
-        cuerpo.
+        Los ciudadanos tienen derecho a comprar o alquilar una vivienda digna,
+        siempre que estas operaciones se realicen bajo el ámbito legal
+        correspondiente.
       </p>
     </ArticleWrited>
 
-    <ArticleWrited title="ART.6">
+    <ArticleWrited title="ARTÍCULO.5">
       <p>
-        Para iniciar o ser encargado de una investigación, se deberá formar
-        parte de la rama de <span class="accent">“Detectives”</span>, y siempre
-        con la aprobación final del Detective III.
+        Los ciudadanos tienen derecho a circular libremente por todo el
+        territorio del estado de San Andreas, excepto por las propiedades
+        privadas del gobierno o zonas catalogadas como prohibidas por el estado.
+        Las zonas prohibidas son: los aeropuertos de la isla, Base Militar de
+        Fort Zancudo, la Prisión Federal de Bolingbroke y los edificios e
+        instalaciones de las fuerzas y cuerpos del estado. En estas zonas las
+        fuerzas del estado podrán abatir sin previo aviso, sobre todo en la Base
+        Militar.
       </p>
     </ArticleWrited>
 
-    <ArticleWrited title="ART.7">
-      <p>
-        Es obligatorio identificarse con el número de placa si un civil lo
-        solicita y tiene un motivo para solicitarlo. (No es necesario dar
-        nombres ni rangos).
-      </p>
+    <ArticleWrited title="ARTÍCULO.6">
+      <p>Todos los ciudadanos son iguales ante la ley.</p>
     </ArticleWrited>
 
-    <ArticleWrited title="ART.8">
+    <ArticleWrited title="ARTÍCULO.7">
       <p>
-        Para acceder a propiedades privadas es necesario disponer de una orden
-        judicial la cual el <span class="accent">“Capitán”</span> de la LSPD puede
-        entregar.
-      </p>
-      <p>
-        Para la solicitud de la orden se necesitan pruebas claras para actuar,
-        excepto que veamos que una persona en el interior está en peligro,
-        veamos actos ilegales, etc.
-      </p>
-    </ArticleWrited>
-
-    <ArticleWrited title="ART.9">
-      <p>
-        Las oposiciones solo las podrán realizar los agentes de la RTD
-        (Departamento de reclutamiento).
-      </p>
-      <p>
-        Los encargados de esta división serán <span class="accent"
-          >Sargentos II</span
-        > los cuales podrán asignar a otros agentes desde Oficial II en adelante
-        a la instrucción de los nuevos agentes de la LSPD.
-      </p>
-      <p class="mt-[10px] italic text-gray-500">
-        Las oposiciones tendrán una parte teórica y una parte práctica.
-      </p>
-    </ArticleWrited>
-
-    <ArticleWrited title="ART.10">
-      <p>
-        Queda prohibido abrir fuego a las ruedas de vehículos en zonas urbanas.
-        (Siempre se podrá realizar en carreteras o zonas poco transitadas y por
-        el copiloto del automóvil. En caso de ser el conductor el vehículo
-        deberá estar completamente parado).
-      </p>
-    </ArticleWrited>
-
-    <ArticleWrited title="ART.11">
-      <p>
-        Queda prohibido realizar el código <span class="accent">Pit</span> a motocicletas.
-      </p>
-    </ArticleWrited>
-
-    <ArticleWrited title="ART.12">
-      <p>
-        Queda totalmente prohibido realizar actos corruptos (vender armamento
-        policial, hacer la vista gorda, vender la droga incautada,etc) si se
-        realiza alguna de estas acciones acarreará la inmediata expulsión del
-        cuerpo policial y conlleva a su correspondiente sanción administrativa.
-      </p>
-    </ArticleWrited>
-
-    <ArticleWrited title="ART.13">
-      <p>
-        Siempre que se haga una parada de tráfico nunca se utilizará el arma
-        letal, siempre taser en mano o si puede ser desarmado.
-      </p>
-    </ArticleWrited>
-
-    <ArticleWrited title="ART.14">
-      <p>
-        Siempre antes de realizar algún código a un vehículo de cuatros ruedas
-        habrá que darle un máximo de 3 avisos mediante el megáfono incorporado
-        al vehículo.
-      </p>
-    </ArticleWrited>
-
-    <ArticleWrited title="ART.15">
-      <p>
-        Habrá que mantener en todo momento durante la jornada laboral tanto el
-        exterior como el interior del patrulla en buen estado.
-      </p>
-    </ArticleWrited>
-
-    <ArticleWrited title="ART.16">
-      <p>
-        Hay que mantener la radio limpia en todo momento para que se pueda
-        escuchar de manera clara a <span class="accent">MANDO</span>, solo se
-        podrán decir cosas necesarias, de manera rápida y clara.
-      </p>
-    </ArticleWrited>
-
-    <ArticleWrited title="ART.17">
-      <h4>El comisionado se compone de:</h4>
-      <ul>
-        <li><span class="accent">Teniente</span></li>
-        <li class="separate"><span class="accent">Capitán</span></li>
-        <hr class="separate" />
-        <li class="separate"><span class="accent">Comandante</span></li>
-        <li class="separate"><span class="accent">Jefe Supervisor</span></li>
-      </ul>
-    </ArticleWrited>
-  </SectionWrited>
-
-  <SectionWrited title="4. DERECHOS DEL DETENIDO">
-    <ul>
-      <li>
-        Derecho a permanecer en silencio y aclarar que todo lo que diga podrá
-        ser utilizado en su contra ante un tribunal de justicia.
-      </li>
-      <li>
-        Derecho a comida, bebida o asistencia sanitaria en caso de ser precise.
-      </li>
-      <li>
-        Derecho a un abogado, y en caso de no poder permitírselo se le otorgará
-        uno de oficio. <strong
-          >(No tendrá acceso a un abogado si se le pilla en un flagrante delito)</strong
+        La lengua oficial del estado de San Andreas será el <span class="accent"
+          >inglés</span
         >.
+      </p>
+    </ArticleWrited>
+
+    <ArticleWrited title="ARTÍCULO.8">
+      <p>
+        Todos los ciudadanos podrán contraer matrimonio sin limitaciones ante el
+        género y etnia de la otra persona.
+      </p>
+    </ArticleWrited>
+
+    <ArticleWrited title="ARTÍCULO.9">
+      <p>
+        Todos los ciudadanos podrán reunirse por todo el territorio del estado
+        de San Andreas, salvo en las zonas catalogadas como prohibidas o en las
+        propiedades privadas del estado, así como en las instalaciones y
+        edificios públicos. Realizar este tipo de reuniones en las zonas
+        mencionadas anteriormente se considera como la formación de una
+        manifestación ilegal, y será reprimida y se actuará en base a la ley.
+      </p>
+    </ArticleWrited>
+
+    <ArticleWrited title="ARTÍCULO.10">
+      <p>
+        Para poder realizar una <span class="accent">manifestación</span>, el
+        encargado de esta debe avisar con 72 horas de anterioridad al
+        departamento policial la creación de esta, así como la zona y el número
+        aproximado de miembros. No necesitará ser aprobada, pero podrá ser
+        revocada o pospuesta por el departamento policial.
+      </p>
+    </ArticleWrited>
+
+    <ArticleWrited title="ARTÍCULO.11">
+      <p>
+        Todos los ciudadanos detenidos deberán recibir la lectura de sus
+        derechos. Los miembros de los cuerpos y fuerzas de seguridad del estado
+        podrán obviar este deber siempre que su vida o la del detenido corra
+        peligro. Los ciudadanos que no hayan recibido la lectura de sus derechos
+        podrán solicitar el <span class="accent">Habeas Corpus</span>. Esta
+        solicitud permitirá el no recibir ningún tipo de condena temporal pero
+        no suprimirá los delitos ni multas, los cuáles serán añadidos a los
+        expedientes de los ciudadanos detenidos.
+      </p>
+    </ArticleWrited>
+
+    <ArticleWrited title="ARTÍCULO.12">
+      <p>
+        Todas las condenas que no superen los 30 meses se cumplirán en los
+        calabozos de la comisaría donde haya sido procesado. <span
+          class="accent">Si la condena supera los 30 meses</span
+        >, el detenido deberá ser trasladado a la Prisión federal de
+        Bolingbroke. Se le pondrá en libertad provisional y se le notificará la
+        fecha del ingreso en la Prisión federal.
+      </p>
+    </ArticleWrited>
+
+    <ArticleWrited title="ARTÍCULO.13">
+      <p>
+        La zona de la <span class="accent">Isla de Cayo Perico</span> y sus alrededores,
+        es una zona con acceso restringido para toda la ciudadanía incluyendo los
+        agentes de la ley, los cuales sólo podrán patrullar hasta aguas nacionales
+        (Territorio del estado de San Andreas).
+      </p>
+    </ArticleWrited>
+
+    <ArticleWrited title="ARTÍCULO.14">
+      <p>
+        A todos los ciudadanos que sean condenados por terrorismo se les
+        aplicará la condena permanente inmediata a cumplir en la Prisión federal
+        de Bolingbroke.
+      </p>
+    </ArticleWrited>
+
+    <ArticleWrited title="ARTÍCULO.15">
+      <p>
+        Todos los ciudadanos tendrán derecho a recibir asistencia sanitaria y no
+        podrán ser privados de este derecho bajo ninguna circunstancia.
+      </p>
+    </ArticleWrited>
+
+    <ArticleWrited title="ARTÍCULO.16">
+      <p>
+        Todos los ciudadanos tendrán opción a inscribirse para obtener un puesto
+        como funcionario público siempre que no tengan ningún delito inscrito en
+        su base de datos.
+      </p>
+    </ArticleWrited>
+
+    <ArticleWrited title="ARTÍCULO.17">
+      <p>
+        Todos los ciudadanos podrán realizar actividades de caza en las zonas
+        predestinadas para ello. La caza de <span class="accent"
+          >águilas, pumas y coyotes</span
+        > es <span class="accent">ilegal</span> y será sancionada. También será sancionada
+        penalmente la pesca de <span class="accent">animales protegidos</span> como
+        los <span class="accent">tiburones</span> o las <span class="accent"
+          >tortugas</span
+        >.
+      </p>
+    </ArticleWrited>
+
+    <ArticleWrited title="ARTÍCULO.18">
+      <p>
+        El maltrato a animales está completamente prohibido, y lo mismo está
+        protegido por el código penal.
+      </p>
+    </ArticleWrited>
+
+    <ArticleWrited title="ARTÍCULO.19">
+      <p>
+        El consumo, la recogida y la pertenencia de sustancias ilícitas será
+        penado duramente por el departamento policial.
+      </p>
+    </ArticleWrited>
+
+    <ArticleWrited title="ARTÍCULO.20">
+      <p>
+        Los ciudadanos podrán portar bandanas o gafas de sol. Los miembros de
+        los departamentos policiales podrán solicitar su retirada.
+      </p>
+    </ArticleWrited>
+
+    <ArticleWrited title="ARTÍCULO.21">
+      <p>
+        Si un ciudadano es detenido y no es liberado en el plazo establecido por
+        causas de fuerza mayor no podrá denunciarlo.
+      </p>
+    </ArticleWrited>
+
+    <ArticleWrited title="ARTÍCULO.22">
+      <p>
+        Todos los ciudadanos deberán llevar encima su <span class="accent"
+          >documento de identidad</span
+        >. La omisión de identificación será motivo de retención y traslado a
+        comisaría para su posterior identificación.
+      </p>
+    </ArticleWrited>
+
+    <ArticleWrited title="ARTÍCULO.23">
+      <p>
+        Todos los ciudadanos tendrán opción de solicitar el <span class="accent"
+          >número de placa</span
+        > a cualquier agente siempre y cuando haya habido una retención indebida
+        o cualquier otro tipo de interacción entre el ciudadano solicitante y miembro
+        de las fuerzas y cuerpos de seguridad del estado dentro de servicio.
+      </p>
+    </ArticleWrited>
+
+    <ArticleWrited title="ARTÍCULO.24">
+      <p>
+        Todos los ciudadanos recibirán la nacionalidad una vez entren a la isla.
+        La cual no podrá ser retirada bajo ningún concepto.
+      </p>
+    </ArticleWrited>
+
+    <ArticleWrited title="ARTÍCULO.25">
+      <p>
+        Todos los delitos vienen tipificados en el <a href="#codigoPenal"
+          >código penal</a
+        >.
+      </p>
+    </ArticleWrited>
+  </SectionWrited>
+
+  <SectionWrited
+    id="2"
+    title="APARTADO II: DERECHOS Y APLICACIONES DE LOS DECRETOS"
+  >
+    <h4>BASE LEGISLATIVA 1.0 - DERECHO PENAL</h4>
+    <p>
+      1. Los miembros de los departamentos policiales se encargarán de aplicar
+      todas las sanciones penales dentro del estado y establecer el estado de
+      derecho.
+    </p>
+    <p class="separate">
+      2. La detención preventiva/retención no puede durar más de 30 meses. Si se
+      necesita una extensión, esta debe ser autorizada por un juez.
+    </p>
+    <p class="separate">3. Casos de detención inmediata a un civil:</p>
+    <ul>
+      <li>
+        En el caso de que el ciudadano se encuentre en búsqueda y captura.
+      </li>
+      <li>En el caso de que el agente lo haya visto en un delito flagrante.</li>
+      <li>
+        En el caso de que el ciudadano haya huido y entre en una propiedad
+        privada.
       </li>
       <li>
-        Derecho a una llamada no superior a 1 minuto y siempre en presencia de
-        un oficial de la ley.
+        En el caso de que el ciudadano no porte la documentación (solo
+        retención).
       </li>
-      <li>Derecho a ser informado de los delitos que se le acusa.</li>
+      <li>
+        Realizar fotografías o grabaciones a un funcionario público de servicio.
+      </li>
+    </ul>
+    <p class="separate">
+      4. Procedimientos que no conllevan la detención del civil:
+    </p>
+    <ul>
+      <li>Registrar a un ciudadano dentro de un perímetro policial.</li>
+      <li>Ser retenido en un control policial.</li>
+      <li>Solicitar la identificación de un ciudadano.</li>
+    </ul>
+    <p class="separate">5. Realización de registros:</p>
+    <ul>
+      <li>Conducción temeraria por parte del ciudadano.</li>
+      <li>Agresión por parte de un civil a otro.</li>
+      <li>Insultos graves a un funcionario público.</li>
+      <li>Posesión de objetos ilegales.</li>
+      <li>Circular con el rostro oculto.</li>
+      <li>Al estar dentro del área perimetral donde se ha realizado un delito grupal.</li>
+      <li>En caso de que el agente le haya visto cometer un delito.</li>
     </ul>
   </SectionWrited>
 
-  <SectionWrited title="5. NIVELES DE ALERTA">
-    <ArticleWrited title="ALERTA 1">
-        <h4>Armamento:</h4>
-        <ul>
-            <li>Pistola de combate</li>
-            <li>Taser</li>
-            <li>Porra / Linterna</li>
-        </ul>
-    </ArticleWrited>
-    
-    <ArticleWrited title="ALERTA 2">
-        <h4>Armamento:</h4>
-        <ul>
-            <li>Pistola de combate</li>
-            <li>Taser</li>
-            <li>Porra / Linterna</li>
-            <li>Escopeta (Patrulla)</li>
-            <li>Chaleco Antibalas</li>
-        </ul>
-    </ArticleWrited>
-    
-    <ArticleWrited title="ALERTA 3">
-        <h4>Armamento:</h4>
-        <ul>
-            <li>Pistola de combate</li>
-            <li>Taser</li>
-            <li>Porra / Linterna</li>
-            <li>Escopeta (Patrulla)</li>
-            <li>SMG (Patrulla)</li>
-            <li>Chaleco Antibalas</li>
-        </ul>
-    </ArticleWrited>
-    
-    <ArticleWrited title="ALERTA 4">
-        <h4>Armamento:</h4>
-        <ul>
-            <li>Pistola de combate</li>
-            <li>Taser</li>
-            <li>Porra / Linterna</li>
-            <li>Escopeta (Patrulla)</li>
-            <li>Fusil de asalto (Patrulla)</li>
-            <li>Chaleco Antibalas</li>
-        </ul>
-    </ArticleWrited>
-    
-    <ArticleWrited title="ALERTA 5">
-        <h4>Armamento:</h4>
-        <ul>
-            <li>Pistola de combate</li>
-            <li>Taser</li>
-            <li>Porra / Linterna</li>
-            <li>Fusil de asalto (Agente)</li>
-            <li>Chaleco Antibalas</li>
-            <li>Casco antidisturbios</li>
-        </ul>
-    </ArticleWrited>
-  </SectionWrited>
-
-  <SectionWrited title="6. RANGOS">
-    <Rangos />
-  </SectionWrited>
+  <SectionWrited
+    id="3"
+    title="APARTADO III: LOS DECRETOS DE LEY Y SU NATURALEZA"
+  />
 </Layout>
 
 <style>

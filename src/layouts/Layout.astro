@@ -7,22 +7,18 @@ import NavBar from "../components/navbar/NavBar.astro";
 import Footer from "../components/Footer.astro";
 
 interface Props {
-	title: string
-	description: string
-	image?: string
+  title: string;
+  description: string;
+  image?: string;
 }
 
-const { title, description, image } = Astro.props
+const { title, description, image } = Astro.props;
 ---
 
 <!doctype html>
 <html lang="es">
   <head>
-    <SEO
-			description={description}
-			image={image}
-			title={title}
-		/>
+    <SEO description={description} image={image} title={title} />
   </head>
   <body class="w-full flex flex-col justify-center items-center">
     <BackgroundBlur />
@@ -61,7 +57,7 @@ const { title, description, image } = Astro.props
         font-family: "Jost", system-ui, sans-serif;
         background: var(--background-color);
         overflow-x: hidden;
-        overscroll-behavior: none;
+        scroll-behavior: smooth;
         color-scheme: dark light;
         color: white;
       }
