@@ -1,0 +1,219 @@
+---
+import { getSession } from "auth-astro/server";
+const session = await getSession(Astro.request);
+
+import { Sugerencias, db } from "astro:db";
+
+if (Astro.request.method === "POST") {
+  // Requisito desde Astro para hacer que la base de datos funcione para la insercion, eliminacion, etc...
+  const formData = await Astro.request.formData();
+
+  // COGE DATOS DEL FORMULARIO DE NOVEDADES
+  const date = formData.get("date");
+  const content = formData.get("content");
+  const username = formData.get("username");
+  const userimage = formData.get("userimage");
+  // Desde aqui empieza a insertar los datos dentro de la base de datos
+  if (
+    typeof date === "string" &&
+    typeof content === "string" &&
+    typeof username === "string" &&
+    typeof userimage === "string"
+  ) {
+    await db.insert(Sugerencias).values({ date, content, username, userimage });
+  }
+}
+---
+
+<button class="suge w-full text-base md:text-xs lg:text-base" id="btn"
+  >AÑADIR UNA NUEVA SUGERENCIA</button
+>
+
+<div id="modal" class="modal">
+  <div
+    class="modal-content  rounded-md bg-[#041925]/70 backdrop-blur-md w-[80%] h-80 relative mx-auto mt-28 md:mt-20"
+  >
+    <span class="close absolute top-0 right-3 transition-colors duration-300"
+      >&times;</span
+    >
+    <form method="post" autocomplete="off">
+      <input
+        type="text"
+        id="fechaActual"
+        value=""
+        hidden
+        readonly
+        name="date"
+      />
+
+      <input
+        type="text"
+        id="username"
+        name="username"
+        value={session?.user?.name}
+        readonly
+        hidden
+      />
+      <input
+        type="text"
+        id="userimage"
+        name="userimage"
+        value={session?.user?.image}
+        readonly
+        hidden
+      />
+
+      <h1
+        class="text-2xl lg:text-4xl font-pricedown uppercase drop-shadow-xl mb-4"
+      >
+        Añadir Nueva <span
+          class="text-transparent bg-clip-text bg-gradient-to-r drop-shadow-xl to-[#1BD1C2] from-[#15A9CE]"
+          >Sugerencia</span
+        >:
+      </h1>
+
+      <textarea
+        name="content"
+        required
+        style="field-sizing: content;"
+        placeholder="Habla sobre tu nueva novedad ..."
+        class="p-2 rounded-md h-44 mb-2 bg-sky-50/5 outline-none resize-none border-l-2 border-sky-50/20 focus:border-l-2 focus:border-sky-300/60 focus:bg-sky-50/10 transition duration-300 w-full"
+      ></textarea>
+
+      <div>
+        <button
+          title="Save"
+          class="cursor-pointer flex items-center fill-sky-400 bg-sky-950 hover:bg-sky-900 active:border active:border-sky-400 rounded-md transition duration-300 p-2"
+        >
+          <svg
+            viewBox="0 -0.5 25 25"
+            height="20px"
+            width="20px"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              stroke-linejoin="round"
+              stroke-linecap="round"
+              stroke-width="1.5"
+              d="M18.507 19.853V6.034C18.5116 5.49905 18.3034 4.98422 17.9283 4.60277C17.5532 4.22131 17.042 4.00449 16.507 4H8.50705C7.9721 4.00449 7.46085 4.22131 7.08577 4.60277C6.7107 4.98422 6.50252 5.49905 6.50705 6.034V19.853C6.45951 20.252 6.65541 20.6407 7.00441 20.8399C7.35342 21.039 7.78773 21.0099 8.10705 20.766L11.907 17.485C12.2496 17.1758 12.7705 17.1758 13.113 17.485L16.9071 20.767C17.2265 21.0111 17.6611 21.0402 18.0102 20.8407C18.3593 20.6413 18.5551 20.2522 18.507 19.853Z"
+              clip-rule="evenodd"
+              fill-rule="evenodd"></path>
+          </svg>
+          <span class="text-sm text-sky-400 font-bold pr-1"
+            >Publicar Novedad</span
+          >
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<style>
+  .suge {
+    padding: 10px 20px;
+    text-transform: uppercase;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: 500;
+    color: #ffffff80;
+    text-shadow: none;
+    background: transparent;
+    cursor: pointer;
+    box-shadow: transparent;
+    border: 1px solid #ffffff80;
+    transition: 0.5s ease;
+    user-select: none;
+  }
+
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+
+  .modal-content {
+    padding: 20px;
+    border: 1px solid #1272aa3b;
+  }
+
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+
+  .close:hover,
+  .close:focus {
+    color: gray;
+    text-decoration: none;
+    cursor: pointer;
+  }
+</style>
+
+<script>
+  const btn = document.getElementById("btn");
+  const modal = document.getElementById("modal");
+  const closeButton = document.getElementsByClassName("close")[0];
+
+  if (btn && modal && closeButton) {
+    btn.addEventListener("click", function () {
+      modal.style.display = "block";
+    });
+
+    closeButton.addEventListener("click", function () {
+      modal.style.display = "none";
+    });
+  } else {
+    console.error("No se encontró uno o más elementos necesarios.");
+  }
+
+  window.onload = function () {
+    var fecha = new Date(); // Fecha actual
+    var mes = fecha.getMonth() + 1; // Obteniendo mes
+    var dia = fecha.getDate(); // Obteniendo día
+    var año = fecha.getFullYear(); // Obteniendo año
+
+    // Formatea el día con cero si es menor de 10
+    var diaFormatted =
+      dia < 10 ? dia.toString().padStart(2, "0") : dia.toString();
+    // Formatea el mes con cero si es menor de 10
+    var mesFormatted =
+      mes < 10 ? mes.toString().padStart(2, "0") : mes.toString();
+
+    var inputFecha = document.getElementById("fechaActual") as HTMLInputElement;
+    if (inputFecha) {
+      inputFecha.value = diaFormatted + "/" + mesFormatted + "/" + año;
+    }
+  };
+
+  // En el lado del cliente
+  document.querySelector("form")?.addEventListener("submit", function (event) {
+    event.preventDefault(); // Evita la recarga de la página por defecto
+
+    // Recoge los datos del formulario
+    const formData = new FormData(event.target as HTMLFormElement);
+
+    // Envía la petición POST
+    fetch((event.target as HTMLFormElement).action, {
+      method: "POST",
+      body: formData,
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("La petición POST falló");
+        }
+        // Recarga la página después de que la petición POST se haya completado con éxito
+        location.reload();
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+  });
+</script>

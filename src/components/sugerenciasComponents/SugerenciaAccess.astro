@@ -1,0 +1,16 @@
+---
+import SectionWrited from "../normas/SectionWrited.astro";
+import SessionComponent from "./SessionComponent.astro";
+import ShowSugerencias from "./ShowSugerencias.astro";
+import ModalSugerencias from "./ModalSugerencias.astro";
+---
+
+<SessionComponent />
+
+<SectionWrited title="SUGERENCIAS DE NUESTRA COMUNIDAD">
+  <div class="grid grid-cols-1 md:grid-cols-2 justify-items-center gap-4">
+    <ShowSugerencias />
+  </div>
+</SectionWrited>
+
+<ModalSugerencias />

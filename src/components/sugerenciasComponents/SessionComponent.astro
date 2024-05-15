@@ -1,0 +1,31 @@
+---
+import { SignOut } from "auth-astro/components";
+import { getSession } from "auth-astro/server";
+const session = await getSession(Astro.request);
+---
+
+<div class="flex flex-row gap-3 justify-center md:justify-start">
+  <span
+    class="relative inline-block border border-slate-700 shadow-xl rounded-lg"
+    aria-label="avatar"
+  >
+    <img src={session?.user?.image} class="w-20 h-20 rounded-lg" />
+    <span
+      class="absolute -top-1.5 -right-1.5 w-4 h-4 rounded-lg bg-green-500 ring-2 ring-gray-50"
+    ></span>
+    <span
+      class="absolute -top-1.5 -right-1.5 w-4 h-4 rounded-lg bg-green-500 animate-ping"
+    ></span>
+  </span>
+  <div class="flex flex-col justify-between">
+    <div>
+      <h1 class="text-xl font-pricedown uppercase">{session?.user?.name}</h1>
+      <p class="text-secondary">{session?.user?.email}</p>
+    </div>
+    <SignOut
+      class="rounded-md uppercase text-red-400 bg-red-800/20 cursor-pointer transition-all duration-300 hover:bg-red-600/40 hover:text-white hover:shadow-xl"
+    >
+      logout
+    </SignOut>
+  </div>
+</div>
