@@ -1,0 +1,756 @@
+---
+import TextSection from "../../components/TextSection.astro";
+import Layout from "../../layouts/Layout.astro";
+import ArticleWrited from "../../components/normas/ArticleWrited.astro";
+import SectionWrited from "../../components/normas/SectionWrited.astro";
+import ButtonRP from "../../components/ButtonRP.astro";
+---
+
+<Layout
+  title="ProgresoRP - Leete las normas de nuestro servidor"
+  description="TODO"
+>
+  <TextSection text="Normativa General - ProgresoRP" subtext="TODO" />
+
+  <div class="flex flex-col gap-2 md:flex-row justify-between items-center">
+    <ButtonRP go="/normativas/generales" text="Generales" />
+    <ButtonRP go="/normativas/sapd" text="SAPD" />
+    <ButtonRP go="/normativas/samd" text="SAMD" />
+    <ButtonRP go="/normativas/staff" text="STAFF" />
+    <ButtonRP go="/normativas/actos-delictivos" text="Actos Delictivos" />
+  </div>
+
+  <SectionWrited title="1. CONCEPTOS BÁSICOS">
+    <ArticleWrited title="IC | IN CHARACTER">
+      <p>Es todo lo que le ocurre a nuestro personaje dentro del juego.</p>
+    </ArticleWrited>
+
+    <ArticleWrited title="OOC | OUT OF CHARACTER">
+      <p>
+        Es todo lo que sucede fuera del juego, lo cual no influye en la historia
+        de nuestro personaje (discord, streams...).
+      </p>
+    </ArticleWrited>
+
+    <ArticleWrited title="PG | POWERGAMING">
+      <p>
+        Se considera PowerGaming, cualquier acción que esté fuera de los límites
+        de la realidad.
+      </p>
+      <h4>Ejemplos prácticos:</h4>
+      <ul>
+        <li>Subir con un superdeportivo una montaña</li>
+        <li>Chocarse con el coche y seguir conduciendo</li>
+        <li>Cargar un cuerpo e ir corriendo</li>
+      </ul>
+    </ArticleWrited>
+
+    <ArticleWrited title="MG | METAGAMING">
+      <p>
+        Se considera MetaGaming el obtener información de manera OOC e
+        implementarla de manera IC.
+      </p>
+      <h4>Ejemplos prácticos:</h4>
+      <ul>
+        <li>Ir en busca de un amigo que te ha avisado por discord</li>
+        <li>
+          Ver el directo de algún streamer e ir donde él se encuentre y forzarle
+          el rol
+        </li>
+        <li>Hablar por discord con tus compañeros estando muerto o vivo</li>
+      </ul>
+    </ArticleWrited>
+
+    <ArticleWrited title="Bug Abuse">
+      <p>
+        El término Bug Abuse es emplear cualquier mecánica del juego que nos
+        permita obtener beneficios empleando bugs, como por ejemplo el
+        <span class="accent">BunnyJump</span>, cancelar animaciones para tardar
+        menos tiempo en hacer las cosas, etc...
+      </p>
+    </ArticleWrited>
+
+    <ArticleWrited title="BD | BAD DRIVING">
+      <p>
+        Se considera BadDriving el tener una mala conducción como por ejemplo
+        conducir por encima de la calzada, ir en dirección contraria, romper
+        señales de tráfico (cosas las cuales en la vida real no tendrían
+        lógica).
+      </p>
+    </ArticleWrited>
+
+    <ArticleWrited title="DM | DEATH MATCH">
+      <p>
+        Se considera DeathMatch atacar/matar a otra persona sin un rol previo ni
+        un rol que lo justifique.
+      </p>
+    </ArticleWrited>
+
+    <ArticleWrited title="VDM | VEHICLE DEATH MATCH">
+      <p>
+        Se considera VehicleDeathMatch atacar/matar a otra persona sin un rol
+        previo ni un rol que lo justifique con un vehículo.
+      </p>
+    </ArticleWrited>
+
+    <ArticleWrited title="PK | PLAYER KILL">
+      <p>
+        Al ser abatido por cualquier motivo, no podrás recordar nada de lo
+        ocurrido en el último rol.
+      </p>
+      <h4>Ejemplo práctico:</h4>
+      <p>
+        Te lías a puñetazos en gimnasio y apareces en hospital, no podrás
+        recordar nada de lo ocurrido, por lo que no podrás regresar a continuar
+        la pelea, ya que se consideraría RK. Podrán recordarte lo que sucedió
+        algún testigo de los hechos.
+      </p>
+    </ArticleWrited>
+
+    <ArticleWrited title="PKT | PLAYER KILL TOTAL">
+      <p>No recordarás nada de lo acontecido en un rol específico.</p>
+      <h4>Ejemplo práctico:</h4>
+      <p>
+        Encuentras a un civil random o un policía en tu sede de Mafia/Banda y
+        decides que no recuerde nada de lo que pudo haber visto y/o escuchado.
+      </p>
+    </ArticleWrited>
+
+    <ArticleWrited title="RK | REVENGE KILL">
+      <p>
+        Tras haber sido abatido, decides volver a la zona del “conflicto” y
+        tomar venganza, sin que nadie te haya puesto al día de lo ocurrido.
+      </p>
+      <h4>Ejemplo práctico:</h4>
+      <p>
+        Comienzas una discusión de 2 personas contra tí, deciden sacar un
+        cuchillo y dejarte en el suelo. Reapareces en el Hospital, e
+        inmediatamente te diriges a la zona donde fuiste abatido.
+      </p>
+    </ArticleWrited>
+
+    <ArticleWrited title="CK | CHARACTER KILL">
+      <p>
+        El término CK significa la muerte permanente de tu personaje y sin
+        posibilidad de tomar medidas.
+      </p>
+      <h4>Existen varios tipos de CK:</h4>
+
+      <p>
+        <span class="accent">CK Policial</span>: Cumplimiento de cadena perpetua
+        y/o superar multas impagadas de 200.000$
+      </p>
+      <p class="separate">
+        <span class="accent">CK Banda/Mafia</span>: Banda o Mafia decide
+        quitarte de enmedio (se requieren pruebas)
+      </p>
+      <p class="separate">
+        <span class="accent">CK Personal</span>: Tomas la decisión de suicidarte
+        (se requieren motivos justificados, no se aceptará CK si es para evadir
+        un rol)
+      </p>
+      <p class="separate">
+        <span class="accent">CK Administrativo</span>: La administración decide
+        que tu personaje debe morir
+      </p>
+
+      <div
+        class="mt-[10px] text-center bg-[#F93D0A]/10 bg-blur w-full relative backdrop-blur backdrop-filter p-4 rounded-md shadow-xl"
+      >
+        <p>
+          <span class="font-bold uppercase"
+            >*Todos los CK serán revisados y comprobados por el Encargado de CK*</span
+          >
+        </p>
+        <p>
+          Además no se podrán realizar traspaso de bienes, sólo mantendrás en tu
+          “nueva vida” las cosas de donación.
+        </p>
+      </div>
+    </ArticleWrited>
+
+    <ArticleWrited title="USO DEL /ME">
+      <p>
+        El /me es un comando que se utiliza para expresar nuestras acciones
+        dentro del juego las cuales no se pueden contemplar visualmente, ya que
+        no existen animaciones dentro del juego para ello.
+      </p>
+      <h4>Ejemplos del uso del /me:</h4>
+      <ul>
+        <li>/me abre la puerta del armario.</li>
+        <li>/me abre la mochila y saca una libreta.</li>
+      </ul>
+    </ArticleWrited>
+
+    <ArticleWrited title="USO DEL /DO">
+      <p>
+        El /do es un comando que se utiliza para expresar rol de entorno, o
+        expresiones de nuestro personaje.
+      </p>
+      <p class="mt-[10px]">
+        1. Con el /do no podremos expresar <span class="accent"
+          >pensamientos</span
+        > o <span class="accent">sentimientos</span>.
+      </p>
+      <p>2. El /do no se podrá emplear para sacar beneficio propio.</p>
+      <p>3. Está terminantemente prohibido mentir a través del comando /do.</p>
+      <h4>Ejemplos del uso del /me:</h4>
+      <ul>
+        <li>/do se vería como una grúa llega y se lleva el automóvil</li>
+        <li>
+          /do se vería toda la zona de comisaría llena de agentes de la ley
+        </li>
+      </ul>
+    </ArticleWrited>
+
+    <ArticleWrited title="ROL DE ENTORNO">
+      <p>
+        Es todo lo que ocurre a tu alrededor en la Ciudad, que no se puede
+        contemplar por los límites que tiene el juego(policías, peatones,
+        tráfico, cámaras de seguridad, etc.).
+      </p>
+      <h4>Ejemplos prácticos:</h4>
+      <ul>
+        <li>
+          La comisario está llena de policías y cámaras de seguridad por lo que
+          no podremos circular a altas velocidad por la comisaría (también se
+          consideraría forzar rol).
+        </li>
+        <li>
+          El hospital está lleno de seguridades y cámaras de seguridad por lo
+          que no se podría realizar ningún acto delictivo.
+        </li>
+      </ul>
+    </ArticleWrited>
+
+    <ArticleWrited title="FAIRPLAY">
+      <p>
+        El <span class="accent">FairPlay</span> es el gusto de jugar limpiamente
+        y disfrutar del rol por encima de intentar salir victorioso del rol. Debemos
+        de dar oportunidad a otros jugadores y no jugar de manera tan competitiva.
+      </p>
+      <h4>Ejemplos del término FAIRPLAY:</h4>
+      <ul>
+        <li>
+          Se realiza una persecución policial en la que tu como “delincuente”
+          vas en una moto y decides meterte por un callejón donde el vehículo de
+          la policía no puede entrar, sin dar ninguna oportunidad a la policía
+          de seguir esa persecución.
+        </li>
+        <li>
+          Eres miembro de una banda, y decides secuestrar a un miembro de otra y
+          tomas la decisión de llevártelo a tu barrio, sin dar oportunidad a los
+          miembros de la otra banda a entrar ya que existe un rol de entorno y
+          no podrían entrar al barrio.
+        </li>
+      </ul>
+    </ArticleWrited>
+  </SectionWrited>
+
+  <SectionWrited title="2. NORMATIVA GENERAL">
+    <ArticleWrited title="VALORAR VIDA">
+      <p>
+        La existencia del personaje depende en todo momento de las acciones que
+        decidas realizar con él, cada acción conlleva una reacción, ya sea del
+        entorno o de otros jugadores. Por lo cual, deberemos ser conscientes de
+        los peligros que enfrentamos, las consecuencias de cada una de las cosas
+        que hagamos, etc...
+      </p>
+      <h4>Ejemplos prácticos:</h4>
+      <ul>
+        <li>
+          Nos están apuntando con un arma, ya sea arma blanca o de fuego y
+          decidimos reírnos de la persona o simplemente no hacer caso a lo que
+          nos dicen. (Tenemos que valorar nuestra vida aún siendo una persona
+          importante).
+        </li>
+      </ul>
+      <p class="mt-[10px]">
+        El no valorar vida será sancionable si el equipo de administración lo
+        estima coherente, por lo cual deberás pensar más de una vez la forma en
+        la que responderás a situaciones de riesgo.
+      </p>
+    </ArticleWrited>
+
+    <ArticleWrited title="EVASIÓN DE ROL">
+      <p>
+        Se considera evasión de rol, evitar realizar un rol metiéndonos por
+        ejemplo en una zona segura debido a que sabemos que el rol o no nos
+        conviene o nos perjudica, también el quedarse AFK o desconectarse
+        inmediatamente se considera evasión de rol.
+      </p>
+    </ArticleWrited>
+
+    <ArticleWrited title="CORTAR ROL">
+      <p>
+        Todo rol debe tener un principio y final, si alguna de las partes
+        cometió un error podrá ser reportado o aclarado una vez haya finalizado
+        el rol. Está terminantemente prohibido frenar el rol, marcando el error
+        escribiendo por /oop, mandar un reporte durante el rol, etc...
+      </p>
+    </ArticleWrited>
+
+    <ArticleWrited title="FORZAR ROL">
+      <p>
+        Consideramos forzar el rol, el ir buscando a personas para molestarlos,
+        insultarlos, llamar su atención, etc...
+      </p>
+      <h4>Ejemplos prácticos:</h4>
+      <ul>
+        <li>
+          Vamos a comisaría con un coche a altas velocidades buscando que la
+          policía nos persiga.
+        </li>
+        <li>
+          Vemos el directo de un streamer y vamos a donde él está para buscar un
+          rol (además de forzar rol se considera MG).
+        </li>
+      </ul>
+    </ArticleWrited>
+
+    <ArticleWrited title="ROL AJENO">
+      <p>
+        Consideramos un rol ajeno el meternos en un rol que no nos incumbe ni
+        nos involucra.
+      </p>
+    </ArticleWrited>
+
+    <ArticleWrited title="ROL SENSIBLE">
+      <p>
+        Para poder realizar un rol sensible deberemos de tener el consentimiento
+        de la persona a la que se le va a realizar dicho rol. Para recibir el
+        consentimiento, todo tendrá que ser acordado con antelación, esto quiere
+        decir que ambas personas tendrán que estar de acuerdo. Será el atacante
+        el que se encargue de consultar con la víctima; Si la víctima está en
+        desacuerdo el rol seguirá pero sin esa parte. (Consultar por /msg).
+      </p>
+      <div
+        class="mt-[10px] text-center bg-[#F93D0A]/10 bg-blur w-full relative backdrop-blur backdrop-filter p-4 rounded-md shadow-xl"
+      >
+        <p>
+          <span class="font-bold uppercase"
+            >*El único rol que queda terminantemente prohibido son las
+            VIOLACIONES*</span
+          >
+        </p>
+        <p>
+          Las violaciones son algo que no se podrán ni pactar ni dialogar entre
+          los usuarios.
+        </p>
+        <p class="text-red-400 font-semibold">
+          ¡Esto conlleva una sanción permanente!
+        </p>
+      </div>
+    </ArticleWrited>
+
+    <ArticleWrited title="ZONAS SEGURAS">
+      <p>
+        Las zonas seguras, son zonas donde ningún jugador puede iniciar un rol
+        agresivo.
+      </p>
+      <h4>Que zonas consideramos seguras en ProgresoRP:</h4>
+      <ul>
+        <li><span class="accent">GC (Garaje Central)</span></li>
+        <li class="separate"><span class="accent">Hospital</span></li>
+        <li class="separate"><span class="accent">Comisaria</span></li>
+        <li class="separate"><span class="accent">Gimnasio</span></li>
+        <li class="separate">
+          <span class="accent"
+            >Bancos y cajeros <span class="text-xs"
+              >(excepto atraco a banco)</span
+            ></span
+          >
+        </li>
+        <li class="separate">
+          <span class="accent">Concesionario (interior)</span>
+        </li>
+      </ul>
+      <p class="mt-[10px] italic text-gray-500">
+        Si alguien realiza un rol y se mete en zona segura para “evadir” el rol
+        continua
+      </p>
+    </ArticleWrited>
+
+    <ArticleWrited title="ZONAS CALIENTES">
+      <p>
+        El servidor no cuenta con ninguna zona caliente, excepto las zonas que
+        poseen un rol de entorno como las bandas, sedes de mafias, médico
+        ilegal, o puntos de droga.
+      </p>
+      <p class="separate">
+        1. En estas zonas se pueden iniciar un rol agresivo sin necesidad de un
+        rol previo o de policías de servicio.
+      </p>
+      <p class="separate">
+        2. Todo jugador que muera en una zona caliente recibirá un PK y no podrá
+        ser tratado por un EMS, por lo que no podrá hacer uso del comando <span
+          class="accent">/auxilio</span
+        >.
+      </p>
+      <p class="separate">
+        3. Comenzará a considerarse zona caliente el entorno de un tiroteo, por
+        lo que no podrá hacer uso del comando <span class="accent"
+          >/auxilio</span
+        >.
+      </p>
+    </ArticleWrited>
+
+    <ArticleWrited title="USO DEL /AUXILIO">
+      <p>
+        Es un comando que nos permite mandar una aviso a los EMS para que puedan
+        venir a por nosotros si estamos en el suelo heridos. Los avisos deben de
+        estar bien redactados con detalles de todo lo ocurrido. (Al igual que un <span
+          class="accent">/entorno</span
+        >)
+      </p>
+    </ArticleWrited>
+
+    <ArticleWrited title="USO DEL /ENTORNO Y /FORZAR">
+      <p>
+        <span class="accent">/entorno</span>: A la hora de realizar un robo, un
+        secuestro, algo que veamos por la calle o cualquier cosa en la que se
+        tenga que implicar a la policía se debe de mandar por el chat un <span
+          class="accent">/entorno</span
+        > explicando todo lo sucedido (es como llamar en la vida real al 112, y deberemos
+        de dar todos los datos posibles)
+      </p>
+      <h4>Ejemplos prácticos:</h4>
+      <ul>
+        <li>
+          /entorno Buenas tardes acabo de ver a un hombre encapuchado con ropa
+          de color negra y con un cuchillo en la mano entrar a un badulaque,
+          parece que tiene intención de robar, porfavor que venga la policía.
+          Ayuda!!
+        </li>
+        <li>
+          /entorno Buenas tardes, llamaba a la policía porque estoy viendo un
+          vehículo en medio de la calle por si podían venir a retirarlo.
+        </li>
+      </ul>
+      <p class="mt-[10px]">
+        <span class="accent">/forzar</span>: El robo de vehículos para la
+        conducción normal está prohibido. Solo se podrán robar para realizar
+        actos delictivos o en caso de quedarnos tirados en algún lado por <span
+          class="accent">problema del servidor</span
+        >.
+      </p>
+      <p>
+        En caso de robarlo y no ser por alguno de los motivos nombrados con
+        anterioridad la administración podrá sancionar al usuario.
+      </p>
+      <p>
+        Además es obligatorio siempre que se robe el vehículo emplear el comando <span
+          class="accent">/forzar</span
+        >.
+      </p>
+    </ArticleWrited>
+
+    <ArticleWrited title="USO DEL /DADO Y /DADOS">
+      <p>
+        <span class="accent">/dado</span>: Nos da la oportunidad de que algo nos
+        salga únicamente bien o mal. Este comando está enfocado en un rol más
+        individual.
+      </p>
+      <h4>Ejemplo:</h4>
+      <ul>
+        <p>/me rebusca en la mochila buscando una libreta</p>
+        <p>do ¿encontraría alguna libreta?</p>
+        <p>
+          <span class="accent">/dado</span> (Jugó con la suerte y le salió mal)
+        </p>
+      </ul>
+      <p class="mt-[20px]">
+        <span class="accent">/dados</span>: Nos ofrece lo mismo que el /dado,
+        con la diferencia de realizar un rol con más gente y no de manera
+        individual.
+      </p>
+      <h4>Ejemplo:</h4>
+      <ul>
+        <p>/me le mete la mano en el bolsillo y le rebusca</p>
+        <p>/do ¿se daría cuenta?</p>
+        <p>
+          <span class="accent">/dados</span> (Ha lanzado los dados y ha salido un
+          5)
+        </p>
+      </ul>
+      <p>Esto quiere decir que no la persona no se da cuenta.</p>
+      <p class="mt-[10px] italic text-gray-500">
+        (La jugada nos sale desfavorable si tiramos el dado y nos sale entre un
+        1 y un 4)
+      </p>
+      <p class="italic text-gray-500">
+        (La jugada nos sale favorable si tiramos el dado y nos sale entre un 5 y
+        un 6)
+      </p>
+    </ArticleWrited>
+
+    <ArticleWrited title="USO DEL /MSG">
+      <p>
+        Es un chat /OOC para poder hablar con otros jugadores de forma
+        totalmente privada para consultar dudas o alguna que otra situación de
+        rol. El usarlo para molestar, quejarse o incordiar a otros jugadores
+        conlleva una sanción.
+      </p>
+    </ArticleWrited>
+
+    <ArticleWrited title="REPORTES">
+      <p>
+        Para realizar un reporte se debe de hacer mediante <a
+          href="https://discord.gg/KhAfaVaDnw">discord</a
+        > y con pruebas de vídeo. Además las pruebas deben de ser claras para que
+        así la resolución del reporte se de lo antes posible.
+      </p>
+      <p>
+        En caso de fallo/bug/cosas concretas se podrá mandar un <span
+          class="accent">/report</span
+        >
+        explicando lo ocurrido. En caso de que se use de manera inapropiada el usuario
+        recibirá una sanción.
+      </p>
+    </ArticleWrited>
+
+    <ArticleWrited title="TÉRMINOS DE ROL">
+      <p>
+        1. Tienes un chicle en el zapato → Significa que des un salto con tu
+        jugador
+      </p>
+      <p class="separate">
+        2. Voy a lavarme la cara → Va a salir y entrar de nuevo
+      </p>
+      <p class="separate">3. Tormenta → Reinicio</p>
+      <p class="separate">4. Tomate un caramelo → Reiniciar voz</p>
+    </ArticleWrited>
+
+    <ArticleWrited title="USO DE VEHÍCULOS DE DONACIÓN PARA ACTOS DELICTIVOS">
+      <p>
+        Los vehículos de donación no se podrán utilizar bajo ningún concepto
+        para realizar actos delictivos (robos, secuestros…).
+      </p>
+    </ArticleWrited>
+
+    <ArticleWrited title="CAYO PERICO">
+      <p>
+        La zona de <span class="accent">“Cayo Perico”</span> será una zona a la cual
+        no se podrá acceder debido a ser una propiedad privada (acceso bajo propia
+        responsabilidad). Además, cabe destacar que la <span class="accent"
+          >SAPD</span
+        > solo podrá patrullar hasta aguas nacionales (mapa original de GTA) y bajo
+        ningún concepto podrá acceder a la zona de Cayo Perico debido a que no entra
+        en su jurisdicción.
+      </p>
+    </ArticleWrited>
+
+    <ArticleWrited title="DISPARAR EN MOVIMIENTO">
+      <p>
+        Si nos encontramos en un vehículo debemos de saber que solo podrá
+        disparar el copiloto. En caso de que el usuario vaya solo en el
+        vehículo, debe saber que el vehículo debe de estar completamente parado,
+        no se tolerará ningún tipo de movimiento.
+      </p>
+    </ArticleWrited>
+
+    <ArticleWrited title="USO DE CASCOS O MÁSCARAS DE AGUANTE">
+      <p>
+        Queda totalmente prohibido el uso de cascos o máscaras que aguanten más
+        tiros, si la administración lo detecta podría llegar el usuario a
+        recibir una sanción de manera administrativa.
+      </p>
+    </ArticleWrited>
+
+    <ArticleWrited title="TIPOS DE LICENCIAS">
+      <p>
+        <span class="accent">Licencia de armas</span>: Solo te da “derecho” a
+        usar arma blanca en caso de necesidad. Su mal uso conlleva una sanción
+        policial, además de la retirada del arma y la respectiva licencia. Cabe
+        destacar que se necesita pasar un “prueba” <span class="accent"
+          >PSICOTÉCNICA</span
+        > en el Hospital.
+      </p>
+      <p class="separate">
+        <span class="accent">Licencia de caza</span>: Esta licencia se tiene
+        para poder cazar en el bosque. Además el mal uso de las armas de caza
+        conlleva una sanción policial, además de la retirada del arma y la
+        respectiva licencia. Cabe destacar que se necesita pasar una “prueba” <span
+          class="accent">PSICOTÉCNICA</span
+        > en el Hospital.
+      </p>
+      <p class="separate">
+        <span class="accent">Licencia de vuelo</span>: Esta licencia te permite
+        pilotar desde helicóptero hasta aviones (según el examen que realices).
+        Esta licencia sólo se puede sacar en el aeropuerto, con la supervisión
+        del examinador, el cual será el mismo que dará prácticas de vuelo. Cabe
+        destacar que se necesita pasar una “prueba” <span class="accent"
+          >PSICOTÉCNICA</span
+        > en el Hospital.
+      </p>
+    </ArticleWrited>
+  </SectionWrited>
+
+  <SectionWrited title="3. QUE NO PODEMOS HACER">
+    <ArticleWrited title="VENTA DE ARTÍCULOS MÉDICOS">
+      <p>
+        Para solicitar vendas o medicamentos se deberá de disponer de un seguro
+        médico el cual le otorga ese beneficio de manera semanal:
+      </p>
+      <ul>
+        <li>5 vendas → Seguro básico</li>
+        <li>8 vendas → Seguro avanzado</li>
+        <li>4 medicamentos → Seguro avanzado</li>
+      </ul>
+      <div
+        class="mt-[10px] text-center bg-[#F93D0A]/10 bg-blur w-full relative backdrop-blur backdrop-filter p-4 rounded-md shadow-xl"
+      >
+        <p>
+          <span class="font-bold uppercase"
+            >*La venta de vendas/medicamentos queda terminantemente prohibida
+            entre usuarios*</span
+          >
+        </p>
+        <p class="text-red-400 font-semibold">
+          No se podrán acumular, solo se pedirán en caso de ser necesarios
+        </p>
+        <p class="text-red-400 font-semibold">
+          (MUY CONTROLADO POR LA ADMINISTRACIÓN)
+        </p>
+      </div>
+    </ArticleWrited>
+
+    <ArticleWrited title="USO DE VEHÍCULOS DE EMPRESA">
+      <p>
+        Está terminantemente prohibido el uso de vehículos de empresa
+        (mecánicos, locales comprados, ems, policía) para uso y disfrute
+        personal. Además los vehículos tampoco se podrán emplear para realizar
+        actos delictivos.
+      </p>
+      <p>
+        En caso contrario, la administración sancionará al usuario que lo
+        emplee.
+      </p>
+    </ArticleWrited>
+
+    <ArticleWrited title="OBLIGAR A SACAR DINERO">
+      <p>
+        Está tajantemente prohibido obligar a un usuario a sacar dinero del
+        banco para robarle. Solo se podrá robar si el dinero lo lleva encima.
+      </p>
+    </ArticleWrited>
+
+    <ArticleWrited title="DUPEO">
+      <p>
+        Cualquier tipo de dupeo (duplicado) deberá de ser informado a la
+        administración, en caso de lo contrario será sancionado con la expulsión
+        del servidor. Igualmente si eres conocedor de algún tipo de bug/dupeo y
+        no lo notifican también serás expulsado del servidor.
+      </p>
+    </ArticleWrited>
+
+    <ArticleWrited title="EL USO DE PROGRAMAS EXTERNOS">
+      <p>
+        Cualquier uso de programas externos a FiveM (macros/hacks/moduladores de
+        voz…) están totalmente prohibidos con motivos de sanciones temporales o
+        permanentes del servidor.
+      </p>
+    </ArticleWrited>
+
+    <ArticleWrited title="USO DE MIRAS FIJAS">
+      <p>
+        El uso de miradas fijas en el servidor (apuntar con armas) están
+        totalmente prohibidos con motivos de sanciones temporales o permanentes
+        del servidor.
+      </p>
+    </ArticleWrited>
+
+    <ArticleWrited title="APTITUDES DE PVP">
+      <ul>
+        <li>SpeedBoost (SB)</li>
+        <li>GhostPeek (GP)</li>
+        <li>RolaBug (RB)</li>
+      </ul>
+    </ArticleWrited>
+
+    <ArticleWrited title="BUSCAR TIROTEOS">
+      <p>
+        Tenemos que recordar que esto es un servidor de rol, por lo que ir a
+        buscar tiroteos contaría como sanción administrativa. Los tiroteos
+        pueden surgir por problemas entre bandas, mafias, policías, etc. Pero
+        nunca iremos a buscarlos.
+      </p>
+    </ArticleWrited>
+
+    <ArticleWrited title="LENGUAJE EN EL SERVIDOR">
+      <p>
+        El lenguaje dentro del servidor será el español. Además el uso de
+        palabras internaciones se puede usar sin abusar de ellas, como por
+        ejemplo: “nigga”, “hommie”, etc. Además cabe destacar que la palabra “<span
+          class="text-red-500">maricon</span
+        >” está totalmente prohibida. El uso de esta palabra conlleva una
+        sanción administrativa.
+      </p>
+    </ArticleWrited>
+
+    <ArticleWrited title="CONVERSACIONES FUERA DE ROL">
+      <p>
+        Siempre que estemos en el servidor, hablaremos entre nosotros como los
+        personajes que nos hemos creado, nunca hablaremos fuera de rol, ni
+        usaremos términos que funcionen como tal.
+      </p>
+    </ArticleWrited>
+
+    <ArticleWrited title="INSULTOS Y FALTAS DE RESPETO OOC">
+      <p>
+        Los insultos realizados por OOC (discord, /msg, /oop) serán sanciones
+        con la expulsión de la ciudad/discord de manera temporal o permanente
+        según la gravedad.
+      </p>
+    </ArticleWrited>
+
+    <ArticleWrited title="ACOSO">
+      <p>
+        Está prohibido todo tipo de acoso hacia uno o varios jugadores. No se
+        permitirán discriminaciones por orientaciones sexuales, identidades de
+        género, aspectos físicos, creencias religiosas, etc. Debemos recordar
+        que una broma deja de serlo cuando a la otra parte deja de resultarle
+        gracioso.
+      </p>
+    </ArticleWrited>
+
+    <ArticleWrited title="SPAM">
+      <p>
+        Queda terminantemente prohibido realizar spam de cualquier tipo sin
+        autorización de la administración del servidor. El spam será sancionado
+        con la expulsión de la ciudad y del discord de la misma.
+      </p>
+    </ArticleWrited>
+  </SectionWrited>
+</Layout>
+
+<style>
+  h4 {
+    font-style: italic;
+    margin-top: 10px;
+    text-transform: capitalize;
+    font-weight: bold;
+  }
+
+  .accent {
+    background: #1fc1d721;
+    padding-inline: 3px;
+    padding-top: 1px;
+    padding-bottom: 2px;
+    border-radius: 3px;
+    font-weight: bold;
+  }
+
+  .separate {
+    margin-top: 5px;
+  }
+
+  ul {
+    list-style: inside;
+    margin-left: 10px;
+  }
+
+  a {
+    text-decoration: underline;
+  }
+</style>

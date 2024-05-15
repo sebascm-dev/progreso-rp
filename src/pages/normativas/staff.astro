@@ -1,0 +1,212 @@
+---
+import TextSection from "../../components/TextSection.astro";
+import Layout from "../../layouts/Layout.astro";
+import ArticleWrited from "../../components/normas/ArticleWrited.astro";
+import SectionWrited from "../../components/normas/SectionWrited.astro";
+import ButtonRP from "../../components/ButtonRP.astro";
+---
+
+<Layout
+  title="ProgresoRP - Leete las normas de nuestro servidor"
+  description="TODO"
+>
+  <TextSection text="Normativa SAPD - ProgresoRP" subtext="TODO" />
+
+  <div class="flex flex-col gap-2 md:flex-row justify-between items-center">
+    <ButtonRP go="/normativas/generales" text="Generales" />
+    <ButtonRP go="/normativas/sapd" text="SAPD" />
+    <ButtonRP go="/normativas/samd" text="SAMD" />
+    <ButtonRP go="/normativas/staff" text="STAFF" />
+    <ButtonRP go="/normativas/actos-delictivos" text="Actos Delictivos" />
+  </div>
+
+  <SectionWrited id="1" title="1. REQUISITOS">
+    <p>
+      Los requisitos para formar parte del equipo administrativo de <span
+        class="accent">ProgresoRP</span
+      > son los siguientes:
+    </p>
+    <ul>
+      <li>Tener mínimo 18 años</li>
+      <li>
+        Pasar formulario de staff (enviado por ticket creado por el usuario [⚜️-
+        Estoy a la espera de recibir un rango])
+      </li>
+      <li>
+        Pasar prueba oral en discord con un miembro del <span class="accent"
+          >📓╎Staff</span
+        > encargado del usuario
+      </li>
+    </ul>
+  </SectionWrited>
+
+  <SectionWrited id="2" title="2. NORMATIVAS INTERNAS">
+    <ArticleWrited title="ART.1">
+      <p>Toda orden dada desde un rango superior se debe de obedecer.</p>
+    </ArticleWrited>
+
+    <ArticleWrited title="ART.2">
+      <p>
+        El trato con el usuario debe de ser serio y cordial y sobre todo mostrar
+        educación y dar una buena imagen del servidor.
+      </p>
+    </ArticleWrited>
+
+    <ArticleWrited title="ART.3">
+      <p>
+        En caso de conflicto con otro miembro del staff, comunicarse con alguno
+        de los <span class="accent">💎╎CoFundador o 👑╎Fundador</span>.
+      </p>
+    </ArticleWrited>
+
+    <ArticleWrited title="ART.4">
+      <p>
+        En caso de estar IC y que alguien mande un /report, usaremos el
+        <span class="accent">/pedirreport</span> para asignarnos el reporte (esperar
+        que en el chat nos ponga si el reporte es nuestro o de otro compañero).
+      </p><p>
+        Además una vez lo tengamos asignado, tendremos que espectear al usuario
+        para comprobar que no cortamos ningún rol y que podemos hablar con él.
+      </p>
+    </ArticleWrited>
+
+    <ArticleWrited title="ART.5">
+      <p>
+        Una vez tengamos asignado un reporte IC, tendremos que hablar con el
+        usuario mediante <span class="accent">/msg</span> (cabe destacar que los
+        reportes IC son para cosas puntuales como resolución de dudas, muerte por
+        bug,…)
+      </p>
+    </ArticleWrited>
+
+    <ArticleWrited title="ART.6">
+      <p>
+        Todos los reportes se deberán realizar mediante discord a excepción de:
+      </p>
+      <ul>
+        <li>Reportes sobre algún hacker que se encuentre en el momento.</li>
+        <li>
+          Reportes para arreglar un bug momentáneo importante (aparecer debajo
+          del mapa).
+        </li>
+      </ul>
+    </ArticleWrited>
+
+    <ArticleWrited title="ART.7">
+      <p>
+        Queda terminantemente prohibido actuar con favoritismo y amiguismo
+        frente a un reporte.
+      </p>
+    </ArticleWrited>
+
+    <ArticleWrited title="ART.8">
+      <p>
+        Se debe ser conocedor de toda la normativa del servidor, desde normativa <span
+          class="accent">general</span
+        > hasta normativa básica sobre <span class="accent">SAPD</span>.
+      </p>
+    </ArticleWrited>
+
+    <ArticleWrited title="ART.9">
+      <p>Realizar un mínimo de 15 horas semanas.</p>
+    </ArticleWrited>
+
+    <ArticleWrited title="ART.10">
+      <p>
+        Queda determinantemente prohibido pedir ascenso, todos los rangos serán
+        por mérito propio.
+      </p>
+    </ArticleWrited>
+
+    <ArticleWrited title="ART.11">
+      <p>
+        A la hora de atender los tickets, siempre estarán atentos los rangos más
+        bajos (manera de ganar méritos). En caso de que no sepamos cómo resolver
+        el ticket, mencionaremos el rango de <span class="accent">📓╎Staff</span
+        >, para que otro miembro del equipo que sepa pueda ayudar. Además, si el
+        ticket no nos corresponda, mencionaremos a los encargados de cada
+        apartado.
+      </p>
+      <div
+        class="mt-[10px] text-center bg-[#F93D0A]/10 bg-blur w-full relative backdrop-blur backdrop-filter p-4 rounded-md shadow-xl"
+      >
+        <p>
+          <span class="font-bold uppercase"
+            >*Está prohibido meternos en un ticket que no nos corresponda y ya
+            tenga a un staff atendiendo*
+          </span>
+        </p>
+      </div>
+    </ArticleWrited>
+
+    <ArticleWrited title="ART.12">
+      <p class="separate">
+        Una vez que sancionamos a un usuario, esa sanción será inamovible
+        excepto que el usuario sancionado, muestre pruebas que determinen que la
+        sanción debe de ser quitada o reducida.
+      </p>
+    </ArticleWrited>
+
+    <ArticleWrited title="ART.13">
+      <p>
+        Una vez que un compañero está atendiendo un ticket será como de manera
+        IC, ese ticket le corresponderá, excepto que el miembro del staff
+        solicite ayuda.
+      </p>
+    </ArticleWrited>
+  </SectionWrited>
+
+  <SectionWrited id="3" title="3. RESOLUCIÓN DE MI FORMULARIO">
+    <h2 class="uppercase text-xl font-bold">
+      ¿CÓMO SABRÉ SI HE SIDO ACEPTADO O NO?
+    </h2>
+    <p class="separate">
+      Una vez se <span class="accent">cierren las oposiciones</span> para formar parte del staff, el/los
+      encargados de dichas oposiciones, contarán con un plazo de 24h para mandar
+      un mensaje privado por Discord a los seleccionados.
+    </p>
+    <p>
+      Dichos seleccionados tienen un plazo de 24/48h para responder si aceptan o
+      no el cargo dentro del equipo administrativo de <span class="accent">ProgresoRP</span>.
+    </p>
+    <p class="separate">
+      Si una vez cerrada dichas oposiciones, ves que no recibes ningún mensaje,
+      significa que no has sido seleccionado para formar parte del equipo
+      administrativo.
+    </p>
+    <p>
+      Cabe destacar que cuando se vuelvan a abrir las oposiciones de staff
+      puedes realizarlas nuevamente.
+    </p>
+  </SectionWrited>
+
+  <style>
+    h4 {
+      font-style: italic;
+      text-transform: capitalize;
+      font-weight: bold;
+    }
+
+    .accent {
+      background: #1fc1d721;
+      padding-inline: 3px;
+      padding-top: 1px;
+      padding-bottom: 2px;
+      border-radius: 3px;
+      font-weight: bold;
+    }
+
+    .separate {
+      margin-top: 8px;
+    }
+
+    ul {
+      list-style: inside;
+      margin-left: 10px;
+    }
+
+    a {
+      text-decoration: underline;
+    }
+  </style>
+</Layout>

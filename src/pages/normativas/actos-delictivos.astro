@@ -1,0 +1,618 @@
+---
+import TextSection from "../../components/TextSection.astro";
+import Layout from "../../layouts/Layout.astro";
+import ArticleWrited from "../../components/normas/ArticleWrited.astro";
+import SectionWrited from "../../components/normas/SectionWrited.astro";
+import ButtonRP from "../../components/ButtonRP.astro";
+---
+
+<Layout
+  title="ProgresoRP - Leete las normas de nuestro servidor"
+  description="TODO"
+>
+  <TextSection text="Normativa SAPD - ProgresoRP" subtext="TODO" />
+
+  <div class="flex flex-col gap-2 md:flex-row justify-between items-center">
+    <ButtonRP go="/normativas/generales" text="Generales" />
+    <ButtonRP go="/normativas/sapd" text="SAPD" />
+    <ButtonRP go="/normativas/samd" text="SAMD" />
+    <ButtonRP go="/normativas/staff" text="STAFF" />
+    <ButtonRP go="/normativas/actos-delictivos" text="Actos Delictivos" />
+  </div>
+
+  <SectionWrited id="1" title="NORMAS GENERALES">
+    <ArticleWrited title="ART.1">
+      <p>
+        No se podrá cometer ningún acto delictivo 30 minutos antes y después de
+        cada reinicio (robos, secuestros…)
+      </p>
+    </ArticleWrited>
+
+    <ArticleWrited title="ART.2">
+      <p>
+        Está terminantemente prohibido vaciar los “bolsillos” a otros jugadores
+        o robarles sin un rol previo o motivo de peso.
+      </p>
+    </ArticleWrited>
+
+    <ArticleWrited title="ART.3">
+      <p>
+        Para robar un vehículo de <span class="accent">NPC</span> o de otro usuario,
+        se tendrá que hacer uso del <span class="accent">/forzar</span>. Todos
+        los actos delictivos, tienen que realizarse con vehículos robados.
+      </p>
+    </ArticleWrited>
+
+    <ArticleWrited title="ART.4">
+      <p>
+        Está prohibido el robo de vehículos de emergencia (policiales y médicos)
+        para usarlos en actos delictivos o robarlos por gusto. Sólo se podrá
+        robar como última y única opción y siendo consciente de que los
+        vehículos de emergencia cuentan con GPS incorporado por lo que en caso
+        de robarlo tendríamos que hacer uso del <span class="accent"
+          >/entorno</span
+        > cada 5s.
+      </p>
+    </ArticleWrited>
+
+    <ArticleWrited title="ART.5">
+      <p>
+        Está prohibido el robo de armamento policial (chalecos, balas, armas)
+        siempre y cuando no nos encontremos en pleno tiroteo. Solo se podrá
+        robar en caso de que exista un tiroteo en activo contra la policía y los
+        atracadores se queden sin <span class="accent">balas/chalecos</span>.
+      </p>
+      <p class="text-sm italic text-gray-500/75">
+        Nunca se podrán robar armas de la policía.
+      </p>
+    </ArticleWrited>
+
+    <ArticleWrited title="ART.6">
+      <p>
+        Está prohibido emplear los vehículos de trabajo para realizar actos
+        delictivos.
+      </p>
+    </ArticleWrited>
+
+    <ArticleWrited title="ART.7">
+      <p>
+        Los secuestros pueden durar como máximo <span class="accent"
+          >40 minutos</span
+        >, aunque podrá alargarse si el rol lo exige o lo requiere, y además
+        preguntaremos por MSG al otro si tiene tiempo.
+      </p>
+    </ArticleWrited>
+
+    <ArticleWrited title="ART.8">
+      <p>
+        Está tajantemente prohibido obligar a un usuario a sacar dinero del
+        banco para robarlo. Solo se podrá robar si el dinero lo lleva encima.
+      </p>
+    </ArticleWrited>
+
+    <ArticleWrited title="ART.9">
+      <p>
+        No se podrá atracar a una persona mientras se encuentra en un menú de
+        punto de tienda de ropa o en un cajero.
+      </p>
+    </ArticleWrited>
+
+    <ArticleWrited title="ART.10">
+      <p>
+        Está terminantemente prohibido robar la comida o la bebida aunque el
+        jugador esté muerto.
+      </p>
+    </ArticleWrited>
+
+    <ArticleWrited title="ART.11">
+      <p>
+        Queda prohibido iniciar roles agresivos (verbales o físicos) en eventos
+        que han sido organizados por la administración.
+      </p>
+    </ArticleWrited>
+
+    <ArticleWrited title="ART.12">
+      <p>
+        Queda prohibido volver a una zona donde has sido abatido hasta pasar un
+        mínimo de 30 minutos.
+      </p>
+    </ArticleWrited>
+
+    <ArticleWrited title="ART.13">
+      <p>
+        Está terminantemente prohibido iniciar un rol agresivo, atacar, robar o
+        secuestrar a un <span class="accent">SAMD</span> mientras se encuentre de
+        servicio.
+      </p>
+    </ArticleWrited>
+
+    <ArticleWrited title="ART.14">
+      <p>
+        En zonas calientes se podrán realizar actos delictivos sin ningún tipo
+        de rol previo.
+      </p>
+    </ArticleWrited>
+
+    <ArticleWrited title="ART.15">
+      <p>Queda prohibida la venta de droga subido en un vehículo.</p>
+    </ArticleWrited>
+
+    <ArticleWrited title="ART.16">
+      <p>
+        Queda prohibido parar a vehículos de NPC para bajarlos del coche y
+        venderles droga, únicamente se podrá vender a NPC’s que vayan a pié por
+        la ciudad.
+      </p>
+    </ArticleWrited>
+
+    <ArticleWrited title="ART.17">
+      <p>
+        En una disputa, antes de abrir fuego o emplear las armas blancas,
+        deberemos de dar un tiempo de tregua a la víctima para que haga caso a
+        nuestras indicaciones, es decir, daremos tiempo para que reaccione a lo
+        que se le manda. En caso de no acatar las órdenes, estando nosotros
+        armados podremos hacer uso de las armas ya sean de fuego o blancas, pero
+        siempre haciendo uso del respectivo <span class="accent">/entorno</span
+        >.
+      </p>
+    </ArticleWrited>
+
+    <ArticleWrited title="ART.18">
+      <p>
+        Está prohibido disparar desde el interior de nuestro vehículo al
+        interior de otro vehículo (dispara a matar). Solo está permitido del
+        interior del vehículo al exterior de otro vehículo(ruedas, llantas,
+        puertas…), pero en ningún caso disparar a matar sin tener <span
+          class="accent">Fairplay</span
+        >, y siempre que seamos copilotos o en el caso de ser el conductor tener
+        el coche completamente parado.
+      </p>
+    </ArticleWrited>
+
+    <ArticleWrited title="ART.19">
+      <p>
+        Para abrir fuego a otro vehículo siendo el conductor el que dispara,
+        tendremos que tener el coche completamente parado o bajarnos del
+        vehículo para ello.
+      </p>
+    </ArticleWrited>
+
+    <ArticleWrited title="ART.20">
+      <p>
+        Aunque estemos bajados de nuestro vehículo no podremos disparar a matar
+        a alguien que se encuentra en el interior de un vehículo si este se
+        encuentra en movimiento y/o va solo. Si el coche está parado y hay una o
+        más personas en el coche, analizaremos la situación y actuaremos,
+        sabiendo que nuestra actuación podrá llegar a tener consecuencias tanto
+        IC (con la policía, otras organizaciones…) u OOC (administrativamente en
+        caso de que sea necesario).
+      </p>
+    </ArticleWrited>
+  </SectionWrited>
+
+  <SectionWrited id="2" title="ROBOS">
+    <h4>Norvativa Robos:</h4>
+    <ul>
+      <li>
+        Desde el menú del F10, se indica que robos se pueden llevar a cabo o no.
+        Igualmente, mediante el comando <span class="accent">/pedirid</span>,
+        pediremos el id del mando de la <span class="accent">SAPD</span> para ver
+        si se podría realizar dicho rol.
+      </li>
+      <li class="separate">
+        No se podrán campear los establecimientos para su robo. Siempre
+        deberemos de llevar un rol de porqué hacemos ese robo o secuestro.
+      </li>
+      <li class="separate">
+        En cada robo se deberá tener en cuenta siempre el <span class="accent"
+          >FAIRPLAY</span
+        >.
+      </li>
+      <li class="separate">
+        Las huidas se negociarán entre delincuentes y autoridades a cargo del
+        robo (liberación de rehenes a cambio de segundos, parte del botín, etc).
+      </li>
+      <li class="separate">
+        Los bloqueos estarán permitidos por parte de los atracadores a partir de
+        los atracos de <span class="accent">TIPO C</span>, incluyendo el mismo.
+      </li>
+      <li class="separate">
+        Aunque el atraco de por finalizado, se deberá esperar el tiempo que sale
+        en pantalla hasta que la policía llegue. En caso de que pase el tiempo
+        de “gracia” establecido en pantalla y la policía no da señales de vida,
+        podremos marcharnos de la zona del atraco.
+      </li>
+      <li class="separate">
+        En caso de salir victoriosos de un atraco, tendremos que esperar 10
+        minutos desde que perdemos a la policía hasta cambiarnos de ropa(en caso
+        de que queramos), ya que se podría considerar evasión de rol.
+      </li>
+      <li class="separate">
+        Los negociadores son intocables (por ambas partes) hasta que se rompen
+        las negociaciones. Después, ambos bandos, dispondrán de 15 segundos de
+        preparación antes de abrir fuego.
+      </li>
+      <li class="separate">
+        No se podrá añadir nadie al rol una vez se inicie el robo, excepto como
+        “bloqueadores” a partir de robos de <span class="accent">TIPO C</span
+        >.(Solo servirán para bloquear y salir corriendo de la zona).
+      </li>
+      <li class="separate">
+        En caso de no poder secuestrar a nadie para un robo, tendremos la
+        posibilidad únicamente de usar al tendero que nos contará como <span
+          class="accent">un rehén</span
+        >.
+      </li>
+    </ul>
+
+    <div class="relative mt-6 overflow-x-auto shadow-md sm:rounded-lg">
+      <table class="w-full text-sm text-left rtl:text-right text-gray-400">
+        <thead class="text-xs uppercase bg-[#2E4552] text-gray-400">
+          <tr>
+            <th colspan="2" scope="col" class="px-6 py-3 text-center">
+              ATRACO TIPO D (Badulaque/Licorería)
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr
+            class="border-b bg-gray-800/40 border-gray-700 hover:bg-gray-600 transition-colors duration-200"
+          >
+            <th
+              scope="row"
+              class="px-6 py-4 font-medium whitespace-nowrap text-white"
+            >
+              Nº POLICÍAS
+            </th>
+            <td class="px-6 py-4 text-center"> Mínimo 2 - Máximo 4 </td>
+          </tr>
+
+          <tr
+            class="border-b bg-gray-800/40 border-gray-700 hover:bg-gray-600 transition-colors duration-200"
+          >
+            <th
+              scope="row"
+              class="px-6 py-4 font-medium whitespace-nowrap text-white"
+            >
+              Nº ATRACADORES
+            </th>
+            <td class="px-6 py-4 text-center"> Mínimo 1 - Máximo 2 </td>
+          </tr>
+
+          <tr
+            class="border-b bg-gray-800/40 border-gray-700 hover:bg-gray-600 transition-colors duration-200"
+          >
+            <th
+              scope="row"
+              class="px-6 py-4 font-medium whitespace-nowrap text-white"
+            >
+              Nº REHENES
+            </th>
+            <td class="px-6 py-4 text-center">
+              <p>Mínimo 1 - Máximo 2</p>
+              <p class="text-gray-500/75 text-sm italic">
+                (Tendero cuenta como 1 rehén)
+              </p>
+            </td>
+          </tr>
+
+          <tr
+            class="border-b bg-gray-800/40 border-gray-700 hover:bg-gray-600 transition-colors duration-200"
+          >
+            <th
+              scope="row"
+              class="px-6 py-4 font-medium whitespace-nowrap text-white"
+            >
+              TIPOS DE ARMAS
+            </th>
+            <td class="px-6 py-4 text-center"> Armas blancas </td>
+          </tr>
+
+          <tr
+            class="bg-gray-800/40 border-gray-700 hover:bg-gray-600 transition-colors duration-200"
+          >
+            <th
+              scope="row"
+              class="px-6 py-4 font-medium whitespace-nowrap text-white"
+            >
+              BLOQUEOS
+            </th>
+            <td class="px-6 py-4 text-center"> No </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="relative mt-6 overflow-x-auto shadow-md sm:rounded-lg">
+      <table class="w-full text-sm text-left rtl:text-right text-gray-400">
+        <thead class="text-xs uppercase bg-[#2E4552] text-gray-400">
+          <tr>
+            <th colspan="2" scope="col" class="px-6 py-3 text-center">
+              ATRACO TIPO C (Casas/AmmuNation)
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr
+            class="border-b bg-gray-800/40 border-gray-700 hover:bg-gray-600 transition-colors duration-200"
+          >
+            <th
+              scope="row"
+              class="px-6 py-4 font-medium whitespace-nowrap text-white"
+            >
+              Nº POLICÍAS
+            </th>
+            <td class="px-6 py-4 text-center"> Mínimo 3 - Máximo 5 </td>
+          </tr>
+
+          <tr
+            class="border-b bg-gray-800/40 border-gray-700 hover:bg-gray-600 transition-colors duration-200"
+          >
+            <th
+              scope="row"
+              class="px-6 py-4 font-medium whitespace-nowrap text-white"
+            >
+              Nº ATRACADORES
+            </th>
+            <td class="px-6 py-4 text-center"> Mínimo 1 - Máximo 3 </td>
+          </tr>
+
+          <tr
+            class="border-b bg-gray-800/40 border-gray-700 hover:bg-gray-600 transition-colors duration-200"
+          >
+            <th
+              scope="row"
+              class="px-6 py-4 font-medium whitespace-nowrap text-white"
+            >
+              Nº REHENES
+            </th>
+            <td class="px-6 py-4 text-center">
+              <p>Mínimo 1 - Máximo 2</p>
+              <p class="text-gray-500/75 text-sm italic">
+                (Tendero cuenta como 1 rehén)
+              </p>
+            </td>
+          </tr>
+
+          <tr
+            class="border-b bg-gray-800/40 border-gray-700 hover:bg-gray-600 transition-colors duration-200"
+          >
+            <th
+              scope="row"
+              class="px-6 py-4 font-medium whitespace-nowrap text-white"
+            >
+              TIPOS DE ARMAS
+            </th>
+            <td class="px-6 py-4 text-center"> Armas blancas / Pistolas </td>
+          </tr>
+
+          <tr
+            class="bg-gray-800/40 border-gray-700 hover:bg-gray-600 transition-colors duration-200"
+          >
+            <th
+              scope="row"
+              class="px-6 py-4 font-medium whitespace-nowrap text-white"
+            >
+              BLOQUEOS
+            </th>
+            <td class="px-6 py-4 text-center"> Si </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="relative mt-6 overflow-x-auto shadow-md sm:rounded-lg">
+      <table class="w-full text-sm text-left rtl:text-right text-gray-400">
+        <thead class="text-xs uppercase bg-[#2E4552] text-gray-400">
+          <tr>
+            <th colspan="2" scope="col" class="px-6 py-3 text-center">
+              ATRACO TIPO B (Sucursales Bancarias/Joyería)
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr
+            class="border-b bg-gray-800/40 border-gray-700 hover:bg-gray-600 transition-colors duration-200"
+          >
+            <th
+              scope="row"
+              class="px-6 py-4 font-medium whitespace-nowrap text-white"
+            >
+              Nº POLICÍAS
+            </th>
+            <td class="px-6 py-4 text-center"> Mínimo 4 - Máximo 6 </td>
+          </tr>
+
+          <tr
+            class="border-b bg-gray-800/40 border-gray-700 hover:bg-gray-600 transition-colors duration-200"
+          >
+            <th
+              scope="row"
+              class="px-6 py-4 font-medium whitespace-nowrap text-white"
+            >
+              Nº ATRACADORES
+            </th>
+            <td class="px-6 py-4 text-center"> Mínimo 2 - Máximo 4 </td>
+          </tr>
+
+          <tr
+            class="border-b bg-gray-800/40 border-gray-700 hover:bg-gray-600 transition-colors duration-200"
+          >
+            <th
+              scope="row"
+              class="px-6 py-4 font-medium whitespace-nowrap text-white"
+            >
+              Nº REHENES
+            </th>
+            <td class="px-6 py-4 text-center">
+              <p>Mínimo 1 - Máximo 4</p>
+              <p class="text-gray-500/75 text-sm italic">
+                (Tendero cuenta como 1 rehén)
+              </p>
+            </td>
+          </tr>
+
+          <tr
+            class="border-b bg-gray-800/40 border-gray-700 hover:bg-gray-600 transition-colors duration-200"
+          >
+            <th
+              scope="row"
+              class="px-6 py-4 font-medium whitespace-nowrap text-white"
+            >
+              TIPOS DE ARMAS
+            </th>
+            <td class="px-6 py-4 text-center"> Pistolas / Subfusiles </td>
+          </tr>
+
+          <tr
+            class="bg-gray-800/40 border-gray-700 hover:bg-gray-600 transition-colors duration-200"
+          >
+            <th
+              scope="row"
+              class="px-6 py-4 font-medium whitespace-nowrap text-white"
+            >
+              BLOQUEOS
+            </th>
+            <td class="px-6 py-4 text-center"> Si </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="relative mt-6 overflow-x-auto shadow-md sm:rounded-lg">
+      <table class="w-full text-sm text-left rtl:text-right text-gray-400">
+        <thead class="text-xs uppercase bg-[#2E4552] text-gray-400">
+          <tr>
+            <th colspan="2" scope="col" class="px-6 py-3 text-center">
+              ATRACO TIPO A (Banco Central/Banco Paleto)
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr
+            class="border-b bg-gray-800/40 border-gray-700 hover:bg-gray-600 transition-colors duration-200"
+          >
+            <th
+              scope="row"
+              class="px-6 py-4 font-medium whitespace-nowrap text-white"
+            >
+              Nº POLICÍAS
+            </th>
+            <td class="px-6 py-4 text-center"> Mínimo 6 - Máximo 10 </td>
+          </tr>
+
+          <tr
+            class="border-b bg-gray-800/40 border-gray-700 hover:bg-gray-600 transition-colors duration-200"
+          >
+            <th
+              scope="row"
+              class="px-6 py-4 font-medium whitespace-nowrap text-white"
+            >
+              Nº ATRACADORES
+            </th>
+            <td class="px-6 py-4 text-center"> Mínimo 5 - Máximo 8 </td>
+          </tr>
+
+          <tr
+            class="border-b bg-gray-800/40 border-gray-700 hover:bg-gray-600 transition-colors duration-200"
+          >
+            <th
+              scope="row"
+              class="px-6 py-4 font-medium whitespace-nowrap text-white"
+            >
+              Nº REHENES
+            </th>
+            <td class="px-6 py-4 text-center">
+              <p>Mínimo 1 - Máximo 6</p>
+              <p class="text-gray-500/75 text-sm italic">
+                (Tendero cuenta como 1 rehén)
+              </p>
+            </td>
+          </tr>
+
+          <tr
+            class="border-b bg-gray-800/40 border-gray-700 hover:bg-gray-600 transition-colors duration-200"
+          >
+            <th
+              scope="row"
+              class="px-6 py-4 font-medium whitespace-nowrap text-white"
+            >
+              TIPOS DE ARMAS
+            </th>
+            <td class="px-6 py-4 text-center"> Subfusiles / Fusiles </td>
+          </tr>
+
+          <tr
+            class="bg-gray-800/40 border-gray-700 hover:bg-gray-600 transition-colors duration-200"
+          >
+            <th
+              scope="row"
+              class="px-6 py-4 font-medium whitespace-nowrap text-white"
+            >
+              BLOQUEOS
+            </th>
+            <td class="px-6 py-4 text-center"> Si </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </SectionWrited>
+
+  <SectionWrited id="3" title="SECUESTROS A OTROS JUGADORES">
+    <p>
+      Podremos secuestrar y/o robar a cualquier persona siempre y cuando haya un
+      motivo. Los secuestros han de durar como máximo <span class="accent">40 minutos</span> y, en el caso
+      de necesitar más tiempo, se preguntará por MSG si esa persona dispone de
+      más tiempo. Debemos recordar que a la hora de secuestrar a alguien tenemos
+      que tener muy en cuenta la normativa básica general sobre <span class="accent">ROLES SENSIBLES</span>,
+      y hasta qué punto y con qué medidas podemos llegar a ello.
+    </p>
+    <ul class="separate">
+      <li>
+        Para poder secuestra a un <span class="accent">civil</span> se necesitará un mínimo de 2 policías, y
+        para ello nosotros tendremos que descubrir de manera IC si se encuentra
+        esa cantidad o más de servicio.
+      </li>
+      <li>
+        Para poder secuestra a un <span class="accent">policía</span> se necesitará un mínimo de 5 policías,
+        y para ello nosotros tendremos que descubrir de manera IC si se
+        encuentra esa cantidad o más de servicio.
+      </li>
+    </ul>
+    <p class="separate text-center">
+      <strong
+        >*Queda totalmente prohibido secuestrar a un SAMD mientras se encuentre
+        en servicio*</strong>
+    </p>
+  </SectionWrited>
+
+  <style>
+    h4 {
+      font-style: italic;
+      text-transform: capitalize;
+      font-weight: bold;
+    }
+
+    .accent {
+      background: #1fc1d721;
+      padding-inline: 3px;
+      padding-top: 1px;
+      padding-bottom: 2px;
+      border-radius: 3px;
+      font-weight: bold;
+    }
+
+    .separate {
+      margin-top: 8px;
+    }
+
+    ul {
+      list-style: inside;
+      margin-left: 10px;
+    }
+
+    a {
+      text-decoration: underline;
+    }
+  </style>
+</Layout>
