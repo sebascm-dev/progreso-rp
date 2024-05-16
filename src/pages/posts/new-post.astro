@@ -76,7 +76,7 @@ if (Astro.request.method === "POST") {
   <Hr />
   <TextSection text="CREAR UN NUEVO ÁRTICULO - PROGRESORP" subtext="TODO" />
   <hr
-    class="mt-2 mb-12 h-px border-t-0 bg-transparent bg-gradient-to-r from-transparent via-neutral-500 to-transparent opacity-25 dark:via-neutral-400"
+    class="mt-2 mb-12 h-px border-t-0 bg-transparent bg-gradient-to-r from-transparent to-transparent opacity-25 via-neutral-400"
   />
 
   <div>
@@ -119,19 +119,55 @@ if (Astro.request.method === "POST") {
       </div>
 
       <div class="mb-6">
-        <label class="block text-sm font-semibold mb-3" for="slug"
-          >Imagen de portada:</label
-        >
-        <p class="text-xs text-slate-600 italic mb-3">
-          Imagen obligatoria para tener una buena presentación
-        </p>
+        <label class="block text-sm font-semibold mb-3" for="slug">
+          Imagen de la Portada:
+        </label>
         <input
           id="imagepost"
           class="p-2 rounded-md mb-2 bg-sky-50/5 outline-none resize-none border-l-2 border-sky-50/20 focus:border-l-2 focus:border-sky-300/60 focus:bg-sky-50/10 transition duration-300 w-full"
           type="file"
           name="imagepost"
           required
+          hidden
+          accept=".webp"
         />
+
+        <div class="flex w-full text-center flex-col gap-1">
+          <div
+            id="dropArea"
+            class="flex w-full flex-col items-center justify-center gap-2 rounded-xl border border-dashed p-8 border-slate-700 text-slate-300"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+              fill="currentColor"
+              class="w-12 h-12 opacity-75"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M10.5 3.75a6 6 0 0 0-5.98 6.496A5.25 5.25 0 0 0 6.75 20.25H18a4.5 4.5 0 0 0 2.206-8.423 3.75 3.75 0 0 0-4.133-4.303A6.001 6.001 0 0 0 10.5 3.75Zm2.03 5.47a.75.75 0 0 0-1.06 0l-3 3a.75.75 0 1 0 1.06 1.06l1.72-1.72v4.94a.75.75 0 0 0 1.5 0v-4.94l1.72 1.72a.75.75 0 1 0 1.06-1.06l-3-3Z"
+                clip-rule="evenodd"></path>
+            </svg>
+            <div class="group">
+              <label
+                for="fileInputDragDrop"
+                class="cursor-pointer font-medium group-focus-within:underline text-sky-400"
+              >
+                <input
+                  id="fileInputDragDrop"
+                  type="file"
+                  class="sr-only"
+                  aria-describedby="validFileFormats"
+                  accept=".webp"
+                />
+                Mis Archivos
+              </label>
+              o Drag and Drop Here
+            </div>
+            <small id="validFileFormats" class="mb-5">Archivos WebP - Max 5MB</small>
+          </div>
+        </div>
       </div>
 
       <div class="mb-6">
@@ -157,7 +193,7 @@ if (Astro.request.method === "POST") {
           class="p-2 rounded-md min-h-[700px] mb-2 bg-sky-50/5 outline-none resize-none border-l-2 border-sky-50/20 focus:border-l-2 focus:border-sky-300/60 focus:bg-sky-50/10 transition duration-300 w-full"
           name="content"
           required
-          >
+        >
         </textarea>
       </div>
 
@@ -186,6 +222,21 @@ if (Astro.request.method === "POST") {
   </div>
 </Layout>
 
+<style>
+  #dropArea.highlight {
+    border-color: #d0d2d3;
+    background-color: #e0f7ff18;
+  }
+
+  #previewContainer img {
+    max-width: 100%;
+    width: 60px;
+    height: auto;
+    border-radius: 8px;
+    margin-top: 16px;
+  }
+</style>
+
 <script>
   let textarea = document.getElementById("content");
   if (textarea instanceof HTMLTextAreaElement) {
@@ -200,4 +251,83 @@ if (Astro.request.method === "POST") {
   function enableAutoResize(this: HTMLTextAreaElement) {
     this.style.height = this.scrollHeight + "px";
   }
+
+  document.addEventListener("DOMContentLoaded", (event) => {
+    const dropArea = document.getElementById("dropArea") as HTMLElement;
+    const fileInput = document.getElementById("fileInputDragDrop") as HTMLInputElement;
+    const imagePostInput = document.getElementById("imagepost") as HTMLInputElement;
+    const previewContainer = document.createElement("div");
+    previewContainer.id = "previewContainer";
+    previewContainer.className = "flex flex-col items-center justify-center gap-2";
+    dropArea.appendChild(previewContainer);
+
+    // Prevent default drag behaviors
+    ["dragenter", "dragover", "dragleave", "drop"].forEach(eventName => {
+        dropArea.addEventListener(eventName, preventDefaults, false);
+    });
+
+    function preventDefaults(e: Event) {
+        e.preventDefault();
+        e.stopPropagation();
+    }
+
+    // Highlight drop area when item is dragged over it
+    ["dragenter", "dragover"].forEach(eventName => {
+        dropArea.addEventListener(eventName, () => dropArea.classList.add("highlight"), false);
+    });
+
+    ["dragleave", "drop"].forEach(eventName => {
+        dropArea.addEventListener(eventName, () => dropArea.classList.remove("highlight"), false);
+    });
+
+    // Handle dropped files
+    dropArea.addEventListener("drop", handleDrop, false);
+
+    function handleDrop(e: DragEvent) {
+        const dt = e.dataTransfer;
+        if (dt && dt.files.length) {
+            const files = dt.files;
+            handleFiles(files);
+        }
+    }
+
+    function handleFiles(files: FileList) {
+        if (files.length > 0) {
+            const file = files[0];
+            if (file.type === "image/webp") {
+                fileInput.files = files;
+                imagePostInput.files = files;
+
+                // Display image preview
+                previewImage(file);
+            } else {
+                alert("Solo se aceptan archivos webp.");
+            }
+        }
+    }
+
+    // Handle file input through the browse button
+    fileInput.addEventListener("change", (e: Event) => {
+        const target = e.target as HTMLInputElement;
+        if (target.files) {
+            const files = target.files;
+            handleFiles(files);
+        }
+    });
+
+    function previewImage(file: File) {
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onloadend = () => {
+            const img = document.createElement("img");
+            img.src = reader.result as string;
+            img.className = "w-full max-w-xl rounded-md";
+
+            // Clear previous preview
+            previewContainer.innerHTML = "";
+            previewContainer.appendChild(img);
+        };
+    }
+});
+
 </script>
