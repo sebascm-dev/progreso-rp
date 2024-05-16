@@ -13,7 +13,7 @@ if (!postSlug) {
 
 const { documents } = await databases.listDocuments(
   "66454d410036db55430c",
-  "66454d72000dd1e4a6ba",
+  "6646440e002c2d76fb23",
   [Query.equal("slug", postSlug)]
 );
 
@@ -27,6 +27,7 @@ const publishedDate = new Date(post.$createdAt);
 
 <Layout title=`${post.title} - ProgresoRP Blog` description={post.excerpt}>
   <article class="w-full">
+    <img src={post.imagepost}>
     <h1 class="text-5xl text-white font-pricedown uppercase mb-1">{post.title}</h1>
     <p class="text-slate-500 mb-16">
       <time datetime={publishedDate.toISOString()}

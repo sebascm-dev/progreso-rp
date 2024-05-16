@@ -21,6 +21,7 @@
     "appwrite": "^14.0.1",
     "astro": "^4.5.0",
     "auth-astro": "^4.1.1",
+    "file-type": "^19.0.0",
     "marked": "^12.0.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
