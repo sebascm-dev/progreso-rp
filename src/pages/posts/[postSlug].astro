@@ -28,7 +28,7 @@ const publishedDate = new Date(post.$createdAt);
 <Layout title=`${post.title} - ProgresoRP Blog` description={post.excerpt}>
   <article class="w-full">
     <h1 class="text-5xl text-white font-pricedown uppercase mb-1">{post.title}</h1>
-    <p class="text-slate-500">
+    <p class="text-slate-500 mb-16">
       <time datetime={publishedDate.toISOString()}
         >Artículo publicado - {publishedDate.toLocaleDateString()}</time
       >
