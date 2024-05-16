@@ -4,6 +4,7 @@ import Layout from "../../layouts/Layout.astro";
 import { Query } from "appwrite";
 
 import { databases } from "../../lib/appwriter";
+import Hr from "../../components/Hr.astro";
 
 const { postSlug } = Astro.params;
 
@@ -37,13 +38,14 @@ const publishedDate = new Date(post.$createdAt);
       <h1 class="text-5xl text-white font-pricedown uppercase mb-2 mt-5">
         {post.title}
       </h1>
-      <p class="text-slate-500 mb-16">
+      <p class="text-slate-500">
         <time datetime={publishedDate.toISOString()}
           >Artículo publicado - {publishedDate.toLocaleDateString()}</time
         >
       </p>
+      <Hr />
       <div
-        class="-mt-5 min-w-[100%] text-white
+        class="min-w-[100%] text-white
           prose
           prose-sm
           md:prose-base
