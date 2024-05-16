@@ -27,7 +27,7 @@ const { documents: posts } = await databases.listDocuments(
   <section>
     <ul>
       {
-        posts.map((post) => {
+        posts.reverse().map((post) => {
           return (
             <li class="mb-12 last:mb-0">
               <div class="flex flex-row items-end gap-2">
