@@ -1,0 +1,53 @@
+---
+import Hr from "../components/Hr.astro";
+import TextSection from "../components/TextSection.astro";
+import Layout from "../layouts/Layout.astro";
+
+import { databases } from "../lib/appwriter";
+
+const { documents: posts } = await databases.listDocuments(
+  "66454d410036db55430c",
+  "66454d72000dd1e4a6ba"
+);
+---
+
+<Layout
+  title="Actualizaciones y Novedades - ProgresoRP Servidor"
+  description="Explora las actualizaciones y novedades más recientes del servidor ProgresoRP. Mantente al día con los emocionantes cambios y mejoras que hemos implementado para ofrecerte la mejor experiencia de juego. Desde nuevas funciones hasta ajustes en el rendimiento, aquí encontrarás todo lo que necesitas saber para estar a la vanguardia en nuestro servidor. ¡No te pierdas ninguna actualización importante y únete a la acción en ProgresoRP hoy mismo!"
+>
+  <Hr />
+  <TextSection
+    text="ACTUALIZACIONES Y NOVEDADES - PROGRESORP"
+    subtext="Descubre las últimas mejoras y novedades en ProgresoRP. Mantente al tanto de los emocionantes cambios para una experiencia de juego aún mejor. ¡Únete a la acción hoy!"
+  />
+  <hr
+    class="mt-2 mb-12 h-px border-t-0 bg-transparent bg-gradient-to-r from-transparent via-neutral-500 to-transparent opacity-25 dark:via-neutral-400"
+  />
+
+  <section>
+    <ul>
+      {
+        posts.map((post) => {
+          return (
+            <li class="mb-12 last:mb-0">
+              <div class="flex flex-row items-end gap-2">
+                <h2 class="font-pricedown uppercase text-4xl">
+                  <a
+                    class="hover:text-blue-500 hover:underline"
+                    href={`/posts/${post.slug}`}
+                  >
+                    {post.title}
+                  </a>
+                </h2>
+                <p class="text-xs text-slate-500/75 mt-1">
+                  PUBLICACIÓN: {new Date(post.$createdAt).toLocaleDateString()}
+                </p>
+              </div>
+              <p class="text-gray-100/75">{post.excerpt}</p>
+            </li>
+          );
+        })
+      }
+    </ul>
+  </section>
+</Layout>
