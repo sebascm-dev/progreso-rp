@@ -15,65 +15,60 @@ if (Astro.request.method === "POST") {
   // Obtener el archivo de imagen
   const imageFile = formData.get("imagepost") as File | null;
 
-  // Definir la URL de la imagen predeterminada si no se selecciona ninguna imagen
-  const defaultImageUrl = "/public/banner_azul_claro.webp";
+  // Verificar si se proporcionó un archivo de imagen
+  if (imageFile) {
+    // Lee el contenido del archivo de imagen como un ArrayBuffer
+    const imageBuffer = await imageFile.arrayBuffer();
 
-  // Si no se proporciona un archivo de imagen, utilizar la imagen predeterminada
-  const imageBase64 = imageFile
-    ? await getImageBase64(imageFile)
-    : await getDefaultImageBase64(defaultImageUrl);
+    // Convierte el buffer a un array de bytes
+    const buffer = Buffer.from(imageBuffer);
 
-  // Convierte el contenido markdown
-  const content = await marked(String(formData.get("content")));
+    // Obtén la extensión del archivo
+    const extension = extname(imageFile.name).slice(1); // Obtiene la extensión sin el punto
 
-  // Construye el objeto de datos
-  const data = {
-    title: formData.get("title"),
-    slug: formData.get("slug"),
-    content,
-    excerpt: formData.get("excerpt"),
-    imagepost: `data:image/webp;base64,${imageBase64}`, // Agrega la imagen como base64
-  };
+    // Verifica si se pudo determinar la extensión del archivo
+    if (!extension) {
+      return new Response(
+        "No se pudo determinar la extensión del archivo de la imagen",
+        { status: 400 }
+      );
+    }
 
-  // Crea el documento en la base de datos
-  const results = await databases.createDocument(
-    "66454d410036db55430c",
-    "6646440e002c2d76fb23",
-    ID.unique(),
-    data
-  );
+    // Construye el tipo MIME a partir de la extensión del archivo
+    const imageMimeType = `image/${extension}`;
 
-  // Redirecciona al nuevo post
-  return Astro.redirect(`/posts/${results.slug}`);
-}
+    // Convierte el buffer a base64
+    const imageBase64 = buffer.toString("base64");
 
-async function getImageBase64(imageFile: File): Promise<string> {
-  // Lee el contenido del archivo de imagen como un ArrayBuffer
-  const imageBuffer = await imageFile.arrayBuffer();
-  
-  // Convierte el buffer a base64
-  const base64String = Buffer.from(imageBuffer).toString("base64");
+    // Convierte el contenido markdown
+    const content = await marked(String(formData.get("content")));
 
-  console.log("Base64 String:", base64String);
+    // Construye el objeto de datos
+    const data = {
+      title: formData.get("title"),
+      slug: formData.get("slug"),
+      content,
+      excerpt: formData.get("excerpt"),
+      imagepost: `data:${imageMimeType};base64,${imageBase64}`, // Agrega la imagen como base64
+    };
 
-  return base64String;
-}
-
-
-
-
-async function getDefaultImageBase64(defaultImageUrl: string): Promise<string> {
-  // Fetch la imagen predeterminada
-  const response = await fetch(defaultImageUrl);
-  if (!response.ok) {
-    throw new Error(
-      `Error al obtener la imagen predeterminada: ${response.statusText}`
+    // Crea el documento en la base de datos
+    const results = await databases.createDocument(
+      "66454d410036db55430c",
+      "6646440e002c2d76fb23",
+      ID.unique(),
+      data
     );
+
+    // Redirecciona al nuevo post
+    return Astro.redirect(`/posts/${results.slug}`);
+  } else {
+    // Manejar el caso donde no se envía ningún archivo
+    // Puedes devolver un error o realizar alguna acción apropiada
+    return new Response("No se ha enviado ningún archivo de imagen", {
+      status: 400,
+    });
   }
-  const blob = await response.blob();
-  const buffer = await blob.arrayBuffer();
-  // Convierte el buffer a base64
-  return Buffer.from(buffer).toString("base64");
 }
 ---
 
