@@ -43,7 +43,7 @@ const { documents: posts } = await databases.listDocuments(
                   PUBLICACIÓN: {new Date(post.$createdAt).toLocaleDateString()}
                 </p>
               </div>
-              <p class="text-gray-100/75">{post.excerpt}</p>
+              <p class="text-gray-100/75">{post.excerpt}.</p>
             </li>
           );
         })

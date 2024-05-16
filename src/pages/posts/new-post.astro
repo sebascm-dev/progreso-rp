@@ -90,6 +90,7 @@ if (Astro.request.method === "POST") {
           class="p-2 rounded-md mb-2 bg-sky-50/5 outline-none resize-none border-l-2 border-sky-50/20 focus:border-l-2 focus:border-sky-300/60 focus:bg-sky-50/10 transition duration-300 w-full"
           type="text"
           name="title"
+          required
         />
       </div>
 
@@ -102,6 +103,7 @@ if (Astro.request.method === "POST") {
           class="p-2 rounded-md mb-2 bg-sky-50/5 outline-none resize-none border-l-2 border-sky-50/20 focus:border-l-2 focus:border-sky-300/60 focus:bg-sky-50/10 transition duration-300 w-full"
           type="text"
           name="excerpt"
+          required
         />
       </div>
 
@@ -112,6 +114,7 @@ if (Astro.request.method === "POST") {
           class="p-2 rounded-md mb-2 bg-sky-50/5 outline-none resize-none border-l-2 border-sky-50/20 focus:border-l-2 focus:border-sky-300/60 focus:bg-sky-50/10 transition duration-300 w-full"
           type="text"
           name="slug"
+          required
         />
       </div>
 
@@ -119,12 +122,15 @@ if (Astro.request.method === "POST") {
         <label class="block text-sm font-semibold mb-3" for="slug"
           >Imagen de portada:</label
         >
+        <p class="text-xs text-slate-600 italic mb-3">
+          Imagen obligatoria para tener una buena presentación
+        </p>
         <input
           id="imagepost"
           class="p-2 rounded-md mb-2 bg-sky-50/5 outline-none resize-none border-l-2 border-sky-50/20 focus:border-l-2 focus:border-sky-300/60 focus:bg-sky-50/10 transition duration-300 w-full"
           type="file"
           name="imagepost"
-          value=""
+          required
         />
       </div>
 
@@ -149,7 +155,10 @@ if (Astro.request.method === "POST") {
         <textarea
           id="content"
           class="p-2 rounded-md min-h-[700px] mb-2 bg-sky-50/5 outline-none resize-none border-l-2 border-sky-50/20 focus:border-l-2 focus:border-sky-300/60 focus:bg-sky-50/10 transition duration-300 w-full"
-          name="content"></textarea>
+          name="content"
+          required
+          >
+        </textarea>
       </div>
 
       <button

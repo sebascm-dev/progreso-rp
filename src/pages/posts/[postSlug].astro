@@ -26,56 +26,121 @@ const publishedDate = new Date(post.$createdAt);
 ---
 
 <Layout title=`${post.title} - ProgresoRP Blog` description={post.excerpt}>
-  <article class="w-full">
-    <img src={post.imagepost}>
-    <h1 class="text-5xl text-white font-pricedown uppercase mb-1">{post.title}</h1>
-    <p class="text-slate-500 mb-16">
-      <time datetime={publishedDate.toISOString()}
-        >Artículo publicado - {publishedDate.toLocaleDateString()}</time
+  <section class="w-full flex flex-col justify-center items-center">
+    <article class="max-w-[1000px] w-[100%]">
+      <div class="wrapper">
+        <img
+          class="w-full rounded-md shadow-xl aspect-video ticket"
+          src={post.imagepost}
+        />
+      </div>
+      <h1 class="text-5xl text-white font-pricedown uppercase mb-2 mt-5">
+        {post.title}
+      </h1>
+      <p class="text-slate-500 mb-16">
+        <time datetime={publishedDate.toISOString()}
+          >Artículo publicado - {publishedDate.toLocaleDateString()}</time
+        >
+      </p>
+      <div
+        class="-mt-5 min-w-[100%] text-white
+          prose
+          prose-sm
+          md:prose-base
+          dark:prose-invert
+          prose-h1:font-bold prose-h1:text-2xl md:prose-h1:text-5xl prose-h1:mt-8 prose-h1:mb-2
+          prose-h2:font-bold prose-h2:text-xl md:prose-h2:text-4xl prose-h2:mt-6 prose-h2:mb-2
+          prose-h3:font-bold prose-h3:text-lg md:prose-h3:text-3xl prose-h3:mt-4 prose-h3:mb-2
+          prose-h4:font-bold prose-h4:text-base md:prose-h4:text-2xl prose-h4:mb-2
+          prose-p:text-pretty prose-p:text-sm md:prose-p:text-base
+          prose-strong:text-sm md:prose-strong:text-base
+          prose-em:text-sm md:prose-em:text-base
+          prose-a:bg-gray-100
+          prose-a:dark:bg-[#24292E]
+          prose-a:dark:text-gray-300
+          prose-a:font-medium
+          prose-a:me-2
+          prose-a:opacity-90
+          prose-a:px-2
+          prose-a:py-0.5
+          prose-a:rounded
+          prose-a:text-gray-800
+          prose-a:text-xs
+          prose-a:no-underline
+          prose-a:italic
+          prose-ul:text-sm md:prose-ul:text-base
+          prose-ol:text-sm md:prose-ol:text-base
+          prose-li:text-sm md:prose-li:text-base
+          prose-code:text-sm md:prose-code:text-base
+          md:prose-blockquote:text-base
+          prose-blockquote:bg-[#898a7e50]
+          prose-blockquote:border-amber-200
+          prose-blockquote:border-l-1
+          prose-blockquote:px-4
+          prose-blockquote:py-[1px]
+          prose-blockquote:rounded-md
+          prose-blockquote:shadow-xl
+          prose-blockquote:text-amber-200
+          prose-blockquote:text-sm
+          prose-img:rounded-md prose-img:aspect-auto"
       >
-    </p>
-    <div
-      class="-mt-5 min-w-[100%] text-white
-        prose
-        prose-sm
-        md:prose-base
-        dark:prose-invert
-        prose-h1:font-bold prose-h1:text-2xl md:prose-h1:text-5xl prose-h1:-mt-8 prose-h1:mb-2
-        prose-h2:font-bold prose-h2:text-xl md:prose-h2:text-4xl prose-h2:mt-6 prose-h2:mb-2
-        prose-h3:font-bold prose-h3:text-lg md:prose-h3:text-3xl prose-h3:mt-4 prose-h3:mb-2
-        prose-h4:font-bold prose-h4:text-base md:prose-h4:text-2xl prose-h4:mb-2
-        prose-p:text-pretty prose-p:text-sm md:prose-p:text-base
-        prose-strong:text-sm md:prose-strong:text-base
-        prose-em:text-sm md:prose-em:text-base
-        prose-a:bg-gray-100
-        prose-a:dark:bg-[#24292E]
-        prose-a:dark:text-gray-300
-        prose-a:font-medium
-        prose-a:me-2
-        prose-a:opacity-90
-        prose-a:px-2
-        prose-a:py-0.5
-        prose-a:rounded
-        prose-a:text-gray-800
-        prose-a:text-xs
-        prose-a:no-underline
-        prose-a:italic
-        prose-ul:text-sm md:prose-ul:text-base
-        prose-ol:text-sm md:prose-ol:text-base
-        prose-li:text-sm md:prose-li:text-base
-        prose-code:text-sm md:prose-code:text-base
-        md:prose-blockquote:text-base
-        prose-blockquote:bg-[#898a7e50]
-        prose-blockquote:border-amber-200
-        prose-blockquote:border-l-1
-        prose-blockquote:px-4
-        prose-blockquote:py-[1px]
-        prose-blockquote:rounded-md
-        prose-blockquote:shadow-xl
-        prose-blockquote:text-amber-200
-        prose-blockquote:text-sm"
-    >
-      <Fragment set:html={post.content} />
-    </div>
-  </article>
+        <Fragment set:html={post.content} />
+      </div>
+    </article>
+  </section>
 </Layout>
+
+<style>
+  .wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    transform: perspective(800px);
+    transform-style: preserve-3d;
+  }
+
+  .ticket {
+    box-shadow: 0 0 40px 5px rgba(0, 0, 0, 0.4);
+    position: relative;
+  }
+
+  .bg {
+    background: rgba(0, 0, 0, 0.3);
+    position: absolute;
+    inset: 0;
+    z-index: -20;
+    filter: blur(20px);
+    width: 100%;
+    height: 100%;
+  }
+</style>
+
+<script>
+  const tickets = document.getElementsByClassName("ticket");
+
+  Array.from(tickets).forEach((ticket) => {
+    const ticketElement = ticket as HTMLElement;
+
+    ticketElement.addEventListener("mousemove", (event) => {
+      ticketElement.style.transition = "transform .03s ease-in-out";
+
+      const { offsetX, offsetY } = event as MouseEvent;
+
+      const { width, height } = ticketElement.getBoundingClientRect();
+      const halfWidth = width / 2;
+      const halfHeight = height / 2;
+
+      const rotationX = ((halfHeight - offsetY) / halfHeight) * 2;
+      const rotationY = ((offsetX - halfWidth) / halfWidth) * 2;
+
+      ticketElement.style.transform = `rotateX(${rotationX}deg) rotateY(${rotationY}deg)`;
+    });
+
+    ticketElement.addEventListener("mouseleave", () => {
+      ticketElement.style.transition = `transform 1s ease-in-out`;
+      ticketElement.style.transform = `rotateX(0deg) rotateY(0deg)`;
+    });
+  });
+</script>
