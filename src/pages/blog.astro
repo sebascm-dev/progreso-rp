@@ -29,21 +29,30 @@ const { documents: posts } = await databases.listDocuments(
       {
         posts.reverse().map((post) => {
           return (
-            <li class="mb-12 last:mb-0">
-              <div class="flex flex-row items-end gap-2">
-                <h2 class="font-pricedown uppercase text-4xl">
-                  <a
-                    class="hover:text-blue-500 hover:underline"
-                    href={`/posts/${post.slug}`}
-                  >
-                    {post.title}
-                  </a>
-                </h2>
-                <p class="text-xs text-slate-500/75 mt-1">
-                  PUBLICACIÓN: {new Date(post.$createdAt).toLocaleDateString()}
+            <li class="mb-8">
+              <a
+                class="flex flex-col md:flex-row relative justify-normal items-center gap-2 md:gap-3 bg-[#B1DAF8]/5 bg-blur backdrop-blur backdrop-filter md:p-3 rounded-md shadow-xl scale-100 hover:scale-105 transition duration-300"
+                href={`/posts/${post.slug}`}
+              >
+                <img
+                  src={post.imagepost}
+                  class="w-full h-36 md:h-auto md:w-20 rounded-t-md md:rounded-sm aspect-square object-cover"
+                  alt="imagen-post"
+                />
+                <div class="px-2 md:px-0">
+                  <div class="flex flex-col md:flex-row items-start md:items-end gap-2">
+                    <h1 class="font-pricedown uppercase text-2xl md:text-4xl mb-0 md:mb-0">
+                      {post.title}
+                    </h1>
+                  </div>
+                  <p class="text-gray-100/75 mb-8 md:mb-2 text-xs md:text-base">
+                    {post.excerpt}.
+                  </p>
+                </div>
+                <p class="text-xs text-slate-500/75 absolute bottom-2 right-2">
+                  PUBLICADO EL {new Date(post.$createdAt).toLocaleDateString()}
                 </p>
-              </div>
-              <p class="text-gray-100/75">{post.excerpt}.</p>
+              </a>
             </li>
           );
         })
