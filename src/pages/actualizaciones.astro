@@ -43,7 +43,7 @@ if (Astro.request.method === "POST") {
           <span class="text-xl tabular-nums font-pricedown">
             {noticia.date}
           </span>
-          <p class="text-pretty opacity-75">{noticia.text}.</p>
+          <p class="text-pretty opacity-75 capitalize-first">{noticia.text}.</p>
           {(session && session.user?.email === "spanolocabo@gmail.com") ||
           session?.user?.email === "albertobetpad17@gmail.com" ? (
             <form method="post">
@@ -61,3 +61,9 @@ if (Astro.request.method === "POST") {
     }
   </div>
 </Layout>
+
+<style>
+  .capitalize-first::first-letter {
+    text-transform: uppercase;
+  }
+</style>

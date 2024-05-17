@@ -30,7 +30,7 @@ const noticias = await db.select().from(News);
                 <span class="text-xl tabular-nums font-pricedown">
                   {noticia.date}
                 </span>
-                <p class="col-span-6 lg:col-span-8 text-left text-pretty mt-[3px] md:mt-0.5">
+                <p class="col-span-6 lg:col-span-8 text-left text-pretty mt-[3px] md:mt-0.5 capitalize-first">
                   {noticia.text}.
                 </p>
               </li>
@@ -63,6 +63,9 @@ const noticias = await db.select().from(News);
   article {
     transform: perspective(1000px);
     transform-style: preserve-3d;
+  }
+  .capitalize-first::first-letter {
+    text-transform: uppercase;
   }
 </style>
 
