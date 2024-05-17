@@ -5,19 +5,27 @@ const sugerencias = await db.select().from(Sugerencias);
 
 {
   sugerencias.reverse().map((suger) => (
-    <article class="bg-gray-300/10 w-[100%] rounded-sm p-2 flex flex-col min-h-24">
+    <article class="bg-[#B1DAF8]/5 bg-blur backdrop-blur backdrop-filter w-[100%] rounded-md shadow-xl p-2 flex flex-col min-h-24">
       <header class="flex flex-row justify-between">
         <div class="flex flex-row justify-start items-center gap-1.5">
           <img
-            class="rounded-xl h-8 md:rounded-md md:h-14"
+            class="rounded-xl h-8 md:rounded-sm md:h-14"
             src={suger.userimage}
             alt={suger.username}
           />
-          <h1 class="text-md md:text-xl lg:text-2xl xl:text-3xl uppercase font-pricedown">{suger.username}</h1>
+          <h1 class="text-md md:text-xl lg:text-2xl xl:text-3xl uppercase drop-shadow-xl font-pricedown">
+            {suger.username}
+          </h1>
         </div>
         <p class="text-xs text-gray-500">{suger.date}</p>
       </header>
-      <p class="mt-2 text-sm md:text-base">{suger.content}</p>
+      <p class="mt-2 text-sm md:text-base capitalize-first">{suger.content}</p>
     </article>
   ))
 }
+
+<style>
+  .capitalize-first::first-letter {
+    text-transform: uppercase;
+  }
+</style>
