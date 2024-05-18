@@ -23,27 +23,33 @@ if (!documents.length) {
 }
 
 const post = documents[0];
-const publishedDate = new Date(post.$createdAt);
+const fecha = new Date(post.$createdAt);
+const fechaFormateada = fecha.toLocaleDateString("es-ES", {
+  weekday: "short",
+  year: "numeric",
+  month: "long",
+  day: "numeric",
+});
 ---
 
 <Layout title=`${post.title} - ProgresoRP Blog` description={post.excerpt}>
   <section class="w-full flex flex-col justify-center items-center">
     <article class="max-w-[1000px] w-[100%]">
-      <div class="wrapper">
-        <img
-          class="w-full rounded-md shadow-xl aspect-video object-cover ticket"
-          src={post.imagepost}
-          alt="imagen-post"
-          loading="lazy"
-        />
+      <div class="animate-fade-down animate-duration-700 animate-ease-in-out">
+        <div class="wrapper">
+          <img
+            class="w-full rounded-md shadow-xl aspect-video object-cover ticket"
+            src={post.imagepost}
+            alt="imagen-post"
+            loading="lazy"
+          />
+        </div>
       </div>
       <h1 class="text-5xl text-white font-pricedown uppercase mb-2 mt-5">
         {post.title}
       </h1>
       <p class="text-slate-500">
-        <time datetime={publishedDate.toISOString()}
-          >Artículo publicado - {publishedDate.toLocaleDateString()}</time
-        >
+        Artículo publicado - {fechaFormateada}
       </p>
       <Hr />
       <div
