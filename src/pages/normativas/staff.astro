@@ -7,10 +7,13 @@ import ButtonRP from "../../components/ButtonRP.astro";
 ---
 
 <Layout
-  title="ProgresoRP - Leete las normas de nuestro servidor"
-  description="TODO"
+  title="ProgresoRP - Normativa STAFF"
+  description="el equipo administrativo de ProgresoRP requiere que los candidatos sean mayores de 18 años, completen un formulario y pasen una prueba oral en Discord. Las normativas internas enfatizan la obediencia a superiores, trato cordial con usuarios, y manejo justo de reportes y tickets, prohibiendo favoritismos. Se exige un mínimo de 15 horas semanales y los ascensos se basan en méritos. Los seleccionados serán notificados en 24 horas tras el cierre de las oposiciones y tienen 24-48 horas para aceptar el cargo."
 >
-  <TextSection text="Normativa SAPD - ProgresoRP" subtext="TODO" />
+  <TextSection
+    text="Normativa STAFF - ProgresoRP"
+    subtext="El equipo administrativo de ProgresoRP requiere que los candidatos sean mayores de 18 años, completen un formulario y pasen una prueba oral en Discord. Las normativas internas enfatizan la obediencia a superiores, trato cordial con usuarios, y manejo justo de reportes y tickets, prohibiendo favoritismos. Se exige un mínimo de 15 horas semanales y los ascensos se basan en méritos. Los seleccionados serán notificados en 24 horas tras el cierre de las oposiciones y tienen 24-48 horas para aceptar el cargo."
+  />
 
   <div class="flex flex-col gap-2 md:flex-row justify-between items-center">
     <ButtonRP go="/normativas/generales" text="Generales" />
@@ -161,13 +164,15 @@ import ButtonRP from "../../components/ButtonRP.astro";
       ¿CÓMO SABRÉ SI HE SIDO ACEPTADO O NO?
     </h2>
     <p class="separate">
-      Una vez se <span class="accent">cierren las oposiciones</span> para formar parte del staff, el/los
-      encargados de dichas oposiciones, contarán con un plazo de 24h para mandar
-      un mensaje privado por Discord a los seleccionados.
+      Una vez se <span class="accent">cierren las oposiciones</span> para formar
+      parte del staff, el/los encargados de dichas oposiciones, contarán con un plazo
+      de 24h para mandar un mensaje privado por Discord a los seleccionados.
     </p>
     <p>
       Dichos seleccionados tienen un plazo de 24/48h para responder si aceptan o
-      no el cargo dentro del equipo administrativo de <span class="accent">ProgresoRP</span>.
+      no el cargo dentro del equipo administrativo de <span class="accent"
+        >ProgresoRP</span
+      >.
     </p>
     <p class="separate">
       Si una vez cerrada dichas oposiciones, ves que no recibes ningún mensaje,

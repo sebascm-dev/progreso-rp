@@ -7,10 +7,13 @@ import ButtonRP from "../../components/ButtonRP.astro";
 ---
 
 <Layout
-  title="ProgresoRP - Leete las normas de nuestro servidor"
-  description="TODO"
+  title="ProgresoRP - Normativa Actos Delictivos"
+  description="La documentación establece un conjunto detallado de reglas para actividades delictivas en un juego de rol en línea, desde cómo realizar robos y secuestros hasta las restricciones sobre armas y vehículos. Define requisitos de participación y condiciones para diferentes tipos de atracos, así como normas para negociaciones con las autoridades y la duración de los secuestros. En resumen, busca mantener un ambiente equilibrado y realista en el juego."
 >
-  <TextSection text="Normativa SAPD - ProgresoRP" subtext="TODO" />
+  <TextSection
+    text="Normativa Actos Delictivos - ProgresoRP"
+    subtext="La documentación establece un conjunto detallado de reglas para actividades delictivas en un juego de rol en línea, desde cómo realizar robos y secuestros hasta las restricciones sobre armas y vehículos. Define requisitos de participación y condiciones para diferentes tipos de atracos, así como normas para negociaciones con las autoridades y la duración de los secuestros. En resumen, busca mantener un ambiente equilibrado y realista en el juego."
+  />
 
   <div class="flex flex-col gap-2 md:flex-row justify-between items-center">
     <ButtonRP go="/normativas/generales" text="Generales" />
@@ -561,28 +564,31 @@ import ButtonRP from "../../components/ButtonRP.astro";
   <SectionWrited id="3" title="SECUESTROS A OTROS JUGADORES">
     <p>
       Podremos secuestrar y/o robar a cualquier persona siempre y cuando haya un
-      motivo. Los secuestros han de durar como máximo <span class="accent">40 minutos</span> y, en el caso
-      de necesitar más tiempo, se preguntará por MSG si esa persona dispone de
-      más tiempo. Debemos recordar que a la hora de secuestrar a alguien tenemos
-      que tener muy en cuenta la normativa básica general sobre <span class="accent">ROLES SENSIBLES</span>,
-      y hasta qué punto y con qué medidas podemos llegar a ello.
+      motivo. Los secuestros han de durar como máximo <span class="accent"
+        >40 minutos</span
+      > y, en el caso de necesitar más tiempo, se preguntará por MSG si esa persona
+      dispone de más tiempo. Debemos recordar que a la hora de secuestrar a alguien
+      tenemos que tener muy en cuenta la normativa básica general sobre <span
+        class="accent">ROLES SENSIBLES</span
+      >, y hasta qué punto y con qué medidas podemos llegar a ello.
     </p>
     <ul class="separate">
       <li>
-        Para poder secuestra a un <span class="accent">civil</span> se necesitará un mínimo de 2 policías, y
-        para ello nosotros tendremos que descubrir de manera IC si se encuentra
-        esa cantidad o más de servicio.
+        Para poder secuestra a un <span class="accent">civil</span> se necesitará
+        un mínimo de 2 policías, y para ello nosotros tendremos que descubrir de
+        manera IC si se encuentra esa cantidad o más de servicio.
       </li>
       <li>
-        Para poder secuestra a un <span class="accent">policía</span> se necesitará un mínimo de 5 policías,
-        y para ello nosotros tendremos que descubrir de manera IC si se
-        encuentra esa cantidad o más de servicio.
+        Para poder secuestra a un <span class="accent">policía</span> se necesitará
+        un mínimo de 5 policías, y para ello nosotros tendremos que descubrir de
+        manera IC si se encuentra esa cantidad o más de servicio.
       </li>
     </ul>
     <p class="separate text-center">
       <strong
         >*Queda totalmente prohibido secuestrar a un SAMD mientras se encuentre
-        en servicio*</strong>
+        en servicio*</strong
+      >
     </p>
   </SectionWrited>
 
