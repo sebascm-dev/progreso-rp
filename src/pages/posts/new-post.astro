@@ -2,8 +2,6 @@
 import { marked } from "marked";
 import { ID } from "appwrite";
 import { databases } from "../../lib/appwriter";
-import { extname } from "path";
-import { Buffer } from "buffer";
 
 import Layout from "../../layouts/Layout.astro";
 import TextSection from "../../components/TextSection.astro";
@@ -37,9 +35,9 @@ if (Astro.request.method === "POST") {
 }
 ---
 
-<Layout title="New Post" description="TODO">
+<Layout title="New Post" description="Escribe y desarrolla tu nuevo artículo en este formulario y lo publicarás en la página de /blog.">
   <Hr />
-  <TextSection text="CREAR UN NUEVO ÁRTICULO - PROGRESORP" subtext="TODO" />
+  <TextSection text="CREAR UN NUEVO ÁRTICULO - PROGRESORP" subtext="Escribe y desarrolla tu nuevo artículo en este formulario y lo publicarás en la página de /blog." />
   <hr
     class="mt-2 mb-12 h-px border-t-0 bg-transparent bg-gradient-to-r from-transparent to-transparent opacity-25 via-neutral-400"
   />
