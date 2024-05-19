@@ -35,15 +35,13 @@ const fechaFormateada = fecha.toLocaleDateString("es-ES", {
 <Layout title=`${post.title} - ProgresoRP Blog` description={post.excerpt}>
   <section class="w-full flex flex-col justify-center items-center">
     <article class="max-w-[1000px] w-[100%]">
-      <div class="animate-fade-down animate-duration-700 animate-ease-in-out">
-        <div class="wrapper">
-          <img
-            class="w-full rounded-md shadow-xl aspect-video object-cover ticket"
-            src={post.imagepost}
-            alt="imagen-post"
-            loading="lazy"
-          />
-        </div>
+      <div class="wrapper">
+        <img
+          class="w-full rounded-md shadow-xl aspect-video object-cover ticket"
+          src={post.imagepost}
+          alt="imagen-post"
+          loading="lazy"
+        />
       </div>
       <h1 class="text-5xl text-white font-pricedown uppercase mb-2 mt-5">
         {post.title}
