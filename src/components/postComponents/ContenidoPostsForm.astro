@@ -1,0 +1,42 @@
+<div class="mb-6">
+  <label class="block text-sm font-semibold mb-1" for="content"
+    >Escribe el contenido del Artículo:</label
+  >
+  <p class="text-xs text-slate-600 italic mb-3">
+    El contenido deberá ser escrito con Markdown... <a
+      class="hover:text-slate-400 transition-colors duration-300"
+      target="_blank"
+      rel="noopener noreferrer"
+      href="https://pandao.github.io/editor.md/en.html">(Editor Fácil)</a
+    >
+    <a
+      class="hover:text-slate-400 transition-colors duration-300"
+      target="_blank"
+      rel="noopener noreferrer"
+      href="https://editormarkdown.com/">(Editor Clean)</a
+    >
+  </p>
+  <textarea
+    id="content"
+    class="p-2 rounded-md min-h-[700px] mb-2 bg-sky-50/5 outline-none resize-none border-l-2 border-sky-50/20 focus:border-l-2 focus:border-sky-300/60 focus:bg-sky-50/10 transition duration-300 w-full"
+    name="content"
+    required
+  >
+  </textarea>
+</div>
+
+<script>
+  let textarea = document.getElementById("content");
+  if (textarea instanceof HTMLTextAreaElement) {
+    textarea.addEventListener("focus", disableAutoResize, false);
+    textarea.addEventListener("blur", enableAutoResize, false);
+  }
+
+  function disableAutoResize(this: HTMLTextAreaElement) {
+    this.style.height = "auto";
+  }
+
+  function enableAutoResize(this: HTMLTextAreaElement) {
+    this.style.height = this.scrollHeight + "px";
+  }
+</script>

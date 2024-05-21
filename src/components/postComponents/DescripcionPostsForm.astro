@@ -1,0 +1,26 @@
+<div class="mb-6">
+  <label class="block text-sm font-semibold mb-3" for="excerpt"
+    >Descripción del Artículo:
+    <span class="text-xs text-slate-600 text-right mt-1" id="charCount">
+      0/400
+    </span>
+  </label>
+  <input
+    id="excerpt"
+    class="p-2 rounded-md mb-2 bg-sky-50/5 outline-none resize-none border-l-2 border-sky-50/20 focus:border-l-2 focus:border-sky-300/60 focus:bg-sky-50/10 transition duration-300 w-full"
+    type="text"
+    name="excerpt"
+    required
+    maxlength="400"
+  />
+</div>
+
+<script>
+  const excerptInput = document.getElementById("excerpt") as HTMLInputElement;
+  const charCount = document.getElementById("charCount") as HTMLDivElement;
+
+  excerptInput.addEventListener("input", () => {
+    const currentLength = excerptInput.value.length;
+    charCount.textContent = `${currentLength}/400`;
+  });
+</script>
