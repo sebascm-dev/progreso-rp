@@ -1,7 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import TextSection from "../components/TextSection.astro";
-import Hr from "../components/Hr.astro";
 import TrashIcon from "../components/icons/TrashIcon.astro";
 
 import { getSession } from "auth-astro/server";
@@ -26,7 +25,6 @@ if (Astro.request.method === "POST") {
   title="Actualizaciones y Novedades - ProgresoRP Servidor"
   description="Explora las actualizaciones y novedades más recientes del servidor ProgresoRP. Mantente al día con los emocionantes cambios y mejoras que hemos implementado para ofrecerte la mejor experiencia de juego. Desde nuevas funciones hasta ajustes en el rendimiento, aquí encontrarás todo lo que necesitas saber para estar a la vanguardia en nuestro servidor. ¡No te pierdas ninguna actualización importante y únete a la acción en ProgresoRP hoy mismo!"
 >
-  <Hr />
   <TextSection
     text="ACTUALIZACIONES Y NOVEDADES - PROGRESORP"
     subtext="Descubre las últimas mejoras y novedades en ProgresoRP. Mantente al tanto de los emocionantes cambios para una experiencia de juego aún mejor. ¡Únete a la acción hoy!"
