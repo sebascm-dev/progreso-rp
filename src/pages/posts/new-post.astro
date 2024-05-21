@@ -47,7 +47,7 @@ if (Astro.request.method === "POST") {
   />
 
   <div>
-    <form method="POST" enctype="multipart/form-data">
+    <form id="articleForm" method="POST" enctype="multipart/form-data">
       <div class="mb-6">
         <label class="block text-sm font-semibold mb-3" for="title"
           >Título del Artículo:</label
@@ -185,94 +185,19 @@ if (Astro.request.method === "POST") {
     this.style.height = this.scrollHeight + "px";
   }
 
-  document.addEventListener("DOMContentLoaded", (event) => {
-    const dropArea = document.getElementById("dropArea") as HTMLElement;
-    const fileInput = document.getElementById(
-      "fileInputDragDrop"
-    ) as HTMLInputElement;
-    const imagePostInput = document.getElementById(
-      "imagepost"
-    ) as HTMLInputElement;
-    const previewContainer = document.createElement("div");
-    previewContainer.id = "previewContainer";
-    previewContainer.className =
-      "flex flex-col items-center justify-center gap-2";
-    dropArea.appendChild(previewContainer);
+  document.addEventListener("DOMContentLoaded", () => {
+    const form = document.getElementById("articleForm") as HTMLFormElement;
+    const slugInput = document.getElementById("slug") as HTMLInputElement;
 
-    // Prevent default drag behaviors
-    ["dragenter", "dragover", "dragleave", "drop"].forEach((eventName) => {
-      dropArea.addEventListener(eventName, preventDefaults, false);
-    });
+    form.addEventListener("submit", (event: Event) => {
+      const slugValue = slugInput.value;
+      const slugPattern = /^[a-zA-Z0-9\s-]+$/;
 
-    function preventDefaults(e: Event) {
-      e.preventDefault();
-      e.stopPropagation();
-    }
-
-    // Highlight drop area when item is dragged over it
-    ["dragenter", "dragover"].forEach((eventName) => {
-      dropArea.addEventListener(
-        eventName,
-        () => dropArea.classList.add("highlight"),
-        false
-      );
-    });
-
-    ["dragleave", "drop"].forEach((eventName) => {
-      dropArea.addEventListener(
-        eventName,
-        () => dropArea.classList.remove("highlight"),
-        false
-      );
-    });
-
-    // Handle dropped files
-    dropArea.addEventListener("drop", handleDrop, false);
-
-    function handleDrop(e: DragEvent) {
-      const dt = e.dataTransfer;
-      if (dt && dt.files.length) {
-        const files = dt.files;
-        handleFiles(files);
-      }
-    }
-
-    function handleFiles(files: FileList) {
-      if (files.length > 0) {
-        const file = files[0];
-        if (file.type === "image/webp") {
-          fileInput.files = files;
-          imagePostInput.files = files;
-
-          // Display image preview
-          previewImage(file);
-        } else {
-          alert("Solo se aceptan archivos webp.");
-        }
-      }
-    }
-
-    // Handle file input through the browse button
-    fileInput.addEventListener("change", (e: Event) => {
-      const target = e.target as HTMLInputElement;
-      if (target.files) {
-        const files = target.files;
-        handleFiles(files);
+      if (!slugPattern.test(slugValue)) {
+        alert("El campo URL solo puede contener letras, números y guiones.");
+        slugInput.focus();
+        event.preventDefault();
       }
     });
-
-    function previewImage(file: File) {
-      const reader = new FileReader();
-      reader.readAsDataURL(file);
-      reader.onloadend = () => {
-        const img = document.createElement("img");
-        img.src = reader.result as string;
-        img.className = "w-full max-w-xl rounded-md";
-
-        // Clear previous preview
-        previewContainer.innerHTML = "";
-        previewContainer.appendChild(img);
-      };
-    }
   });
 </script>
