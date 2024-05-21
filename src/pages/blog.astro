@@ -1,5 +1,4 @@
 ---
-import Hr from "../components/Hr.astro";
 import TextSection from "../components/TextSection.astro";
 import Layout from "../layouts/Layout.astro";
 
@@ -15,7 +14,6 @@ const { documents: posts } = await databases.listDocuments(
   title="Blog - ProgresoRP Servidor"
   description="Explora nuestros últimos postes y novedades más recientes en nuestro blog. Mantente al día con los emocionantes cambios y mejoras que hemos implementado para ofrecerte la mejor experiencia de juego. Desde nuevas funciones hasta ajustes en el rendimiento, aquí encontrarás todo lo que necesitas saber para estar a la vanguardia en nuestro servidor. ¡No te pierdas ninguna actualización importante y únete a la acción en ProgresoRP hoy mismo!"
 >
-  <Hr />
   <TextSection
     text="Blog - ProgresoRP"
     subtext="Descubre nuestras nuevas novedades en nuestro blog. Mantente al día con los emocionantes cambios y mejoras que hemos implementado para ofrecerte la mejor experiencia de juego. Desde nuevas funciones hasta ajustes en el rendimiento, aquí encontrarás todo lo que necesitas saber para estar a la vanguardia en nuestro servidor. ¡No te pierdas ninguna actualización importante y únete a la acción en ProgresoRP hoy mismo!"
@@ -25,7 +23,7 @@ const { documents: posts } = await databases.listDocuments(
   />
 
   <section>
-    <ul>
+    <ul class="grid grid-cols-1 md:gap-8 md:grid-cols-2">
       {
         posts.reverse().map((post) => {
           const fecha = new Date(post.$createdAt);
@@ -36,29 +34,26 @@ const { documents: posts } = await databases.listDocuments(
             day: "numeric",
           });
           return (
-            <li class="mb-8">
-              <a
-                class="flex flex-col md:flex-row relative justify-normal items-center gap-2 md:gap-3 bg-[#B1DAF8]/5 bg-blur backdrop-blur backdrop-filter md:p-3 rounded-md shadow-xl scale-100 hover:scale-105 transition duration-300"
-                href={`/posts/${post.slug}`}
-              >
-                <img
-                  src={post.imagepost}
-                  class="w-full h-36 md:h-auto md:w-20 rounded-t-md md:rounded-sm aspect-square object-cover"
-                  alt="imagen-post"
-                />
-                <div class="px-2 md:px-0">
-                  <div class="flex flex-col md:flex-row items-start md:items-end gap-2">
-                    <h1 class="font-pricedown lg:line-clamp-1 uppercase text-2xl md:text-4xl mb-0 md:mb-0">
-                      {post.title}
-                    </h1>
-                  </div>
-                  <p class="text-gray-100/75 mb-8 md:mb-2 text-xs md:text-base">
-                    {post.excerpt}.
-                  </p>
-                </div>
-                <p class="text-xs text-slate-500/75 absolute bottom-2 right-2 capitalize-first">
+            <li class="">
+              <a class="" href={`/posts/${post.slug}`}>
+                <p class="text-gray-100/75 text-xs mb-1 md:text-xs capitalize-first">
                   {fechaFormateada}
                 </p>
+                <div class="wrapper">
+                  <img
+                    src={post.imagepost}
+                    class="w-full aspect-video h-auto object-cover rounded-md ticket"
+                    alt="imagen-post"
+                  />
+                </div>
+                <div>
+                  <h1 class="capitalize-first font-pricedown text-3xl uppercase mt-2">
+                    {post.title}
+                  </h1>
+                  <p class="text-gray-100/75 mb-8 md:mb-2 text-xs md:text-base capitalize-first">
+                    {post.excerpt}
+                  </p>
+                </div>
               </a>
             </li>
           );
@@ -72,4 +67,57 @@ const { documents: posts } = await databases.listDocuments(
   .capitalize-first::first-letter {
     text-transform: uppercase;
   }
+
+  .wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    transform: perspective(800px);
+    transform-style: preserve-3d;
+  }
+
+  .ticket {
+    box-shadow: 0 0 40px 5px rgba(0, 0, 0, 0.4);
+    position: relative;
+  }
+
+  .bg {
+    background: rgba(0, 0, 0, 0.3);
+    position: absolute;
+    inset: 0;
+    z-index: -20;
+    filter: blur(20px);
+    width: 100%;
+    height: 100%;
+  }
 </style>
+
+<script>
+  const tickets = document.getElementsByClassName("ticket");
+
+  Array.from(tickets).forEach((ticket) => {
+    const ticketElement = ticket as HTMLElement;
+
+    ticketElement.addEventListener("mousemove", (event) => {
+      ticketElement.style.transition = "transform .03s ease-in-out";
+
+      const { offsetX, offsetY } = event as MouseEvent;
+
+      const { width, height } = ticketElement.getBoundingClientRect();
+      const halfWidth = width / 2;
+      const halfHeight = height / 2;
+
+      const rotationX = ((halfHeight - offsetY) / halfHeight) * 2;
+      const rotationY = ((offsetX - halfWidth) / halfWidth) * 2;
+
+      ticketElement.style.transform = `rotateX(${rotationX}deg) rotateY(${rotationY}deg)`;
+    });
+
+    ticketElement.addEventListener("mouseleave", () => {
+      ticketElement.style.transition = `transform 1s ease-in-out`;
+      ticketElement.style.transform = `rotateX(0deg) rotateY(0deg)`;
+    });
+  });
+</script>
