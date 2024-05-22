@@ -44,6 +44,7 @@ const { documents: posts } = await databases.listDocuments(
                     src={post.imagepost}
                     class="w-full aspect-video h-auto object-cover rounded-md ticket"
                     alt="imagen-post"
+                    loading="lazy"
                   />
                 </div>
                 <div>
@@ -109,8 +110,8 @@ const { documents: posts } = await databases.listDocuments(
       const halfWidth = width / 2;
       const halfHeight = height / 2;
 
-      const rotationX = ((halfHeight - offsetY) / halfHeight) * 2;
-      const rotationY = ((offsetX - halfWidth) / halfWidth) * 2;
+      const rotationX = ((halfHeight - offsetY) / halfHeight) * 3;
+      const rotationY = ((offsetX - halfWidth) / halfWidth) * 3;
 
       ticketElement.style.transform = `rotateX(${rotationX}deg) rotateY(${rotationY}deg)`;
     });
