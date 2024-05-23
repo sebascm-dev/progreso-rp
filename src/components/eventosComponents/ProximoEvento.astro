@@ -1,0 +1,191 @@
+---
+import BellIcon from "../../components/icons/BellIcon.astro";
+import CalendarioIcon from "../../components/icons/CalendarioIcon.astro";
+import MapIcon from "../../components/icons/MapIcon.astro";
+
+import { databases } from "../../lib/appwriter";
+
+const { documents: eventos } = await databases.listDocuments(
+  "66454d410036db55430c",
+  "664e843e003297787934"
+);
+---
+
+<div class="flex flex-col justify-center items-center">
+    {
+      eventos.reverse().map((evento) => {
+        const fechaini = new Date(evento.fechaini)
+        const fechaFormateadaINI = fechaini.toLocaleDateString("es-ES", {
+            weekday: "short",
+            day: "numeric",
+            month: "long",
+            year: "numeric",
+            hour: "numeric",
+            minute: "numeric",
+          });
+        const fechafin = new Date(evento.fechafin)
+        const fechaFormateadaFIN = fechafin.toLocaleDateString("es-ES", {
+            weekday: "short",
+            day: "numeric",
+            month: "long",
+            year: "numeric",
+            hour: "numeric",
+            minute: "numeric",
+          });
+        
+        const fechaTemporizador = new Date(evento.fechaini)
+        // Obtener los componentes de la fecha y hora
+        const año = fechaTemporizador.getFullYear();
+        const mes = ('0' + (fechaTemporizador.getMonth() + 1)).slice(-2);
+        const día = ('0' + fechaTemporizador.getDate()).slice(-2);
+        const hora = ('0' + fechaTemporizador.getHours()).slice(-2);
+        const minutos = ('0' + fechaTemporizador.getMinutes()).slice(-2);
+
+        // Formatear la fecha y hora en el formato deseado
+        const fechaTemporizadorFormateada = `${año}-${mes}-${día} ${hora}:${minutos}`;          
+        return (
+            <article
+                class="image flex flex-col justify-between p-4 md:max-w-3xl md:aspect-video relative md:h-[450px] w-[95%] md:w-full shadow-xl rounded-md sm:col-span-4 md:col-span-2 border border-transparent transition-colors duration-300 hover:border-[#21bfdb49]"
+            >
+            <header>
+                <img
+                src="/img/logo.webp"
+                alt="Logo del evento"
+                class="h-14 rounded-md -z-10 object-cover opacity-20 absolute top-5 right-4"
+                />
+                <h1 class="text-xl lg:text-4xl font-pricedown uppercase mt-5">
+                {evento.title}
+                </h1>
+                <div class="flex flex-col md:flex-row gap-2 text-xs text-gray-500 md:mt-1">
+                <p><span class="md:hidden">Inicio:</span> {fechaFormateadaINI}</p>
+                <p class="hidden md:block">/</p>
+                <p class="-mt-2 md:mt-0"><span class="md:hidden">Fin:</span> {fechaFormateadaFIN}</p>
+                </div>
+                <div class="text-pretty text-slate-100 capitalize-first mt-4 prose prose-p:text-pretty prose-p:text-xs md:prose-p:text-base prose-p:my-2 min-w-[100%]">
+                    <Fragment set:html={evento.contenido} />
+                </div>
+                <div class="flex flex-row items-center justify-start gap-1 mt-4 -mx-1">
+                <MapIcon w="24" h="24" />
+                <h2 class="text-lg lg:text-2xl font-pricedown uppercase mb-0.5">
+                    Ciudad de ProgresoRP
+                </h2>
+                </div>
+            </header>
+            <footer class="flex flex-row items-center justify-between">
+                <div class="flex flex-row items-center justify-start gap-4">
+                <button
+                    class="flex flex-row items-center justify-center gap-1 text-xs shadow-none bg bg-transparent hover:bg-[#21bfdb49]/20 transition-colors duration-300 z-10 p-2 rounded-md hover:shadow-xl border border-transparent hover:border-[#ffffff49]"
+                >
+                    <BellIcon w="24" h="24" />
+                    Me Interesa
+                </button>
+                <button
+                    class="flex flex-row items-center justify-center gap-1 text-xs bg bg-transparent hover:bg-[#21bfdb49]/20 transition-colors duration-300 z-10 p-2 rounded-md shadow-none hover:shadow-xl border border-transparent hover:border-[#ffffff49]"
+                >
+                    <CalendarioIcon w="24" h="24" />
+                    Añadir al Calendario
+                </button>
+                </div>
+                <div class="absolute top-2 right-[31%] md:relative md:top-auto md:right-auto flex flex-row items-center justify-start gap-1">
+                <!-- Aqui ira la fecha que se ha marcado en el calendario -->
+                <span id="target-date" class="hidden">{fechaTemporizadorFormateada}</span>
+                <p id="days" class="tabular-nums bg-slate-400/10 px-1 py-0.5 rounded-sm">
+                    00
+                </p>
+                :
+                <p id="hours" class="tabular-nums bg-slate-400/10 px-1 py-0.5 rounded-sm">
+                    00
+                </p>
+                :
+                <p
+                    id="minutes"
+                    class="tabular-nums bg-slate-400/10 px-1 py-0.5 rounded-sm"
+                >
+                    00
+                </p>
+                :
+                <p
+                    id="seconds"
+                    class="tabular-nums bg-slate-400/10 px-1 py-0.5 rounded-sm"
+                >
+                    00
+                </p>
+                </div>
+            </footer>
+
+            <img
+                src={evento.imageevent}
+                class="h-full w-full inset-0 absolute object-cover rounded-md opacity-15 blur-sm"
+                alt=""
+            />
+            </article>
+        );
+      })
+    }
+  </div>
+
+
+
+<script>
+  // Selección de los elementos del DOM
+  const targetDateElement = document.getElementById(
+    "target-date"
+  ) as HTMLSpanElement;
+  const daysElement = document.getElementById("days") as HTMLParagraphElement;
+  const hoursElement = document.getElementById("hours") as HTMLParagraphElement;
+  const minutesElement = document.getElementById(
+    "minutes"
+  ) as HTMLParagraphElement;
+  const secondsElement = document.getElementById(
+    "seconds"
+  ) as HTMLParagraphElement;
+
+  // Obtiene la fecha objetivo del elemento HTML
+  const targetDate = new Date(
+    targetDateElement.textContent as string
+  ).getTime();
+
+  // Función para actualizar el contador
+  const updateCountdown = () => {
+    const now = new Date().getTime();
+    const distance = targetDate - now;
+
+    // Cálculo de días, horas, minutos y segundos
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor(
+      (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+    );
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    // Actualización del contenido de los elementos HTML
+    daysElement.textContent = days.toString().padStart(2, "0");
+    hoursElement.textContent = hours.toString().padStart(2, "0");
+    minutesElement.textContent = minutes.toString().padStart(2, "0");
+    secondsElement.textContent = seconds.toString().padStart(2, "0");
+
+    // Si el contador ha llegado a cero
+    if (distance < 0) {
+      clearInterval(interval);
+      daysElement.textContent = "00";
+      hoursElement.textContent = "00";
+      minutesElement.textContent = "00";
+      secondsElement.textContent = "00";
+    }
+  };
+
+  // Actualiza el contador cada segundo
+  const interval = setInterval(updateCountdown, 1000);
+
+  // Inicializa el contador al cargar la página
+  updateCountdown();
+</script>
+
+
+<!-- 
+    Titulo,
+    FechaINI,
+    FechaFIN,
+    Contenido,
+    Localización,
+ -->

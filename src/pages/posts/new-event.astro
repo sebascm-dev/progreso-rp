@@ -1,0 +1,148 @@
+---
+import { marked } from "marked";
+import { ID } from "appwrite";
+import { databases } from "../../lib/appwriter";
+import TextSection from "../../components/TextSection.astro";
+import AdminRouteLayout from "../../layouts/AdminRouteLayout.astro";
+
+if (Astro.request.method === "POST") {
+  const formData = await Astro.request.formData();
+
+  // Convierte el contenido markdown
+  const contenido = await marked(String(formData.get("contenido")));
+
+  // Construye el objeto de datos
+  const data = {
+    title: formData.get("title"),
+    fechaini: formData.get("fechaini"),
+    fechafin: formData.get("fechafin"),
+    contenido,
+    location: formData.get("location"),
+    imageevent: formData.get("imageevent"),
+  };
+
+  // Crea el documento en la base de datos
+  const results = await databases.createDocument(
+    "66454d410036db55430c",
+    "664e843e003297787934",
+    ID.unique(),
+    data
+  );
+
+  // Redirecciona al nuevo post
+  return Astro.redirect(`/eventos`);
+}
+---
+
+<AdminRouteLayout
+  title="New Post"
+  description="Escribe y desarrolla tu nuevo artículo en este formulario y lo publicarás en la página de /blog."
+>
+  <TextSection
+    text="CREAR UN NUEVO ARTÍCULO - PROGRESORP"
+    subtext="Escribe y desarrolla tu nuevo artículo en este formulario y lo publicarás en la página de /blog."
+  />
+  <hr
+    class="mt-2 mb-12 h-px border-t-0 bg-transparent bg-gradient-to-r from-transparent to-transparent opacity-25 via-neutral-400"
+  />
+
+  <div></div>
+  <form id="eventForm" method="POST" enctype="multipart/form-data">
+    <div class="mb-6">
+      <label class="block text-sm font-semibold mb-3" for="title"
+        >Título del Evento:</label
+      >
+      <input
+        id="title"
+        class="p-2 rounded-md mb-2 bg-sky-50/5 outline-none resize-none border-l-2 border-sky-50/20 focus:border-l-2 focus:border-sky-300/60 focus:bg-sky-50/10 transition duration-300 w-full"
+        type="text"
+        name="title"
+        required
+      />
+    </div>
+
+    <div class="mb-6">
+      <label class="block text-sm font-semibold mb-3" for="fechaini"
+        >Fecha de Inicio:</label
+      >
+      <input
+        id="fechaini"
+        class="p-2 rounded-md mb-2 bg-sky-50/5 outline-none resize-none border-l-2 border-sky-50/20 focus:border-l-2 focus:border-sky-300/60 focus:bg-sky-50/10 transition duration-300 w-full"
+        type="datetime-local"
+        name="fechaini"
+        required
+      />
+    </div>
+
+    <div class="mb-6">
+      <label class="block text-sm font-semibold mb-3" for="fechafin"
+        >Fecha de Fin:</label
+      >
+      <input
+        id="fechafin"
+        class="p-2 rounded-md mb-2 bg-sky-50/5 outline-none resize-none border-l-2 border-sky-50/20 focus:border-l-2 focus:border-sky-300/60 focus:bg-sky-50/10 transition duration-300 w-full"
+        type="datetime-local"
+        name="fechafin"
+        required
+      />
+    </div>
+
+    <div class="mb-6">
+      <label class="block text-sm font-semibold mb-3" for="location"
+        >Ubicación:</label
+      >
+      <input
+        id="location"
+        class="p-2 rounded-md mb-2 bg-sky-50/5 outline-none resize-none border-l-2 border-sky-50/20 focus:border-l-2 focus:border-sky-300/60 focus:bg-sky-50/10 transition duration-300 w-full"
+        type="text"
+        name="location"
+        required
+      />
+    </div>
+
+    <div class="mb-6">
+      <label class="block text-sm font-semibold mb-3" for="imageevent"
+        >Imagen del Evento:</label
+      >
+      <input
+        id="imageevent"
+        class="p-2 rounded-md mb-2 bg-sky-50/5 outline-none resize-none border-l-2 border-sky-50/20 focus:border-l-2 focus:border-sky-300/60 focus:bg-sky-50/10 transition duration-300 w-full"
+        type="text"
+        name="imageevent"
+        required
+      />
+    </div>
+
+    <div class="mb-6">
+      <label class="block text-sm font-semibold mb-3" for="contenido"
+        >Contenido del Evento:</label
+      >
+      <textarea
+        id="contenido"
+        class="p-2 rounded-md min-h-[700px] mb-2 bg-sky-50/5 outline-none resize-none border-l-2 border-sky-50/20 focus:border-l-2 focus:border-sky-300/60 focus:bg-sky-50/10 transition duration-300 w-full"
+        name="contenido"
+        required></textarea>
+    </div>
+
+    <button
+      title="Save"
+      class="cursor-pointer flex items-center fill-sky-400 bg-sky-950 hover:bg-sky-900 active:border active:border-sky-400 rounded-md transition duration-300 p-2"
+    >
+      <svg
+        viewBox="0 -0.5 25 25"
+        height="20px"
+        width="20px"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          stroke-linejoin="round"
+          stroke-linecap="round"
+          stroke-width="1.5"
+          d="M18.507 19.853V6.034C18.5116 5.49905 18.3034 4.98422 17.9283 4.60277C17.5532 4.22131 17.042 4.00449 16.507 4H8.50705C7.9721 4.00449 7.46085 4.22131 7.08577 4.60277C6.7107 4.98422 6.50252 5.49905 6.50705 6.034V19.853C6.45951 20.252 6.65541 20.6407 7.00441 20.8399C7.35342 21.039 7.78773 21.0099 8.10705 20.766L11.907 17.485C12.2496 17.1758 12.7705 17.1758 13.113 17.485L16.9071 20.767C17.2265 21.0111 17.6611 21.0402 18.0102 20.8407C18.3593 20.6413 18.5551 20.2522 18.507 19.853Z"
+          clip-rule="evenodd"
+          fill-rule="evenodd"></path>
+      </svg>
+      <span class="text-sm text-sky-400 font-bold pr-1">Publicar Artículo</span>
+    </button>
+  </form>
+</AdminRouteLayout>
