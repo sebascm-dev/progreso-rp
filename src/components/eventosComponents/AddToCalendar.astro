@@ -1,0 +1,34 @@
+---
+import "add-to-calendar-button";
+
+const { title, contenido, fechaini, fechafin, location, timeini, timefin } =
+  Astro.props;
+---
+
+<add-to-calendar-button
+  name={title}
+  description={contenido}
+  startDate={fechaini}
+  startTime={timeini}
+  endDate={fechafin}
+  endTime={timefin}
+  timeZone="Europe/Madrid"
+  location={location}
+  options="'Apple','Google'"
+  buttonsList
+  size="1"
+  label="Añadir al Calendario"
+  lightMode="dark"
+  language="es"></add-to-calendar-button>
+
+<script type="module">
+  const observer = new IntersectionObserver((entries) => {
+    for (const entry of entries) {
+      if (!entry.isIntersecting) continue;
+      observer.disconnect();
+      import("../../node_modules/add-to-calendar-button/dist/module/index.js");
+    }
+  });
+  const instances = document.querySelectorAll("add-to-calendar-button");
+  for (const instance of instances) observer.observe(instance);
+</script>

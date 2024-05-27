@@ -1,7 +1,7 @@
 ---
-import BellIcon from "../../components/icons/BellIcon.astro";
-import CalendarioIcon from "../../components/icons/CalendarioIcon.astro";
 import MapIcon from "../../components/icons/MapIcon.astro";
+import CalendarioIcon from "../icons/CalendarioIcon.astro";
+import AddToCalendar from "./AddToCalendar.astro";
 
 import { databases } from "../../lib/appwriter";
 
@@ -23,6 +23,7 @@ const { documents: eventos } = await databases.listDocuments(
             hour: "numeric",
             minute: "numeric",
           });
+
         const fechafin = new Date(evento.fechafin)
         const fechaFormateadaFIN = fechafin.toLocaleDateString("es-ES", {
             weekday: "short",
@@ -40,9 +41,29 @@ const { documents: eventos } = await databases.listDocuments(
         const día = ('0' + fechaTemporizador.getDate()).slice(-2);
         const hora = ('0' + fechaTemporizador.getHours()).slice(-2);
         const minutos = ('0' + fechaTemporizador.getMinutes()).slice(-2);
-
         // Formatear la fecha y hora en el formato deseado
-        const fechaTemporizadorFormateada = `${año}-${mes}-${día} ${hora}:${minutos}`;          
+        const fechaTemporizadorFormateada = `${año}-${mes}-${día} ${hora}:${minutos}`;
+        
+        const fechainicalendar = new Date(evento.fechaini);
+        const fechaFormateadaINIcalendar = fechainicalendar.toISOString().split('T')[0];
+
+        const fechafincalendar = new Date(evento.fechafin);
+        const fechaFormateadaFINcalendar = fechafincalendar.toISOString().split('T')[0];
+        
+        const horainicalendar = new Date(evento.fechaini)
+        const horaFormateadaINIcalendar = horainicalendar.toLocaleTimeString("en-EN", {
+              hour: "2-digit",
+              minute: "2-digit",
+              hour12: false  // para formato de 24 horas
+          });
+        
+        const horafincalendar = new Date(evento.fechafin)
+        const horaFormateadaFINcalendar = horafincalendar.toLocaleTimeString("en-EN", {
+              hour: "2-digit",
+              minute: "2-digit",
+              hour12: false  // para formato de 24 horas
+          });
+          
         return (
             <article
                 class="image flex flex-col justify-between p-4 min-h-[450px] md:max-w-3xl relative w-[100%] md:w-full shadow-xl rounded-md sm:col-span-4 md:col-span-2 border border-transparent transition-colors duration-300 hover:border-[#21bfdb49]"
@@ -90,26 +111,18 @@ const { documents: eventos } = await databases.listDocuments(
                     <Fragment set:html={evento.contenido} />
                 </div>
                 <div class="flex flex-row items-center justify-start gap-1 mt-4 -mx-1">
-                <MapIcon w="24" h="24" />
-                <h2 class="text-lg lg:text-2xl font-pricedown uppercase mb-0.5">
-                    Ciudad de ProgresoRP
-                </h2>
+                  <MapIcon w="24" h="24" />
+                  <h2 class="text-lg lg:text-2xl font-pricedown uppercase mb-0.5">
+                      {evento.location}
+                  </h2>
                 </div>
             </header>
             <footer class="flex flex-row items-center justify-between mt-10">
-                <div class="flex flex-row items-center justify-start gap-4">
-                <button
-                    class="flex flex-row items-center justify-center gap-1 text-xs shadow-none bg bg-transparent hover:bg-[#21bfdb49]/20 transition-colors duration-300 z-10 p-2 rounded-md hover:shadow-xl border border-transparent hover:border-[#ffffff49]"
-                >
-                    <BellIcon w="24" h="24" />
-                    Me Interesa
-                </button>
-                <button
-                    class="flex flex-row items-center justify-center gap-1 text-xs bg bg-transparent hover:bg-[#21bfdb49]/20 transition-colors duration-300 z-10 p-2 rounded-md shadow-none hover:shadow-xl border border-transparent hover:border-[#ffffff49]"
-                >
-                    <CalendarioIcon w="24" h="24" />
-                    Añadir al Calendario
-                </button>
+                <div class="flex flex-row items-center justify-start gap-1 -ml-1">
+                <CalendarioIcon w="24" h="24" />
+                <div class="-mb-0.5">
+                <AddToCalendar title={evento.title} contenido={evento.contenido} location={evento.location} fechaini={fechaFormateadaINIcalendar} fechafin={fechaFormateadaFINcalendar} timeini={horaFormateadaINIcalendar} timefin={horaFormateadaFINcalendar} />
+                </div>
                 </div>
                 <div class="absolute top-2 right-[31%] md:relative md:top-auto md:right-auto flex flex-row items-center justify-start gap-1">
                 <!-- Aqui ira la fecha que se ha marcado en el calendario -->
