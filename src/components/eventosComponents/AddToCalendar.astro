@@ -5,21 +5,23 @@ const { title, contenido, fechaini, fechafin, location, timeini, timefin } =
   Astro.props;
 ---
 
-<add-to-calendar-button proKey="a37c97ad-f650-4d94-81e7-65c999939e11"
-  name={title}
-  description={contenido}
-  startDate={fechaini}
-  startTime={timeini}
-  endDate={fechafin}
-  endTime={timefin}
-  timeZone="Europe/Madrid"
-  location={location}
-  options="'Apple','Google'"
-  buttonsList
-  size="1"
-  label="Añadir al Calendario"
-  lightMode="dark"
-  language="es"></add-to-calendar-button>
+<button>
+  <add-to-calendar-button
+    name={title}
+    description={contenido}
+    startDate={fechaini}
+    startTime={timeini}
+    endDate={fechafin}
+    endTime={timefin}
+    timeZone="Europe/Madrid"
+    location={location}
+    options="'Apple','Google'"
+    buttonsList
+    size="1"
+    label="Añadir al Calendario"
+    lightMode="dark"
+    language="es"></add-to-calendar-button>
+</button>
 
 <script type="module">
   const observer = new IntersectionObserver((entries) => {
