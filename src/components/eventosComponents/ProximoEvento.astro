@@ -117,8 +117,8 @@ const { documents: eventos } = await databases.listDocuments(
                   </h2>
                 </div>
             </header>
-            <footer class="flex flex-row items-center justify-between md:mt-10">
-                <div class="md:flex flex-row items-center justify-start gap-1 -ml-1 hidden">
+            <footer class="flex flex-row items-center justify-between mt-2 md:mt-10">
+                <div class="flex flex-row items-center justify-start gap-1 -ml-1">
                 <CalendarioIcon w="24" h="24" />
                 <div class="-mb-0.5">
                 <AddToCalendar title={evento.title} contenido={evento.contenido} location={evento.location} fechaini={fechaFormateadaINIcalendar} fechafin={fechaFormateadaFINcalendar} timeini={horaFormateadaINIcalendar} timefin={horaFormateadaFINcalendar} />
