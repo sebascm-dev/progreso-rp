@@ -23,14 +23,4 @@ const { title, contenido, fechaini, fechafin, location, timeini, timefin } =
     language="es"></add-to-calendar-button>
 </button>
 
-<script type="module">
-  const observer = new IntersectionObserver((entries) => {
-    for (const entry of entries) {
-      if (!entry.isIntersecting) continue;
-      observer.disconnect();
-      import("../../node_modules/add-to-calendar-button/dist/module/index.js");
-    }
-  });
-  const instances = document.querySelectorAll("add-to-calendar-button");
-  for (const instance of instances) observer.observe(instance);
-</script>
+<script src="https://cdn.jsdelivr.net/npm/add-to-calendar-button@2" async defer></script>
