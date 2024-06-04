@@ -1,7 +1,7 @@
 ---
-import TextSection from "src/components/TextSection.astro";
-import FormImagesUpload from "src/components/galeriaComponents/FormImagesUpload.astro";
-import Layout from "src/layouts/Layout.astro";
+import TextSection from "../components/TextSection.astro";
+import FormImagesUpload from "../components/galeriaComponents/FormImagesUpload.astro";
+import Layout from "../layouts/Layout.astro";
 import { SignIn } from "auth-astro/components";
 import { getSession } from "auth-astro/server";
 const session = await getSession(Astro.request);
