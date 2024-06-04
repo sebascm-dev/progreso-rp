@@ -1,0 +1,117 @@
+---
+import ButtonImagenForm from "./ButtonImagenForm.astro";
+---
+
+<form id="imageForm" method="POST" enctype="multipart/form-data" class="animate-fade-up animate-duration-500 animate-ease-in-out">
+  <input id="uploader" hidden type="file" accept="image/webp" />
+
+  <div class="flex items-center justify-center w-full relative">
+    <label
+      for="dropzone-file"
+      class="flex flex-col items-center justify-center w-full h-96 rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600"
+    >
+      <div class="flex flex-col items-center justify-center pt-5 pb-6">
+        <svg
+          class="w-8 h-8 mb-4 text-gray-500 dark:text-gray-400"
+          aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 20 16"
+        >
+          <path
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2"
+          ></path>
+        </svg>
+        <p class="mb-2 text-sm text-gray-500 dark:text-gray-400">
+          <span class="font-semibold">Haz Click</span> o Arrastra y Suelta
+        </p>
+        <p class="text-xs text-gray-500 dark:text-gray-400">
+          Archivos .WEBP
+        </p>
+        <img id="imagePreview" class="absolute w-full h-96 top-[0.5px] object-cover border-2 border-gray-300 border-dashed rounded-lg cursor-pointer " />
+      </div>
+      <input id="dropzone-file" type="file" class="hidden" accept="image/webp"/>
+    </label>
+  </div>
+  <ButtonImagenForm />
+</form>
+
+<script>
+  import { Client, ID, Storage } from "appwrite";
+
+  const client = new Client()
+    .setEndpoint("https://cloud.appwrite.io/v1")
+    .setProject("66454b4e00045e748ba0");
+
+  const storage = new Storage(client);
+  const bucketId = "665f30a6003d77671a42";
+
+  document
+    .getElementById("imageForm")
+    ?.addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      let uploader = document.getElementById("uploader") as HTMLInputElement;
+
+      if (uploader && uploader.files && uploader.files.length > 0) {
+        let file = uploader.files[0];
+
+        const promise = storage.createFile(bucketId, ID.unique(), file);
+
+        promise.then(
+          function (response) {
+            console.log(response); // Success
+          },
+          function (error) {
+            console.log(error); // Failure
+          }
+        );
+      } else {
+        console.log("No file selected");
+      }
+    });
+
+  const dropzoneFile = document.getElementById(
+    "dropzone-file"
+  ) as HTMLInputElement;
+  const uploader = document.getElementById("uploader") as HTMLInputElement;
+
+  dropzoneFile.addEventListener("change", function () {
+    if (this.files && this.files[0]) {
+      uploader.files = this.files;
+
+      // Crear un nuevo objeto FileReader
+      let reader = new FileReader();
+
+      // Definir qué hacer cuando se ha leído el archivo
+      reader.onload = function (e: ProgressEvent<FileReader>) {
+        // Crear una nueva imagen
+        let img = new Image();
+
+        // Definir qué hacer cuando la imagen se ha cargado
+        img.onload = function () {
+          // Aquí puedes agregar el código para mostrar la imagen en tu página
+          // Por ejemplo, podrías reemplazar una imagen existente:
+          let imagePreview = document.getElementById(
+            "imagePreview"
+          ) as HTMLImageElement;
+          if (e.target) {
+            imagePreview.src = e.target.result as string;
+          }
+        };
+
+        // Cargar la imagen
+        if (e.target) {
+          img.src = e.target.result as string;
+        }
+      };
+
+      // Leer el archivo como URL de datos
+      reader.readAsDataURL(this.files[0]);
+    }
+  });
+</script>

@@ -1,0 +1,89 @@
+---
+import TextSection from "src/components/TextSection.astro";
+import FormImagesUpload from "src/components/galeriaComponents/FormImagesUpload.astro";
+import Layout from "src/layouts/Layout.astro";
+import { SignIn } from "auth-astro/components";
+import { getSession } from "auth-astro/server";
+const session = await getSession(Astro.request);
+---
+
+<Layout title="Galeria - ProgresoRP" description="esta es nuestra galeria">
+  <TextSection text="NUESTRAS ÚLRIMAS IMAGENES - PROGRESORP" subtext="TODO" />
+  <hr
+    class="mt-2 mb-12 h-px border-t-0 bg-transparent bg-gradient-to-r from-transparent via-neutral-500 to-transparent opacity-25 dark:via-neutral-400"
+  />
+
+  {
+    session ? (
+      session.user?.email === "spanolocabo@gmail.com" ||
+      session.user?.email === "albertobetpad17@gmail.com" ? (
+        <>
+          <FormImagesUpload />
+        </>
+      ) : (
+        <>
+          <div class="flex flex-col justify-center items-center">
+            <p class="text-xs text-slate-600 italic mb-3">
+              Si deseas subir tus imágenes, deberás enviarlas a
+              albertobetpad17@gmail.com para que puedan ser publicadas.
+            </p>
+          </div>
+        </>
+      )
+    ) : (
+      <div class="flex flex-col justify-center items-center">
+        <SignIn
+          provider="google"
+          class="px-4 py-2 max-w-52 flex-row shadow-md justify-center items-center bg-[#B1DAF8]/10 bg-blur backdrop-blur backdrop-filter border flex gap-2 border-slate-700 rounded-lg text-white hover:border-slate-500 hover:text-slate-200 hover:shadow-xl hover:scale-105 transition duration-300"
+        >
+          <img
+            class="w-6 h-6"
+            src="https://www.svgrepo.com/show/475656/google-color.svg"
+            loading="lazy"
+            alt="google logo"
+          />
+          <span>Login with Google</span>
+        </SignIn>
+      </div>
+    )
+  }
+
+  <section class="flex flex-col items-center justify-center w-full mt-10">
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4 gap-y-8 w-full"></div>
+  </section>
+</Layout>
+
+<script>
+  import { Client, Storage } from "appwrite";
+
+  const client = new Client()
+    .setEndpoint("https://cloud.appwrite.io/v1")
+    .setProject("66454b4e00045e748ba0");
+
+  const storage = new Storage(client);
+  const bucketId = "665f30a6003d77671a42";
+
+  // Obtener la lista de archivos
+  storage.listFiles(bucketId).then(
+    function (response) {
+      const files = response.files;
+
+      // Obtener la referencia del contenedor de los articles
+      const container = document.querySelector(".grid");
+
+      // Crear un nuevo article e imagen para cada archivo y agregarlo al contenedor
+      files.reverse().forEach((file) => {
+        const article = document.createElement("article");
+        const img = document.createElement("img");
+        img.src = `https://cloud.appwrite.io/v1/storage/buckets/665f30a6003d77671a42/files/${file.$id}/view?project=66454b4e00045e748ba0`;
+        img.className =
+          "rounded-md shadow-xl aspect-video object-cover animate-fade animate-duration-1000 animate-delay-500 animate-ease-in-out";
+        article.appendChild(img);
+        container?.appendChild(article);
+      });
+    },
+    function (error) {
+      console.log(error);
+    }
+  );
+</script>
